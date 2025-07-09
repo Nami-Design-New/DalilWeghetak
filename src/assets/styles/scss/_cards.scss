@@ -1,0 +1,324 @@
+.event-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+  margin-bottom: 10px;
+  cursor: pointer;
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s ease;
+    }
+
+    .price-tag {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #fff;
+      color: $main;
+      padding: 5px 12px;
+      border-bottom-left-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      z-index: 5;
+    }
+
+    .dates {
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.6);
+
+      .date-item {
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          background: #fff;
+          margin: 6px 0;
+        }
+
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+
+    .fav-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1rem;
+      color: $main;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+
+      &:hover {
+        background: $main;
+        color: #fff;
+      }
+    }
+  }
+
+  .event-details {
+    padding: 16px;
+
+    .details-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+
+      .location-type {
+        font-size: 0.8rem;
+        color: $gray;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        i {
+          color: $main;
+          font-size: 0.85rem;
+        }
+      }
+
+      .fav-btn {
+        border: none;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: $main;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+    }
+
+    .event-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-top: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+.SwiperSlide {
+    padding: 10px;
+  }
+//////
+.activity-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+
+  .activity-card {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    background: #fff;
+    transition: 0.3s ease;
+      margin-bottom: 10px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      min-height: 100%;
+
+      .price {
+        color: $main;
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+
+      .meta {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 10px;
+
+        i {
+          color: $main;
+        }
+      }
+
+      .title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 15px;
+         display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .details-btn {
+          background-color: $main;
+          color: #fff;
+          padding: 6px 16px;
+          border: none;
+          border-radius: 6px;
+          font-size: 0.85rem;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        .like-btn {
+          background: none;
+          border: none;
+          font-size: 1.1rem;
+          color: #666;
+
+          &:hover {
+            color: $main;
+          }
+        }
+      }
+    }
+  }
+}
+/////
+.experience-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+
+    .card-title {
+       font-size: 1rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 10px;
+         display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+     .location-type {
+        font-size: 1rem;
+        color: $gray;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+margin-bottom: 10px;
+        i {
+          color: $main;
+          font-size: 0.85rem;
+        }
+      }
+
+    .details-btn {
+      background-color: $main; 
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+//////
+.season-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 10px;
+
+  .season-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .season-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 8px;
+  }
+
+  .season-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin-top: 4px;
+  }
+}

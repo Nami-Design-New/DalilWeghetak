@@ -1,0 +1,49 @@
+@import "./scss/config";
+
+body {
+  position: relative;
+  direction: rtl;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  font-family: 'Tajawal', sans-serif;
+
+  @import "./scss/layout";
+  @import "./scss/form_ui";
+  @import "./scss/home";
+  @import "./scss/contact";
+  @import "./scss/error-page";
+  @import "./scss/auth_section";
+  @import "./scss/about";
+  @import "./scss/profile";
+  @import "./scss/services";
+  @import "./scss/activity_details";
+  @import "./scss/terms&policy";
+  @import "./scss/modals";
+  @import "./scss/cards";
+  @import "./scss/booking";
+
+  main {
+    min-height: calc(100dvh - 300px);
+  }
+
+  &.en {
+    font-family: "Outfit", sans-serif;
+    direction: ltr;
+
+    .form_ui .input-field .pass-group {
+      input {
+        border-radius: 12px 0 0 12px !important;
+        border-right: 0 !important;
+        border-left: 1px solid $input_stroke !important;
+      }
+      .show-pass {
+        border-radius: 0 12px 12px 0 !important;
+        border-left: 0 !important;
+        border-right: 1px solid $input_stroke !important;
+      }
+    }
+  }
+}
+.mt-80{
+  margin-top: 80px;
+}

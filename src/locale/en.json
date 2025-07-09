@@ -1,0 +1,62 @@
+{
+    "errorPage": {
+        "pageNotFoundTitle": "Page Not Found",
+        "pageNotFoundMessage": "We couldn't find the page you're looking for. The page might have been moved, deleted, or never existed.",
+        "errorTitle": "Error",
+        "applicationErrorTitle": "Application Error",
+        "applicationErrorMessage": "An unexpected error occurred. Please try again later.",
+        "unexpectedErrorTitle": "Unexpected Error",
+        "unexpectedErrorMessage": "An unexpected error occurred. Please try again later.",
+        "oops": "Oops!",
+        "returnToHome": "Return To Home"
+    },
+    "header": {
+        "home": "Home",
+        "about": "About Us",
+        "login":"login",
+        "map":"Interactive map",
+        "Destinations":"Destinations",
+       "contact":"Contact Us"
+    },
+  "heroSection": {
+    "slides": [
+      {
+        "title": "Color Your Summer",
+        "description": "Discover vibrant experiences and unforgettable moments in Saudi Arabia this season.",
+        "image": "/assets/images/slide1.jpg"
+      },
+      {
+        "title": "Red Sea in Saudi Arabia",
+        "description": "Enjoy the beauty of the Red Sea, its stunning beaches and diving adventures.",
+        "image": "/assets/images/redsea.jpg"
+      },
+      {
+        "title": "Esports World Cup 2025",
+        "description": "Get ready for a world-class event in the heart of Saudi Arabia.",
+        "image": "/assets/images/esports.jpg"
+      }
+    ]
+  },
+    "footer": {
+    "copyright": "All rights reserved to",
+    "dalilweghetak": "Al3asal Travel & Tourism",
+    "contact": "Contact us",
+  "services": "Popular Tour Places",
+  "ser1": "Historical Landmarks",
+  "ser2": "Nature & Mountains",
+  "ser3": "Beaches & Resorts",
+  "ser4": "Cultural Experiences",
+    "usefulLinks": "Useful Links",
+    "home": "Home",
+    "about": "About Us",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "FAQs": "FAQs",
+    "email": "Enter your email address",
+    "subscribe": "Subscribe",
+    "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience."
+  }
+
+
+      
+}

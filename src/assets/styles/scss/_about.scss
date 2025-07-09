@@ -1,0 +1,103 @@
+.about-section {
+  padding: 60px 0;
+  margin-top: 90px;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-text {
+    flex: 1 1 100%;
+
+    @media (min-width: 992px) {
+      flex: 1 1 50%;
+    }
+
+    .subtitle {
+      color: $main;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 16px 0;
+
+      .highlight {
+        color: $main;
+      }
+    }
+
+    .desc {
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .features {
+      margin-top: 20px;
+
+      p {
+        color: #333;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        i {
+          color: $main;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .about-image {
+    flex: 1 1 100%;
+
+    @media (min-width: 992px) {
+      flex: 1 1 42%;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+      z-index: 2;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        z-index: 2;
+        position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .bg-square {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100%;
+        height: 100%;
+        background-color: $main;
+        z-index: 1;
+      }
+
+      .dot-pattern {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 80px;
+        height: 80px;
+        background-image: radial-gradient($main 1px, transparent 1px);
+        background-size: 10px 10px;
+        z-index: 0;
+      }
+    }
+  }
+}
