@@ -21,6 +21,7 @@ import MyEvents from "../routes/MyEvents";
 import MyWallet from "../routes/MyWallet";
 import EventDetails from "../routes/EventDetails";
 import MyBooking from "../routes/MyBooking";
+import FaqPage from "../routes/Faqs";
 
 export const router = createBrowserRouter([
   {
@@ -104,6 +105,10 @@ export const router = createBrowserRouter([
        {
         path: "my-bookings",
         element: <MyBooking />,
+      },
+       {
+        path: "faq",
+        element: <FaqPage />,
       },
     ],
   },

@@ -2166,6 +2166,55 @@ body .privacy-policy-page .policy-section p {
     font-size: 1rem;
   }
 }
+body .faq-page {
+  padding: 60px 0;
+}
+body .faq-page .info .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0048AA;
+  margin-bottom: 10px;
+}
+body .faq-page .info .section-subtitle {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+body .faq-page .info img {
+  max-width: 100%;
+  height: auto;
+}
+body .faq-page .faq-list .faq-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+body .faq-page .faq-list .faq-card:hover {
+  background-color: #f1f1f1;
+}
+body .faq-page .faq-list .faq-card .faq-question {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #333;
+}
+body .faq-page .faq-list .faq-card .faq-answer {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+body .faq-page .faq-list .faq-card .icon {
+  font-size: 1.2rem;
+  color: #0048AA;
+}
+body .faq-page .faq-list .faq-card.active {
+  background-color: #e0eeff;
+}
 body .account-type-modal .modal-header {
   justify-content: center;
 }
