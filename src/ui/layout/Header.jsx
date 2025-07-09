@@ -1,12 +1,27 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router";
-// import UserDropDown from "./UserDropDown";
+import i18next from "i18next";
 
 export default function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
+
+  const [lang, setLang] = useState(localStorage.getItem("lang") || "ar");
+
+  const handleLanguageChange = () => {
+    const newLang = lang === "ar" ? "en" : "ar";
+    setLang(newLang);
+    localStorage.setItem("lang", newLang);
+    i18next.changeLanguage(newLang);
+
+    const bodyElement = document.querySelector("body");
+    if (bodyElement) {
+      bodyElement.classList.toggle("en", newLang === "en");
+    }
+  };
+
   useEffect(() => {
     const header = document.querySelector(".header");
     const nav = header?.querySelector("nav");
@@ -70,10 +85,6 @@ export default function Header() {
           <NavLink to="/about" onClick={handleNavLinkClick}>
             {t("header.about")}
           </NavLink>
-         
-          {/* <NavLink to="/Destinations" onClick={handleNavLinkClick}>
-            {t("header.Destinations")}
-          </NavLink> */}
           <NavLink to="map" onClick={handleNavLinkClick}>
             {t("header.map")}
           </NavLink>
@@ -83,11 +94,12 @@ export default function Header() {
         </div>
 
         <div className="actions">
-          <button>
-            <i className="fa-regular fa-globe"></i> EN
+          <button onClick={handleLanguageChange}>
+            <i className="fa-regular fa-globe"></i>{" "}
+            {lang === "ar" ? "EN" : "AR"}
           </button>
+
           <Link to="/signin" className="login">{t("header.login")}</Link>
-          {/* <UserDropDown /> */}
 
           <button className="toggle_menu" onClick={handleToggleMenu}>
             <i className="fa-regular fa-bars"></i>

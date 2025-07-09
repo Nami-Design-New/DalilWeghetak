@@ -22,6 +22,7 @@ import MyWallet from "../routes/MyWallet";
 import EventDetails from "../routes/EventDetails";
 import MyBooking from "../routes/MyBooking";
 import FaqPage from "../routes/Faqs";
+import InteractiveMap from "../routes/InteractiveMap";
 
 export const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
        {
         path: "faq",
         element: <FaqPage />,
+      },
+       {
+        path: "map",
+        element: <InteractiveMap />,
       },
     ],
   },

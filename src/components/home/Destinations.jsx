@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const cities = [
   { name: "الرياض", image: "/images/1.png" },
@@ -10,15 +11,17 @@ const cities = [
 ];
 
 export default function Destinations() {
+  const { t } = useTranslation();
+
   return (
     <section className="destinations">
       <div className="container">
         <h2 className="section-title">
-          <span className="text-dark">أشهر </span>
-          <span className="text-main">الوجهات في السعودية</span>
+          <span className="text-dark">{t("destinations.popular")}</span>
+          <span className="text-main">{t("destinations.title")}</span>
         </h2>
         <p className="section-subtitle">
-          نقدّم لك مجموعة متنوعة من التجارب السياحية التي تناسب جميع الأذواق، من المغامرة إلى الاسترخاء.
+          {t("destinations.subtitle")}
         </p>
 
         <div className="destinations-grid mt-4">

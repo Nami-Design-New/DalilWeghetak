@@ -27,7 +27,7 @@ body {
   }
 
   &.en {
-    font-family: "Outfit", sans-serif;
+  font-family: 'Manrope', sans-serif;
     direction: ltr;
 
     .form_ui .input-field .pass-group {
@@ -42,6 +42,8 @@ body {
         border-right: 1px solid $input_stroke !important;
       }
     }
+    .swiper {
+  direction: ltr;}
   }
 }
 .mt-80{

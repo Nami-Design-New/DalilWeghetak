@@ -4,9 +4,11 @@ import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
+import { useTranslation } from "react-i18next";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -15,42 +17,39 @@ export default function Login() {
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 p-3">
               <form className="form_ui">
-                <h3 className="section_title">مرحبًا بعودتك إلى دليل وجهتك</h3>
-                <p className="section_description">
-                  سجّل دخولك لتتمكن من استكشاف وجهاتك، متابعة رحلاتك، وحفظ الأماكن المفضلة لديك.
-                </p>
+                <h3 className="section_title">{t("login.title")}</h3>
+                <p className="section_description">{t("login.description")}</p>
 
                 <div className="form_group">
                   <InputField
-                    label="رقم الهاتف"
+                    label={t("login.phoneLabel")}
                     type="Phone"
-                    placeholder="أدخل رقم الهاتف"
+                    placeholder={t("login.phonePlaceholder")}
                   />
                 </div>
 
                 <div className="form_group">
                   <PasswordField
-                    label="كلمة المرور"
-                    placeholder="أدخل كلمة المرور"
+                    label={t("login.passwordLabel")}
+                    placeholder={t("login.passwordPlaceholder")}
                   />
                 </div>
 
                 <Link to="/reset-password" className="link">
-                  نسيت كلمة المرور؟
+                  {t("login.forgotPassword")}
                 </Link>
 
-                <SubmitButton text="تسجيل الدخول" className="mt-3" />
+                <SubmitButton text={t("login.submit")} className="mt-3" />
 
                 <p className="note">
-                  ليس لديك حساب؟{" "}
+                  {t("login.noAccount")}{" "}
                   <span
                     onClick={() => setShowModal(true)}
                     className="link"
                   >
-                    إنشاء حساب جديد
+                    {t("login.createAccount")}
                   </span>
                 </p>
-                
               </form>
             </div>
 

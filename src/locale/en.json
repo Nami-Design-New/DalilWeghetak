@@ -37,6 +37,175 @@
       }
     ]
   },
+  "destinations": {
+    "popular": "Top Destinations",
+    "title": " in Saudi Arabia",
+    "subtitle": "We offer you a variety of travel experiences that suit all tastes, from adventure to relaxation."
+  },
+  "jeddahEvents": {
+    "label": "Jeddah Events",
+    "title": "Events",
+    "description": "Enjoy an unforgettable experience with the most famous parties, festivals, and entertainment events in Jeddah.",
+    "button": "All Events"
+  },
+  "activities": {
+    "titleDark": "Activities ",
+    "titleMain": "to Do",
+    "categories": ["All", "Natural Sites", "Heritage Sites", "Entertainment Places"]
+  },
+  "holidays": {
+    "titleDark": "Occasions of",
+    "titleMain": "Holidays and Vacations",
+     "subtitle": "Explore the main official holidays and celebrations in the Kingdom"
+  },
+   "seasons": {
+    "titleDark": "Seasons of",
+    "titleMain": "Saudi Arabia",
+    "subtitle": "Enjoy the charm of Saudi seasons and live a unique experience"
+  },
+  "about": {
+    "subtitle": "Your journey starts here",
+    "titleStart": "Explore",
+    "titleHighlight": "Saudi Arabia",
+    "titleEnd": "with our guides",
+    "desc1": "You can choose any Saudi city and enjoy its charming places, cultural experiences, and unforgettable adventures. We offer the best travel programs to suit all tastes.",
+    "desc2": "From the vibrant Riyadh to historic AlUla, and from Abha to Jeddah on the Red Sea coast... your journey begins with us.",
+    "feature1": "years of experience",
+    "feature2Start": "more than",
+    "feature2End": "tourist destinations",
+    "imageAlt": "About tourism"
+  },
+  "login": {
+    "title": "Welcome back to Daleel Wajhatak",
+    "description": "Log in to explore your destinations, track your trips, and save your favorite places.",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot your password?",
+    "submit": "Log In",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create a new account"
+  },
+"providerRegister": {
+    "title": "Create your account on Daleel Wajhatak",
+    "description": "Register now to explore destinations, track your trips, and access personalized experiences.",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "nameRequired": "Name is required",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "phoneRequired": "Phone number is required",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "activity": "Activity Overview",
+    "activityRequired": "Activity overview is required",
+    "descriptionLabel": "Description",
+    "descriptionRequired": "Activity description is required",
+    "termsText": "I have read and agree to the",
+    "termsLink": "Terms & Conditions",
+    "termsRequired": "You must accept the terms",
+    "submit": "Create Account",
+    "haveAccount": "Already have an account?",
+    "login": "Login"
+  },
+   "userRegister": {
+    "title": "Create a New Account",
+    "description": "Sign up now to access the best experiences and exclusive tourism offers.",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "nameRequired": "Name is required",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "phoneRequired": "Phone number is required",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "termsText": "I have read and agree to the",
+    "termsLink": "Terms & Conditions",
+    "termsRequired": "You must accept the terms",
+    "submit": "Create Account",
+    "haveAccount": "Already have an account?",
+    "login": "Login"
+  },
+   "accountType": {
+    "title": "Choose Account Type",
+    "userTitle": "User",
+    "userDesc": "The person who uses the app to purchase tickets or benefit from the available services.",
+    "userAlt": "User",
+    "providerTitle": "Service Provider",
+    "providerDesc": "The entity responsible for delivering the services provided within the app.",
+    "providerAlt": "Provider"
+  },
+   "resetPassword": {
+    "title": "Reset Password",
+    "description": "Enter your email and we'll send you a verification code.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "send": "Send",
+    "back": "Back"
+  },
+    "verifyCode": {
+    "title": "Verify Code",
+    "description": "Enter the 6-digit code sent to your email:",
+    "noCode": "Didn't receive the code?",
+    "resend": "Resend",
+    "confirm": "Confirm",
+    "back": "Back"
+  },
+    "resetPassword2": {
+    "title": "Reset Password",
+    "description": "Create a new password for your account.",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your new password",
+    "confirm": "Confirm",
+    "back": "Back"
+  },
+"contact": {
+  "formTitle": "Get in Touch with Our Experts",
+  "formDescription": "Have a question or need assistance? Our expert team is always ready to provide you with the right solutions.",
+  "name": "Full Name",
+  "namePlaceholder": "Enter your name",
+  "email": "Email",
+  "emailPlaceholder": "Enter your email address",
+  "subject": "Subject",
+  "subjectPlaceholder": "Enter your subject",
+  "message": "Your Message",
+  "messagePlaceholder": "Write your message here",
+  "sendMessage": "Send Message",
+  "imageAlt": "Contact illustration",
+   "info": {
+    "location": {
+      "title": "Our Location",
+      "description": "Find us in Saudi Arabia.",
+      "linkText": "View location on map"
+    },
+    "phone": {
+      "title": "Call Us",
+      "description": "Reach out to us directly via phone for any inquiries.",
+      "linkText": "+20-100-123-4567"
+    },
+    "email": {
+      "title": "Technical Support",
+      "description": "For any questions or support regarding our services, email us.",
+      "linkText": "support@yourcompany.com"
+    },
+    "social": {
+      "title": "Follow us on Social Media",
+      "description": "Stay connected with us through our official accounts.",
+      "followUs": "Follow Us"
+    }
+  }
+},
     "footer": {
     "copyright": "All rights reserved to",
     "dalilweghetak": "Al3asal Travel & Tourism",
@@ -56,7 +225,6 @@
     "subscribe": "Subscribe",
     "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience."
   }
-
 
       
 }

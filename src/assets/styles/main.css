@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
 @keyframes pulse {
   0% {
@@ -2741,7 +2741,7 @@ body main {
   min-height: calc(100dvh - 300px);
 }
 body.en {
-  font-family: "Outfit", sans-serif;
+  font-family: "Manrope", sans-serif;
   direction: ltr;
 }
 body.en .form_ui .input-field .pass-group input {
@@ -2753,6 +2753,9 @@ body.en .form_ui .input-field .pass-group .show-pass {
   border-radius: 0 12px 12px 0 !important;
   border-left: 0 !important;
   border-right: 1px solid #f4f4f4 !important;
+}
+body.en .swiper {
+  direction: ltr;
 }
 
 .mt-80 {

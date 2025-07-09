@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 import "swiper/css";
 import EventCard from "../../ui/cards/EventCard";
 
@@ -49,18 +50,18 @@ const events = [
 ];
 
 const JeddahEvents = () => {
+    const { t } = useTranslation();
+
   return (
     <section className="jeddah-events">
       <div className="container">
-        <div className="events-text col-md-4">
-          <span className="subtext">فعاليات جدة</span>
-          <h2 className="title"> الفعاليات</h2>
-          <p className="description">
-            استمتع بتجربة لا تُنسى مع أشهر الحفلات والمهرجانات والفعاليات
-            الترفيهية في مدينة جدة.
-          </p>
-          <Link to="/events" className="btn explore-btn">جميع الفعاليات <i className="fal fa-arrow-right"></i></Link>
-
+        <div className="events-text col-md-4 mb-4 mb-md-0">
+          <span className="subtext">{t("jeddahEvents.label")}</span>
+          <h2 className="title">{t("jeddahEvents.title")}</h2>
+          <p className="description">{t("jeddahEvents.description")}</p>
+          <Link to="/events" className="btn explore-btn">
+            {t("jeddahEvents.button")} <i className="fal fa-arrow-right"></i>
+          </Link>
         </div>
 
         <div className="events-slider col-md-8">

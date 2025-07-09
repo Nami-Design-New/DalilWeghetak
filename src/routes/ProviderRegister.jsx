@@ -6,8 +6,11 @@ import SubmitButton from "../ui/forms/SubmitButton";
 import PasswordField from "../ui/forms/PasswordField";
 import ImageUpload from "../ui/forms/ImageUpload";
 import TextareaField from "../ui/forms/TextareaField";
+import { useTranslation } from "react-i18next";
 
 export default function ProviderRegister() {
+  const { t } = useTranslation();
+
   const {
     register,
     watch,
@@ -25,10 +28,9 @@ export default function ProviderRegister() {
         <div className="row align-items-center">
           <div className="col-lg-6 col-12 p-3">
             <Form className="form_ui" onSubmit={handleSubmit(onSubmit)}>
-              <h3 className="section_title">أنشئ حسابك في دليل وجهتك</h3>
+              <h3 className="section_title">{t("providerRegister.title")}</h3>
               <p className="section_description">
-                سجّل الآن لبدء استكشاف الوجهات السياحية، متابعة الرحلات، والوصول
-                إلى تجارب مصممة خصيصًا لك.
+                {t("providerRegister.description")}
               </p>
 
               <div className="form_group ">
@@ -38,42 +40,48 @@ export default function ProviderRegister() {
                   error={errors.image?.message}
                 />
               </div>
+
               <div className="form_group d-flex gap-3 flex-column flex-md-row">
                 <InputField
-                  label="الاسم "
-                  placeholder="أدخل الاسم "
-                  {...register("firstName", { required: "الاسم مطلوب" })}
+                  label={t("providerRegister.name")}
+                  placeholder={t("providerRegister.namePlaceholder")}
+                  {...register("firstName", {
+                    required: t("providerRegister.nameRequired"),
+                  })}
                 />
-                 <InputField
-                  label="البريد الإلكتروني"
-                  placeholder="أدخل بريدك الإلكتروني"
+                <InputField
+                  label={t("providerRegister.email")}
+                  placeholder={t("providerRegister.emailPlaceholder")}
                   {...register("email", {
-                    required: "البريد الإلكتروني مطلوب",
+                    required: t("providerRegister.emailRequired"),
                   })}
                 />
               </div>
 
               <div className="form_group d-flex gap-3 flex-column flex-md-row">
-               
                 <InputField
                   type="tel"
-                  label="رقم الهاتف"
-                  placeholder="أدخل رقم الهاتف"
-                  {...register("phone", { required: "رقم الهاتف مطلوب" })}
+                  label={t("providerRegister.phone")}
+                  placeholder={t("providerRegister.phonePlaceholder")}
+                  {...register("phone", {
+                    required: t("providerRegister.phoneRequired"),
+                  })}
                 />
-                 <PasswordField
-                  label="كلمة المرور"
-                  placeholder="أدخل كلمة المرور"
-                  {...register("password", { required: "كلمة المرور مطلوبة" })}
+                <PasswordField
+                  label={t("providerRegister.password")}
+                  placeholder={t("providerRegister.passwordPlaceholder")}
+                  {...register("password", {
+                    required: t("providerRegister.passwordRequired"),
+                  })}
                 />
               </div>
-            
+
               <div className="form_group">
                 <TextareaField
-                  label=" النشاط"
+                  label={t("providerRegister.activity")}
                   rows={4}
                   {...register("activityOverview", {
-                    required: "مطلوب إدخال وصف النشاط",
+                    required: t("providerRegister.activityRequired"),
                   })}
                   error={errors.activityOverview?.message}
                 />
@@ -81,10 +89,10 @@ export default function ProviderRegister() {
 
               <div className="form_group">
                 <TextareaField
-                  label="الوصف "
+                  label={t("providerRegister.descriptionLabel")}
                   rows={6}
                   {...register("activityDescription", {
-                    required: "مطلوب إدخال تفاصيل النشاط",
+                    required: t("providerRegister.descriptionRequired"),
                   })}
                   error={errors.activityDescription?.message}
                 />
@@ -94,11 +102,16 @@ export default function ProviderRegister() {
                 type="checkbox"
                 label={
                   <>
-                    قرأت و أوافق علي{" "}
-                    <Link to="/terms-conditions">الشروط والأحكام</Link>*
+                    {t("providerRegister.termsText")}{" "}
+                    <Link to="/terms-conditions">
+                      {t("providerRegister.termsLink")}
+                    </Link>
+                    *
                   </>
                 }
-                {...register("terms", { required: "يجب الموافقة على الشروط" })}
+                {...register("terms", {
+                  required: t("providerRegister.termsRequired"),
+                })}
                 className="my-3"
               />
 
@@ -106,10 +119,11 @@ export default function ProviderRegister() {
                 <p className="text-danger">{errors.terms.message}</p>
               )}
 
-              <SubmitButton text="إنشاء حساب" />
+              <SubmitButton text={t("providerRegister.submit")} />
 
               <p className="note">
-                لديك حساب بالفعل؟ <Link to="/signin">تسجيل الدخول</Link>
+                {t("providerRegister.haveAccount")}{" "}
+                <Link to="/signin">{t("providerRegister.login")}</Link>
               </p>
             </Form>
           </div>

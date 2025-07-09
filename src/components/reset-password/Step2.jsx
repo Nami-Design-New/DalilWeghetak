@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import SubmitButton from "../../ui/forms/SubmitButton";
 import OtpContainer from "../../ui/forms/OtpContainer";
+import { useTranslation } from "react-i18next";
 
 export default function Step2({ setStep, email }) {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
   const [timer, setTimer] = useState(60);
@@ -20,7 +22,7 @@ export default function Step2({ setStep, email }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("الكود المدخل:", code);
-    setStep(3); 
+    setStep(3);
   };
 
   const handleResend = () => {
@@ -31,9 +33,9 @@ export default function Step2({ setStep, email }) {
 
   return (
     <>
-      <h3 className="section_title">تأكيد الرمز</h3>
+      <h3 className="section_title">{t("verifyCode.title")}</h3>
       <p className="section_description">
-        أدخل الرمز المكون من 6 أرقام المُرسل إلى بريدك الإلكتروني: {email}
+        {t("verifyCode.description")} {email}
       </p>
 
       <form className="form_ui mt-5" onSubmit={handleSubmit}>
@@ -43,12 +45,12 @@ export default function Step2({ setStep, email }) {
 
         <div className="resend-code mb-3">
           <span className={`resend_link ${resendDisabled ? "disabled" : ""}`}>
-            لم يصلك الرمز؟{" "}
+            {t("verifyCode.noCode")}{" "}
             <span
               onClick={handleResend}
               style={{ cursor: resendDisabled ? "not-allowed" : "pointer" }}
             >
-              إعادة الإرسال
+              {t("verifyCode.resend")}
             </span>
           </span>
           <div className="timer text-end mt-2">
@@ -58,11 +60,11 @@ export default function Step2({ setStep, email }) {
         </div>
 
         <div className="reset_btns d-flex justify-content-between align-items-center">
-          <div aria-label="Back" className="back_btn" onClick={() => setStep(1)}>
-            <i className="fal fa-arrow-right me-2"></i> الرجوع
+          <div aria-label={t("verifyCode.back")} className="back_btn" onClick={() => setStep(1)}>
+            <i className="fal fa-arrow-right me-2"></i> {t("verifyCode.back")}
           </div>
 
-          <SubmitButton text="تأكيد" loading={loading} />
+          <SubmitButton text={t("verifyCode.confirm")} loading={loading} />
         </div>
       </form>
     </>

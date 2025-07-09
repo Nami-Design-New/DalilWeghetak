@@ -1,32 +1,35 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 export default function ContactInfo() {
+  const { t } = useTranslation();
+
   const contactInfo = [
     {
       icon: "fa-regular fa-location-dot",
-      title: "موقعنا",
-      description: "تجدنا في السعودية .",
-      linkText: "عرض الموقع على الخريطة",
+      title: t("contact.info.location.title"),
+      description: t("contact.info.location.description"),
+      linkText: t("contact.info.location.linkText"),
       linkUrl: "https://maps.app.goo.gl/MUZLHJg29LWAKg7a9",
     },
     {
       icon: "fa-regular fa-phone-volume",
-      title: "اتصل بنا",
-      description: "تواصل معنا مباشرة عبر الهاتف للرد على استفساراتك.",
-      linkText: "+20-100-123-4567",
+      title: t("contact.info.phone.title"),
+      description: t("contact.info.phone.description"),
+      linkText: t("contact.info.phone.linkText"),
       linkUrl: "tel:+201001234567",
     },
     {
       icon: "fa-regular fa-envelope",
-      title: "الدعم الفني",
-      description: "لأي استفسار أو دعم بخصوص خدماتنا، راسلنا عبر البريد.",
-      linkText: "support@yourcompany.com",
+      title: t("contact.info.email.title"),
+      description: t("contact.info.email.description"),
+      linkText: t("contact.info.email.linkText"),
       linkUrl: "mailto:support@yourcompany.com",
     },
     {
       icon: "fa-regular fa-share-alt",
-      title: "تابعنا على مواقع التواصل",
-      description: "ابقَ على تواصل معنا من خلال حساباتنا الرسمية.",
+      title: t("contact.info.social.title"),
+      description: t("contact.info.social.description"),
       subLinks: [
         {
           link: "https://facebook.com/yourpage",
@@ -67,7 +70,7 @@ export default function ContactInfo() {
 
             {item.subLinks && (
               <div className="social-media">
-                <h6>تابعنا</h6>
+                <h6>{t("contact.info.social.followUs")}</h6>
                 <div className="social-media-links">
                   {item.subLinks.map((link, idx) => (
                     <Link

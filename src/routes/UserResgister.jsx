@@ -5,8 +5,11 @@ import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import ImageUpload from "../ui/forms/ImageUpload";
+import { useTranslation } from "react-i18next";
 
 export default function UserRegister() {
+  const { t } = useTranslation();
+
   const {
     register,
     watch,
@@ -24,10 +27,11 @@ export default function UserRegister() {
         <div className="row align-items-center">
           <div className="col-lg-6 col-12 p-3">
             <Form className="form_ui" onSubmit={handleSubmit(onSubmit)}>
-              <h3 className="section_title">إنشاء حساب جديد</h3>
+              <h3 className="section_title">{t("userRegister.title")}</h3>
               <p className="section_description">
-                سجّل الآن للوصول إلى أفضل التجارب والعروض السياحية المميزة.
+                {t("userRegister.description")}
               </p>
+
               <div className="form_group ">
                 <ImageUpload
                   register={register}
@@ -35,38 +39,41 @@ export default function UserRegister() {
                   error={errors.image?.message}
                 />
               </div>
+
               <div className="form_group d-flex gap-3 flex-column flex-md-row">
                 <InputField
-                  label="الاسم"
-                  placeholder="أدخل اسمك"
-                  {...register("name", { required: "الاسم مطلوب" })}
+                  label={t("userRegister.name")}
+                  placeholder={t("userRegister.namePlaceholder")}
+                  {...register("name", {
+                    required: t("userRegister.nameRequired"),
+                  })}
                   error={errors.name?.message}
                 />
-           
                 <InputField
                   type="tel"
-                  label="رقم الهاتف"
-                  placeholder="أدخل رقم الهاتف"
-                  {...register("phone", { required: "رقم الهاتف مطلوب" })}
+                  label={t("userRegister.phone")}
+                  placeholder={t("userRegister.phonePlaceholder")}
+                  {...register("phone", {
+                    required: t("userRegister.phoneRequired"),
+                  })}
                   error={errors.phone?.message}
                 />
               </div>
 
               <div className="form_group d-flex gap-3 flex-column flex-md-row">
                 <InputField
-                  label="البريد الإلكتروني"
-                  placeholder="أدخل بريدك الإلكتروني"
+                  label={t("userRegister.email")}
+                  placeholder={t("userRegister.emailPlaceholder")}
                   {...register("email", {
-                    required: "البريد الإلكتروني مطلوب",
+                    required: t("userRegister.emailRequired"),
                   })}
                   error={errors.email?.message}
                 />
-     
                 <PasswordField
-                  label="كلمة المرور"
-                  placeholder="أدخل كلمة المرور"
+                  label={t("userRegister.password")}
+                  placeholder={t("userRegister.passwordPlaceholder")}
                   {...register("password", {
-                    required: "كلمة المرور مطلوبة",
+                    required: t("userRegister.passwordRequired"),
                   })}
                   error={errors.password?.message}
                 />
@@ -76,21 +83,27 @@ export default function UserRegister() {
                 type="checkbox"
                 label={
                   <>
-                    قرأت و أوافق على{" "}
-                    <Link to="/terms-conditions">الشروط والأحكام</Link>*
+                    {t("userRegister.termsText")}{" "}
+                    <Link to="/terms-conditions">
+                      {t("userRegister.termsLink")}
+                    </Link>
+                    *
                   </>
                 }
-                {...register("terms", { required: "يجب الموافقة على الشروط" })}
+                {...register("terms", {
+                  required: t("userRegister.termsRequired"),
+                })}
                 className="my-3"
               />
               {errors.terms && (
                 <p className="text-danger">{errors.terms.message}</p>
               )}
 
-              <SubmitButton text="إنشاء حساب" />
+              <SubmitButton text={t("userRegister.submit")} />
 
               <p className="note mt-3">
-                لديك حساب؟ <Link to="/signin">سجّل الدخول</Link>
+                {t("userRegister.haveAccount")}{" "}
+                <Link to="/signin">{t("userRegister.login")}</Link>
               </p>
             </Form>
           </div>

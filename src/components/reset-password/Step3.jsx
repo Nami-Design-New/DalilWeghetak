@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SubmitButton from "../../ui/forms/SubmitButton";
 import PasswordField from "../../ui/forms/PasswordField";
+import { useTranslation } from "react-i18next";
 
 export default function Step3({ setStep }) {
+  const { t } = useTranslation();
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,16 +17,16 @@ export default function Step3({ setStep }) {
 
   return (
     <>
-      <h3 className="section_title">إعادة تعيين كلمة المرور</h3>
+      <h3 className="section_title">{t("resetPassword2.title")}</h3>
       <p className="section_description">
-        أنشئ كلمة مرور جديدة لحسابك.
+        {t("resetPassword2.description")}
       </p>
 
       <form className="form_ui mt-5" onSubmit={handleReset}>
         <div className="form_group mb-4">
           <PasswordField
-            label="كلمة المرور الجديدة"
-            placeholder="أدخل كلمة المرور"
+            label={t("resetPassword2.newPassword")}
+            placeholder={t("resetPassword2.newPasswordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -32,8 +34,8 @@ export default function Step3({ setStep }) {
 
         <div className="form_group mb-4">
           <PasswordField
-            label="تأكيد كلمة المرور"
-            placeholder="أعد إدخال كلمة المرور"
+            label={t("resetPassword2.confirmPassword")}
+            placeholder={t("resetPassword2.confirmPasswordPlaceholder")}
             value={passwordConfirm}
             onChange={(e) => setPasswordConfirm(e.target.value)}
           />
@@ -41,14 +43,14 @@ export default function Step3({ setStep }) {
 
         <div className="reset_btns d-flex justify-content-between align-items-center">
           <div
-            aria-label="Back"
+            aria-label={t("resetPassword2.back")}
             className="back_btn"
             onClick={() => setStep(2)}
           >
-            <i className="fal fa-arrow-right me-2"></i> الرجوع
+            <i className="fal fa-arrow-right me-2"></i> {t("resetPassword2.back")}
           </div>
 
-          <SubmitButton text="تأكيد" loading={loading} />
+          <SubmitButton text={t("resetPassword2.confirm")} loading={loading} />
         </div>
       </form>
     </>

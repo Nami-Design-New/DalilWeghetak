@@ -1,42 +1,50 @@
-import InputField from "./../../ui/forms/InputField";
+import { useTranslation } from "react-i18next";
+import InputField from "../../ui/forms/InputField";
 
 export default function ContactForm() {
+  const { t } = useTranslation();
+
   return (
     <div className="row">
       <div className="col-12 p-2 mt-5 mb-3">
-        <h4 className="title">تواصل مع فريق الخبراء</h4>
-        <p className="description">
-          لديك استفسار أو تحتاج إلى مساعدة؟ فريقنا من الخبراء مستعد دائمًا
-          لتقديم الحلول المناسبة لك.
-        </p>
+        <h4 className="title">{t("contact.formTitle")}</h4>
+        <p className="description">{t("contact.formDescription")}</p>
       </div>
 
       <div className="col-lg-6 col-12 p-2">
         <form className="form_ui d-flex flex-column gap-3">
-          <InputField label="الاسم الكامل" placeholder="ادخل اسمك" />
-
           <InputField
-            label="البريد الإلكتروني"
-            type="email"
-            placeholder="ادخل بريدك الإلكتروني"
+            label={t("contact.name")}
+            placeholder={t("contact.namePlaceholder")}
           />
 
-          <InputField label="الموضوع" placeholder="ادخل عنوان الموضوع" />
+          <InputField
+            label={t("contact.email")}
+            type="email"
+            placeholder={t("contact.emailPlaceholder")}
+          />
+
+          <InputField
+            label={t("contact.subject")}
+            placeholder={t("contact.subjectPlaceholder")}
+          />
 
           <InputField
             as="textarea"
-            label="رسالتك"
-            placeholder="اكتب رسالتك هنا"
+            label={t("contact.message")}
+            placeholder={t("contact.messagePlaceholder")}
           />
 
-          <button className="submit_btn mt-2">إرسال الرسالة</button>
+          <button className="submit_btn mt-2">
+            {t("contact.sendMessage")}
+          </button>
         </form>
       </div>
 
       <div className="col-lg-6 col-12 p-2">
         <img
           src="/images/contact.jpg"
-          alt="صورة تواصل"
+          alt={t("contact.imageAlt")}
           className="contact_img"
         />
       </div>

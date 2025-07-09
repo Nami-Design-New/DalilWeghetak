@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { useTranslation } from "react-i18next";
 
 const seasons = [
   {
@@ -35,14 +36,16 @@ const seasons = [
 ];
 
 export default function Seasons() {
+    const { t } = useTranslation();
+
   return (
     <section className="seasons-section">
       <div className="container text-center mb-4">
-                <h2 className="section-title">
-         <span className="text-dark">مواسم </span>
-          <span className="text-main">  السعودية</span>
-          </h2>
-        <p className="section-subtitle">استمتع بسحر مواسم السعودية وعيّش تجربة مختلفة</p>
+          <h2 className="section-title">
+          <span className="text-dark">{t("seasons.titleDark")} </span>
+          <span className="text-main">{t("seasons.titleMain")}</span>
+        </h2>
+        <p className="section-subtitle">{t("seasons.subtitle")}</p>
       </div>
 
       <div className="container">

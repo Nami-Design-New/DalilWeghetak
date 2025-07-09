@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import ActivityCard from "../../ui/cards/ActivityCard"; 
+import { useTranslation } from "react-i18next";
 
 const categories = ["الكل", "مواقع طبيعية", "اماكن تراثية", "اماكن ترفيهية"];
 
@@ -59,6 +60,7 @@ const activities = [
 ];
 
 export default function Activities() {
+    const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("الكل");
 
   const filteredActivities =
@@ -71,8 +73,8 @@ export default function Activities() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">
-            <span className="text-dark">أنشطة </span>
-            <span className="text-main">تقوم بها</span>
+             <span className="text-dark">{t("activities.titleDark")}</span>
+            <span className="text-main">{t("activities.titleMain")}</span>
           </h2>
         </div>
 

@@ -1,35 +1,34 @@
 import { Modal } from "react-bootstrap";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export default function AccountTypeModal({ show, handleClose }) {
+  const { t } = useTranslation();
+
   return (
     <Modal show={show} onHide={handleClose} centered className="account-type-modal">
       <Modal.Header closeButton>
-        <Modal.Title>اختر النوع</Modal.Title>
+        <Modal.Title>{t("accountType.title")}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <div className="account-type-options">
           <Link to="/user-signup" className="type-card">
             <div className="card-content">
-              <img src="/images/user.png" alt="المستخدم" />
+              <img src="/images/user.png" alt={t("accountType.userAlt")} />
               <div className="text">
-                <h5>المستخدم</h5>
-                <p>
-                  هو الشخص الذي يستخدم التطبيق لشراء التذاكر أو الاستفادة من الخدمات المقدمة.
-                </p>
+                <h5>{t("accountType.userTitle")}</h5>
+                <p>{t("accountType.userDesc")}</p>
               </div>
             </div>
           </Link>
 
           <Link to="/provider-signup" className="type-card">
             <div className="card-content">
-              <img src="/images/provider.jpg" alt="مزود الخدمة" />
+              <img src="/images/provider.jpg" alt={t("accountType.providerAlt")} />
               <div className="text">
-                <h5>مزود الخدمة</h5>
-                <p>
-                  هو الكيان المسؤول عن تقديم الخدمات الموفرة داخل التطبيق.
-                </p>
+                <h5>{t("accountType.providerTitle")}</h5>
+                <p>{t("accountType.providerDesc")}</p>
               </div>
             </div>
           </Link>
