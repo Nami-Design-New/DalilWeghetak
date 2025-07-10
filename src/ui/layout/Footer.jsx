@@ -39,7 +39,9 @@ export default function Footer() {
               alt="logo"
               className="mb-3 logo"
             />
-            <img src="/images/saudilogo.png" alt="tourism" className="mb-3 tourism" />
+            {/* <img src="/images/saudilogo.png" alt="tourism" className="mb-3 tourism" /> */}
+                        <p className="footer-desc">{t("footer.description")}</p>
+
           </div>
 
           {/* Discover Saudi */}
@@ -68,16 +70,16 @@ export default function Footer() {
           {/* Contact */}
           <div className="col-lg-3 col-md-6 p-2">
             <h5>{t("footer.contact")}</h5>
-            <p className="footer-desc">{t("footer.description")}</p>
-          </div>
-        </div>
-
-        {/* Social Icons */}
-        <div className="social-icons mt-4 d-flex gap-3">
+             <div className="social-icons mt-4 d-flex gap-3">
           <Link to="#"><i className="fab fa-facebook-f"></i></Link>
           <Link to="#"><i className="fab fa-instagram"></i></Link>
           <Link to="#"><i className="fab fa-youtube"></i></Link>
         </div>
+          </div>
+        </div>
+
+        {/* Social Icons */}
+       
 
         {/* CopyRights */}
         <div className="text-center mt-4 footer-bottom">
