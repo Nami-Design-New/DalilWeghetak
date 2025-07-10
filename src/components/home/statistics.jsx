@@ -8,7 +8,7 @@ export default function Statistics() {
     <section className="statistics-section">
       <div className="container">
         <h2 className="section-title">
-          <span className="text-dark">{t("statistics.titleDark")}</span>
+          <span className="text-dark">{t("statistics.titleDark")} </span>
           <span className="text-main">{t("statistics.titleMain")}</span>
         </h2>
 
