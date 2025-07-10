@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Statistics from "../components/home/Statistics";
+import Statistics from "../components/home/statistics";
 
 export default function AboutSection() {
   const { t } = useTranslation();

@@ -5,7 +5,7 @@ import JeddahEvents from "../components/home/Events_section";
 import Hero from "../components/home/Hero";
 import Holidays from "../components/home/Holidays";
 import Seasons from "../components/home/Seasons";
-import Statistics from "../components/home/Statistics";
+import Statistics from "../components/home/statistics";
 
 export default function Home() {
   return (
