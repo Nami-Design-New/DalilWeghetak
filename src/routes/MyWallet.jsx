@@ -25,7 +25,7 @@ export default function MyWallet() {
   return (
     <section className="wallet-page mt-80">
       <div className="container">
-        <h1 className="page-title mb-3">محفظتي</h1>
+        <h2 className="page-title mb-3">محفظتي</h2>
         <div className="wallet-card p-3 mb-4">
           <div className="d-flex align-items-center justify-content-between">
             <div>

@@ -1,10 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Statistics from "../components/home/Statistics";
 
 export default function AboutSection() {
   const { t } = useTranslation();
 
   return (
+    <>
     <section className="about-section">
       <div className="container">
         <div className="about-text">
@@ -30,5 +32,8 @@ export default function AboutSection() {
         </div>
       </div>
     </section>
+<Statistics />
+
+    </>
   );
 }

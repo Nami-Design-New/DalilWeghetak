@@ -23,7 +23,7 @@ export default function Settings() {
 
   const settingsItems = [
 { title: "حجوزاتي", icon: "fa-regular fa-ticket", link: "/my-bookings" },
-    { title: "فعالياتي", icon: "fa-solid fa-calendar-check", link: "/my-events" },
+    { title: "فعالياتي", icon: "", link: "/my-events" },
     { title: "المحفظة", icon: "fa-regular fa-wallet", link: "/wallet" },
     { title: "تغيير كلمة المرور", icon: "fa-regular fa-lock", link: "/change-password" },
     { title: "تواصل معنا", icon: "fa-regular fa-message", link: "/contact" },

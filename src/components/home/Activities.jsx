@@ -5,7 +5,29 @@ import "swiper/css";
 import ActivityCard from "../../ui/cards/ActivityCard"; 
 import { useTranslation } from "react-i18next";
 
-const categories = ["الكل", "مواقع طبيعية", "اماكن تراثية", "اماكن ترفيهية"];
+const categories = [
+  {
+    id: "الكل",
+    label: "الكل",
+    icon: "fas fa-check",
+  },
+  {
+    id: "مواقع طبيعية",
+    label: "مواقع طبيعية",
+    icon: "fas fa-tree",
+  },
+  {
+    id: "اماكن تراثية",
+    label: "اماكن تراثية",
+    icon: "fas fa-landmark",
+  },
+  {
+    id: "اماكن ترفيهية",
+    label: "اماكن ترفيهية",
+    icon: "fas fa-bag-shopping",
+  },
+ 
+];
 
 const activities = [
   {
@@ -79,17 +101,19 @@ const lang = localStorage.getItem("lang") || "ar";
           </h2>
         </div>
 
-        <div className="tabs">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`tab-button ${selectedCategory === cat ? "active" : ""}`}
-              onClick={() => setSelectedCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+     <div className="tabs">
+  {categories.map((cat) => (
+    <button
+      key={cat.id}
+      className={`tab-button ${selectedCategory === cat.id ? "active" : ""}`}
+      onClick={() => setSelectedCategory(cat.id)}
+    >
+      <i className={`tab-icon ${cat.icon}`}></i>
+      <span className="tab-label">{cat.label}</span>
+      {selectedCategory === cat.id }
+    </button>
+  ))}
+</div>
 
         <Swiper
           modules={[Autoplay]}

@@ -56,7 +56,7 @@ const lang = localStorage.getItem("lang") || "ar";
   return (
     <section className="jeddah-events">
       <div className="container">
-        <div className="events-text col-md-4 mb-4 mb-md-0">
+        <div className="events-text col-md-4 mb-3 mb-md-0">
           <span className="subtext">{t("jeddahEvents.label")}</span>
           <h2 className="title">{t("jeddahEvents.title")}</h2>
           <p className="description">{t("jeddahEvents.description")}</p>
@@ -65,10 +65,10 @@ const lang = localStorage.getItem("lang") || "ar";
           </Link>
         </div>
 
-        <div className="events-slider col-md-8">
+        <div className="events-slider col-md-9">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={10}
+            spaceBetween={15}
             slidesPerView={3}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}

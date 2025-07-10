@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
 @keyframes pulse {
@@ -459,7 +459,7 @@ body {
   direction: rtl;
   overflow-x: hidden;
   scrollbar-width: none;
-  font-family: "Tajawal", sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 body header {
   position: fixed;
@@ -625,6 +625,38 @@ body .dropdown-menu .dropdown-item.logout:hover {
   background: #0048AA;
   color: #fff;
 }
+body .user_dropdown {
+  border: 1px solid #f4f4f4;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 20px;
+  transition: all 0.3s ease-in-out;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+@media screen and (max-width: 991px) {
+  body .user_dropdown {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  body .user_dropdown {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+body .user_dropdown i {
+  font-size: 12px;
+}
+body .user_dropdown.show, body .user_dropdown:active, body .user_dropdown:hover {
+  border-color: #f4f4f4 !important;
+  color: #000 !important;
+  background: #fff !important;
+}
 body .small_menu {
   position: fixed;
   bottom: 0;
@@ -674,93 +706,89 @@ body .small_menu .menu_item .center i {
   color: #fff;
 }
 body .footer {
-  background-image: url("/images/footer.jpg");
+  background-color: #EBEBEB;
   font-size: 14px;
-  background-size: contain;
-}
-body .footer .logo {
-  filter: brightness(0) invert(1);
-}
-body .footer .logo img {
-  height: 70px;
 }
 body .footer h5 {
-  color: #fff;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-  position: relative;
+  color: #0048AA;
+  font-weight: 600;
+  margin: 20px 0;
 }
-body .footer h5::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 2px;
-  background: radial-gradient(90% 100% at 100% 20%, #0048AA, rgba(238, 238, 238, 0));
-  bottom: -2px;
-  right: 0;
+body .footer .logo {
+  height: 100px;
 }
-body .footer .footer-desc {
-  max-width: 340px;
-}
-body .footer .newsletter {
+body .footer ul {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
-body .footer a {
-  color: #ccc;
+body .footer ul li a {
+  color: #555;
   text-decoration: none;
   transition: 0.3s;
 }
-body .footer a:hover {
+body .footer ul li a:hover {
   color: #0048AA;
 }
-body .footer ul {
+body .footer .footer-desc {
+  color: #555;
+}
+body .footer .tourism {
+  height: 60px;
+}
+body .footer .app-links img {
+  height: 40px;
+}
+body .footer .app-links .newsletter {
+  display: flex;
+  gap: 10px;
+}
+body .footer .app-links .newsletter .form-control {
+  width: 220px;
+}
+body .footer .app-links .newsletter .join-btn {
+  background: #0048AA;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+}
+body .footer .app-links .newsletter .join-btn:hover {
+  opacity: 0.7;
+}
+body .footer .footer-pattern {
+  width: 100%;
+  display: block;
+  height: 50px;
+}
+body .footer .footer-logo-box {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
 }
-body .footer ul li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-body .footer .copyrights {
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #333;
-  padding: 24px 0 8px;
-}
-body .footer .copyrights p {
-  margin-bottom: 0;
-}
-@media screen and (max-width: 576px) {
-  body .footer .copyrights {
-    flex-direction: column-reverse;
-    gap: 24px;
-    margin-bottom: 52px;
-  }
+body .footer .footer-logo-box img:first-child {
+  height: 80px;
 }
 body .footer .social-icons {
   display: flex;
-  align-items: center;
-  gap: 24px;
+  gap: 16px;
+  margin-top: 24px;
 }
 body .footer .social-icons a {
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-}
-body .footer .social-icons a i {
-  font-size: 16px;
+  color: #555;
+  font-size: 18px;
+  transition: 0.3s;
 }
 body .footer .social-icons a:hover {
   color: #0048AA;
+}
+body .footer .footer-bottom {
+  border-top: 1px solid #222020;
+}
+body .footer .footer-bottom p {
+  color: #555;
 }
 body .form_ui {
   width: 100%;
@@ -1055,7 +1083,7 @@ body .hero-section {
     height: 90vh;
   }
 }
-body .hero-section .image-bg {
+body .hero-section .media-bg {
   position: absolute;
   top: 0;
   right: 0;
@@ -1175,7 +1203,7 @@ body .hero-section .hero-tabs .tab-button.active {
   position: relative;
   font-weight: bold;
   color: #fff;
-  margin-top: -10px;
+  margin-top: -13px;
   padding-top: 15px;
 }
 body .hero-section .hero-tabs .tab-button.active::before {
@@ -1183,9 +1211,9 @@ body .hero-section .hero-tabs .tab-button.active::before {
   position: absolute;
   top: 0;
   left: 0;
-  height: 5px;
+  height: 20px;
   width: 100%;
-  background-image: url("../images/pat.jpg");
+  background-image: url("../images/patt.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1193,6 +1221,21 @@ body .hero-section .hero-tabs .tab-button.active::before {
 body .destinations {
   padding: 3rem 0;
   text-align: center;
+  position: relative;
+}
+body .destinations::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/pattern2.png") no-repeat left center;
+  background-size: contain;
+  transform: scaleX(-1);
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
 }
 body .destinations .section-title {
   font-size: 1.4rem;
@@ -1269,7 +1312,7 @@ body .destinations .destinations-grid .destination.big {
 }
 body .activities-section {
   padding: 40px 0;
-  background-color: #f1f1f1;
+  background-color: #f8f8f8;
 }
 body .activities-section .section-header {
   display: flex;
@@ -1289,23 +1332,67 @@ body .activities-section .section-header .section-title .text-main {
 body .activities-section .tabs {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 25px;
   flex-wrap: wrap;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 body .activities-section .tabs .tab-button {
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #444;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  padding: 10px 15px;
   transition: 0.3s ease;
 }
-body .activities-section .tabs .tab-button.active {
-  background: #0048AA;
-  color: #fff;
-  border-color: #0048AA;
+body .activities-section .tabs .tab-button .tab-icon {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 6px;
+  transition: 0.3s;
+}
+body .activities-section .tabs .tab-button .tab-label {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 500;
+}
+body .activities-section .tabs .tab-button .tab-check {
+  position: absolute;
+  top: -10px;
+  color: #0048AA;
+  font-size: 1.6rem;
+}
+body .activities-section .tabs .tab-button.active .tab-label {
+  color: #000;
+  font-weight: bold;
+}
+body .activities-section .tabs .tab-button.active .tab-icon {
+  color: #0048AA;
+}
+body .activities-section .tabs .tab-button:hover .tab-label {
+  color: #000;
+}
+body .activities-section .tabs .tab-button:hover .tab-icon {
+  color: #0048AA;
+}
+body .jeddah-events {
+  background-color: #0048AA;
+  position: relative;
+}
+body .jeddah-events::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/pattern.png") no-repeat left center;
+  background-size: contain;
+  z-index: 0;
+  opacity: 0.1;
+  pointer-events: none;
 }
 body .jeddah-events .container {
   padding: 80px 0;
@@ -1322,7 +1409,7 @@ body .jeddah-events .container {
   }
 }
 body .jeddah-events .events-text .subtext {
-  color: #0048AA;
+  color: #000;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -1336,16 +1423,16 @@ body .jeddah-events .events-text .subtext {
 body .jeddah-events .events-text .title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #0f172a;
+  color: #fff;
 }
 body .jeddah-events .events-text .description {
-  color: #777;
+  color: #f9f9f9;
   margin: 20px 0;
   line-height: 1.8;
 }
 body .jeddah-events .events-text .explore-btn {
-  background-color: #0048AA;
-  color: #fff;
+  background-color: #fff;
+  color: #0048AA;
   padding: 10px 25px;
   border: none;
   border-radius: 6px;
@@ -1376,13 +1463,14 @@ body .jeddah-events .events-slider .swiper-slide {
   }
 }
 body .seasons-section {
-  padding: 40px 0;
-  background-color: #f1f1f1;
+  padding: 60px 0;
+  background-color: #f8f8f8;
 }
 body .seasons-section .section-title {
   font-size: 1.4rem;
   font-weight: bold;
   color: #0f172a;
+  text-align: center;
 }
 body .seasons-section .section-title .text-main {
   color: #0048AA;
@@ -1390,38 +1478,77 @@ body .seasons-section .section-title .text-main {
 body .seasons-section .section-subtitle {
   color: #666;
   font-size: 1rem;
+  text-align: center;
 }
-body .seasons-section .SwiperSlide {
-  padding: 10px;
-}
-body .seasons-section .season-card {
-  background: #fff;
-  border-radius: 12px;
+body .seasons-section .seasons-cards {
+  display: flex;
+  gap: 0;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 10px;
 }
-body .seasons-section .season-card .season-img {
+body .seasons-section .seasons-cards .season-card {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  overflow: hidden;
+}
+body .seasons-section .seasons-cards .season-card .season-img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 8px;
+  transition: 0.6s ease;
 }
-body .seasons-section .season-card .season-date {
-  font-size: 0.85rem;
-  color: #888;
-  margin-top: 10px;
+body .seasons-section .seasons-cards .season-card:hover .season-img {
+  transform: scale(1.09);
 }
-body .seasons-section .season-card .season-title {
+body .seasons-section .seasons-cards .season-card .season-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 60%, transparent);
+  width: 100%;
+}
+body .seasons-section .seasons-cards .season-card .season-info .season-date {
+  font-size: 0.75rem;
+  color: #ddd;
+  margin-bottom: 6px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+body .seasons-section .seasons-cards .season-card .season-info .season-date::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  margin-top: 6px;
+}
+body .seasons-section .seasons-cards .season-card .season-info .season-title {
   font-size: 1rem;
-  font-weight: 600;
-  color: #222;
-  margin-top: 4px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.4;
 }
 body .holidays-section {
   padding: 40px 0;
   background-color: #fff;
+  position: relative;
+}
+body .holidays-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/pattern2.png") no-repeat left center;
+  background-size: contain;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
 }
 body .holidays-section .section-title {
   font-size: 1.4rem;
@@ -1478,17 +1605,135 @@ body .holidays-section .holiday-card .holiday-info .holiday-desc {
   font-size: 0.95rem;
   color: black;
 }
-body .all-events-page {
-  padding: 50px 0;
+body .statistics-section {
+  padding: 60px 0;
+  background-color: #f8f8f8;
 }
-body .all-events-page .page-title {
-  color: #0048AA;
+body .statistics-section.en .card::before,
+body .statistics-section.en .stories-card::before {
+  right: unset;
+  left: 0;
+}
+body .statistics-section .section-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #0f172a;
   text-align: center;
+  margin-bottom: 1rem;
+}
+body .statistics-section .section-title .text-main {
+  color: #0048AA;
+}
+body .statistics-section .section-subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+body .statistics-section .statistics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+body .statistics-section .stats-cards {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body .statistics-section .card,
+body .statistics-section .stories-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+body .statistics-section .card::before,
+body .statistics-section .stories-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background-image: url("/images/p.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body .statistics-section .card h3,
+body .statistics-section .stories-card h3 {
+  font-size: 20px;
+  margin: 0;
+}
+body .statistics-section .card .highlight,
+body .statistics-section .stories-card .highlight {
+  color: #0048AA;
+  font-size: 28px;
+  font-weight: bold;
+}
+body .statistics-section .large-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+body .statistics-section .large-card .card-content {
+  flex: 1;
+}
+body .statistics-section .large-card .card-image {
+  flex-shrink: 0;
+}
+body .statistics-section .large-card .card-image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+}
+body .statistics-section .card-row {
+  display: flex;
+  gap: 20px;
+}
+body .statistics-section .small-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body .statistics-section .small-card .learn-more {
+  color: #007bff;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+body .statistics-section .stories-card {
+  flex: 1;
+}
+body .statistics-section .stories-card h3 {
   margin-bottom: 20px;
-  font-weight: 600;
+  font-size: 20px;
+}
+body .statistics-section .stories-card .stories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body .statistics-section .stories-card .stories-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  text-align: right;
+}
+body .statistics-section .stories-card .stories-list li span {
+  font-weight: bold;
+  margin-left: 10px;
+  color: #888;
 }
 body .contact_section {
-  padding: 60px 0;
+  padding: 60px 0 0 0;
 }
 body .contact_section .contact_info {
   padding: 24px;
@@ -2355,59 +2600,47 @@ body .event-card .image-wrapper {
 }
 body .event-card .image-wrapper img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: 0.4s ease;
+  height: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-body .event-card .image-wrapper .price-tag {
+body .event-card .image-wrapper .dates-vertical {
   position: absolute;
-  top: 0;
-  right: 0;
-  background: #fff;
-  color: #0048AA;
-  padding: 5px 12px;
-  border-bottom-left-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  z-index: 5;
-}
-body .event-card .image-wrapper .dates {
-  position: absolute;
-  bottom: 0;
-  left: 0px;
+  top: 12px;
+  left: 12px;
+  background: #666;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   z-index: 5;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
 }
-body .event-card .image-wrapper .dates .date-item {
+body .event-card .image-wrapper .dates-vertical .date-item {
+  padding: 10px 8px;
   color: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
   text-align: center;
-  line-height: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-body .event-card .image-wrapper .dates .date-item::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: #fff;
-  margin: 6px 0;
+body .event-card .image-wrapper .dates-vertical .date-item:last-child {
+  border-bottom: none;
 }
-body .event-card .image-wrapper .dates .date-item:last-child::after {
-  display: none;
+body .event-card .image-wrapper .dates-vertical .date-item .day {
+  font-size: 1rem;
+  font-weight: 700;
+}
+body .event-card .image-wrapper .dates-vertical .date-item .month,
+body .event-card .image-wrapper .dates-vertical .date-item .year {
+  font-size: 0.7rem;
 }
 body .event-card .image-wrapper .fav-btn {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.85);
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2440,18 +2673,16 @@ body .event-card .event-details .details-row .location-type {
 }
 body .event-card .event-details .details-row .location-type i {
   color: #0048AA;
-  font-size: 0.85rem;
 }
-body .event-card .event-details .details-row .fav-btn {
-  border: none;
-  width: 36px;
-  height: 36px;
+body .event-card .event-details .details-row .price-fav {
   display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #0048AA;
-  cursor: pointer;
-  transition: 0.3s ease;
+  align-items: center;
+  gap: 12px;
+}
+body .event-card .event-details .details-row .price-fav .price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
 }
 body .event-card .event-details .event-name {
   font-size: 1.1rem;
@@ -2598,31 +2829,6 @@ body .experience-card .card-content .details-btn {
 }
 body .experience-card .card-content .details-btn:hover {
   opacity: 0.9;
-}
-body .season-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-body .season-card .season-img {
-  width: 100%;
-  height: 180px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 8px;
-}
-body .season-card .season-date {
-  font-size: 0.85rem;
-  color: #888;
-  margin-top: 8px;
-}
-body .season-card .season-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222;
-  margin-top: 4px;
 }
 body .my-booking-page {
   padding: 60px 0;

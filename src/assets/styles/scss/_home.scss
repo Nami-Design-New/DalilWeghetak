@@ -6,10 +6,12 @@
   @include centerFlex;
   text-align: center;
   padding: 0 20px;
+
   @media (max-width: 767px) {
     height: 90vh;
   }
-  .image-bg {
+
+  .media-bg {
     position: absolute;
     top: 0;
     right: 0;
@@ -72,7 +74,7 @@
     }
   }
 
-  .hero-tabs {
+ .hero-tabs {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -135,7 +137,7 @@
         position: relative;
         font-weight: bold;
         color: #fff;
-        margin-top: -10px;
+        margin-top: -13px;
         padding-top: 15px;
 
         &::before {
@@ -143,9 +145,9 @@
           position: absolute;
           top: 0;
           left: 0;
-          height: 5px;
+          height: 20px;
           width: 100%;
-          background-image: url("../images/pat.jpg");
+          background-image: url("../images/patt.png");
           background-size: cover;
           background-repeat: no-repeat;
           background-position: center;
@@ -155,11 +157,27 @@
   }
 }
 
+
+
 /////////
 .destinations {
   padding: 3rem 0;
   text-align: center;
-
+  position: relative;
+ &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/pattern2.png") no-repeat left center;
+    background-size: contain;
+    transform: scaleX(-1);
+    z-index: 0;
+    opacity: 0.5; 
+    pointer-events: none; 
+  }
   .section-title {
     font-size: 1.4rem;
     font-weight: bold;
@@ -244,7 +262,7 @@
 //////
 .activities-section {
   padding: 40px 0;
-  background-color: #f1f1f1;
+  background-color: #f8f8f8;
 
   .section-header {
     display: flex;
@@ -268,31 +286,86 @@
     //   text-decoration: underline;
     // }
   }
-  .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 1.1rem;
-    .tab-button {
-      border: 1px solid #ccc;
-      background: #fff;
-      color: #444;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      transition: 0.3s ease;
+ .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 
-      &.active {
-        background: $main;
-        color: #fff;
-        border-color: $main;
+  .tab-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: 0.3s ease;
+
+    .tab-icon {
+      font-size: 1.8rem;
+      color: #555;
+      margin-bottom: 6px;
+      transition: 0.3s;
+    }
+
+    .tab-label {
+      font-size: 0.9rem;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .tab-check {
+      position: absolute;
+      top: -10px;
+      color: $main;
+      font-size: 1.6rem;
+    }
+
+    &.active {
+      .tab-label {
+        color: #000;
+        font-weight: bold;
+      }
+
+      .tab-icon {
+        color: $main;
+      }
+    }
+
+    &:hover {
+      .tab-label {
+        color: #000;
+      }
+
+      .tab-icon {
+        color: $main;
       }
     }
   }
 }
+
+
+}
 //////
 .jeddah-events {
+  background-color: $main;
+  position: relative;
+    &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/pattern.png") no-repeat left center;
+    background-size: contain;
+    z-index: 0;
+    opacity: 0.1; 
+    pointer-events: none; 
+  }
   .container {
     padding: 80px 0;
     @include centerFlex;
@@ -307,7 +380,7 @@
 
   .events-text {
     .subtext {
-      color: $main;
+      color: $black;
       font-weight: 500;
       font-size: 0.9rem;
       @media (max-width: 992px) {
@@ -320,18 +393,18 @@
     .title {
       font-size: 2.5rem;
       font-weight: bold;
-      color: #0f172a;
+      color: $white;
     }
 
     .description {
-      color: $gray;
+      color: #f9f9f9;
       margin: 20px 0;
       line-height: 1.8;
     }
 
     .explore-btn {
-      background-color: $main;
-      color: #fff;
+      background-color: $white;
+      color: $main;
       padding: 10px 25px;
       border: none;
       border-radius: 6px;
@@ -365,13 +438,13 @@
 }
 ////////
 .seasons-section {
-  padding: 40px 0;
-  background-color: #f1f1f1;
-
+  padding: 60px 0;
+  background-color: #f8f8f8;
   .section-title {
     font-size: 1.4rem;
     font-weight: bold;
     color: #0f172a;
+    text-align: center;
     .text-main {
       color: $main;
     }
@@ -380,44 +453,86 @@
   .section-subtitle {
     color: #666;
     font-size: 1rem;
+    text-align: center;
   }
 
-  .SwiperSlide {
-    padding: 10px;
-  }
-  .season-card {
-    background: #fff;
-    border-radius: 12px;
+  .seasons-cards {
+    display: flex;
+    gap: 0;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 10px;
 
-    .season-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+    .season-card {
+      position: relative;
+      flex: 1;
+      cursor: pointer;
+      overflow: hidden;
 
-    .season-date {
-      font-size: 0.85rem;
-      color: #888;
-      margin-top: 10px;
-    }
+      .season-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.6s ease;
+      }
 
-    .season-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #222;
-      margin-top: 4px;
+      &:hover .season-img {
+        transform: scale(1.09);
+      }
+
+      .season-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 60%, transparent);
+        width: 100%;
+.season-date {
+  font-size: 0.75rem;
+  color: #ddd;
+  margin-bottom: 6px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    margin-top: 6px;
+  }
+}
+
+        .season-title {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #fff;
+          line-height: 1.4;
+        }
+      }
     }
   }
 }
+
 //////
 .holidays-section {
   padding: 40px 0;
   background-color: #fff;
-
+  position: relative;
+ &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/pattern2.png") no-repeat left center;
+    background-size: contain;
+    z-index: 0;
+    opacity: 0.5; 
+    pointer-events: none; 
+  }
   .section-title {
     font-size: 1.4rem;
     font-weight: bold;
@@ -480,13 +595,149 @@
   }
 }
 ////
-.all-events-page {
-  padding: 50px 0;
-  .page-title {
-    color: $main;
+.statistics-section {
+  padding: 60px 0;
+  background-color: #f8f8f8;
+
+  &.en {
+    .card::before,
+    .stories-card::before {
+      right: unset;
+      left: 0;
+    }
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0f172a;
     text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 1rem;
+    .text-main {
+      color: $main;
+    }
+  }
+
+  .section-subtitle {
+    color: #666;
+    font-size: 1rem;
+  }
+  .statistics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stats-cards {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card,
+  .stories-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 100%;
+      background-image: url("/images/p.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .highlight {
+      color: $main;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  }
+.large-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-direction: row-reverse; 
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-image {
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
   }
 }
-//////
+
+
+
+  .card-row {
+    display: flex;
+    gap: 20px;
+  }
+
+  .small-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .learn-more {
+      color: #007bff;
+      font-size: 14px;
+      text-decoration: underline;
+      margin-top: 10px;
+      align-self: flex-start;
+    }
+  }
+
+  .stories-card {
+    flex: 1;
+
+    h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .stories-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 15px;
+        text-align: right;
+
+        span {
+          font-weight: bold;
+          margin-left: 10px;
+          color: #888;
+        }
+      }
+    }
+  }
+}

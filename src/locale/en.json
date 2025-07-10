@@ -238,25 +238,27 @@
     "aboutRequired": "Event details are required",
     "submit": "Add Event Now"
   },
-    "footer": {
-    "copyright": "All rights reserved to",
-    "dalilweghetak": "Al3asal Travel & Tourism",
-    "contact": "Contact us",
-  "services": "Popular Tour Places",
-  "ser1": "Historical Landmarks",
-  "ser2": "Nature & Mountains",
-  "ser3": "Beaches & Resorts",
-  "ser4": "Cultural Experiences",
+  "footer": {
+    "email": "Enter your email address",
+    "subscribe": "Subscribe",
+    "services": "Popular Tour Places",
+    "ser1": "Historical Landmarks",
+    "ser2": "Nature & Mountains",
+    "ser3": "Beaches & Resorts",
+    "ser4": "Cultural Experiences",
     "usefulLinks": "Useful Links",
     "home": "Home",
     "about": "About Us",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "FAQs": "FAQs",
-    "email": "Enter your email address",
-    "subscribe": "Subscribe",
-    "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience."
+    "contact": "Contact us",
+    "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience.",
+    "copyright": "All rights reserved to",
+    "dalilweghetak": "Al3asal Travel & Tourism"
   }
+
+
 
       
 }

@@ -26,7 +26,7 @@ export default function MyEvents() {
   return (
     <section className="my-events-page mt-80">
       <div className="container">
-        <h1 className="page-title">فعالياتي</h1>
+        <h2 className="page-title">فعالياتي</h2>
         <div className="row g-4">
           {myEvents.map((event, idx) => (
             <div className="col-md-4" key={idx}>

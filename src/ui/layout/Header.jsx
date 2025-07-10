@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router";
 import i18next from "i18next";
+import UserDropDown from "./UserDropDown";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -99,7 +100,8 @@ export default function Header() {
             {lang === "ar" ? "EN" : "AR"}
           </button>
 
-          <Link to="/signin" className="login">{t("header.login")}</Link>
+          {/* <Link to="/signin" className="login">{t("header.login")}</Link> */}
+          <UserDropDown />
 
           <button className="toggle_menu" onClick={handleToggleMenu}>
             <i className="fa-regular fa-bars"></i>
