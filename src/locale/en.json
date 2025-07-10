@@ -238,6 +238,27 @@
     "aboutRequired": "Event details are required",
     "submit": "Add Event Now"
   },
+  "statistics": {
+  "titleDark": "Explore",
+  "titleMain": "Saudi Arabia in Numbers",
+  "largeNumber": "+383",
+  "largeText": "tourist attractions waiting for you!",
+  "small1Number": "20",
+  "small1Text": "destinations you can visit!",
+  "small2Number": "+8",
+  "small2Text": "UNESCO World Heritage Sites",
+  "storiesNumber": "+172",
+  "storiesText": "stories to inspire you!",
+  "imageAlt": "Explore",
+  "stories": [
+    "The Saudi Red Sea",
+    "High-Speed Railways",
+    "Saudi Currency and Payment Methods",
+    "Saudi Culture and Traditions",
+    "Pilgrimage and Umrah Guide"
+  ]
+}
+,
   "footer": {
     "email": "Enter your email address",
     "subscribe": "Subscribe",

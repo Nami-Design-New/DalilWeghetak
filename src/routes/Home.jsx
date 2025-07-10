@@ -15,7 +15,7 @@ export default function Home() {
     <Activities/>
     <JeddahEvents />
     <Seasons/>
-   <Statistics />
+   <Statistics/>
     <Holidays/>
     </>
   );
