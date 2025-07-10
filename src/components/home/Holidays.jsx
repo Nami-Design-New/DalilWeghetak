@@ -30,6 +30,7 @@ const holidays = [
 
 export default function Holidays() {
     const { t } = useTranslation();
+const lang = localStorage.getItem("lang") || "ar";
 
   return (
     <section className="holidays-section">
@@ -48,6 +49,8 @@ export default function Holidays() {
           spaceBetween={20}
           slidesPerView={2}
           loop={true}
+           dir={lang === "ar" ? "rtl" : "ltr"} 
+            key={lang} 
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },

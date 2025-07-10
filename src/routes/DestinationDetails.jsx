@@ -130,6 +130,7 @@ const experiences = [
 
 export default function DestinationDetails() {
   const { name } = useParams();
+const lang = localStorage.getItem("lang") || "ar";
 
   const city = cities.find((c) => c.name === name);
   const cityActivities = activities.filter((a) => a.city === name);
@@ -175,6 +176,8 @@ export default function DestinationDetails() {
       spaceBetween={15}
       slidesPerView={4}
       loop={true}
+      dir={lang === "ar" ? "rtl" : "ltr"} 
+      key={lang} 
       breakpoints={{
         0: { slidesPerView: 1 },
         576: { slidesPerView: 2 },

@@ -28,13 +28,14 @@ export default function FaqPage() {
 
   return (
     <div className="faq-page mt-80">
-      <div className="container row">
+      <div className="container">
+        <div className="row">
         <div className="col-md-5 info">
           <h2 className="section-title">الأسئلة الشائعة</h2>
           <p className="section-subtitle">
             كل ما تحتاج معرفته عن الحجز، الفعاليات، والتذاكر.
           </p>
-          <img src="/icons/faqs.png" alt="FAQ" className="img-fluid d-none d-md-block" />
+          <img src="/images/faq.jpg" alt="FAQ" className="d-none d-md-block" />
         </div>
 
         <div className="col-md-7 faq-list">
@@ -53,6 +54,7 @@ export default function FaqPage() {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }

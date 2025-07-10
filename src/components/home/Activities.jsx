@@ -60,6 +60,7 @@ const activities = [
 ];
 
 export default function Activities() {
+const lang = localStorage.getItem("lang") || "ar";
     const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("الكل");
 
@@ -96,6 +97,8 @@ export default function Activities() {
           spaceBetween={5}
           slidesPerView={4}
           loop={true}
+          dir={lang === "ar" ? "rtl" : "ltr"} 
+          key={lang} 
           breakpoints={{
             0: { slidesPerView: 1 },
             576: { slidesPerView: 2 },

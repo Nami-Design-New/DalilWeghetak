@@ -37,6 +37,7 @@ const seasons = [
 
 export default function Seasons() {
     const { t } = useTranslation();
+const lang = localStorage.getItem("lang") || "ar";
 
   return (
     <section className="seasons-section">
@@ -55,6 +56,8 @@ export default function Seasons() {
           spaceBetween={10}
           slidesPerView={3}
           loop={true}
+           dir={lang === "ar" ? "rtl" : "ltr"} 
+            key={lang} 
           breakpoints={{
             0: { slidesPerView: 1 },
             576: { slidesPerView: 2 },

@@ -2181,8 +2181,11 @@ body .faq-page .info .section-subtitle {
   margin-bottom: 20px;
 }
 body .faq-page .info img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 body .faq-page .faq-list .faq-card {
   background-color: #f9f9f9;
@@ -2754,8 +2757,8 @@ body.en .form_ui .input-field .pass-group .show-pass {
   border-left: 0 !important;
   border-right: 1px solid #f4f4f4 !important;
 }
-body.en .swiper {
-  direction: ltr;
+body.en .footer h5::after {
+  left: 0;
 }
 
 .mt-80 {

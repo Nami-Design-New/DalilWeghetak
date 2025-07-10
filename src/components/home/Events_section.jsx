@@ -51,6 +51,7 @@ const events = [
 
 const JeddahEvents = () => {
     const { t } = useTranslation();
+const lang = localStorage.getItem("lang") || "ar";
 
   return (
     <section className="jeddah-events">
@@ -71,6 +72,8 @@ const JeddahEvents = () => {
             slidesPerView={3}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
+            dir={lang === "ar" ? "rtl" : "ltr"} 
+            key={lang} 
             breakpoints={{
               0: { slidesPerView: 1 },
               768: { slidesPerView: 2 },

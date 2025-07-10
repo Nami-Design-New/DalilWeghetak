@@ -42,9 +42,10 @@ body {
         border-right: 1px solid $input_stroke !important;
       }
     }
-    .swiper {
-  direction: ltr;}
-  }
+  .footer h5 {
+    &::after {
+      left: 0;
+  }}}
 }
 .mt-80{
   margin-top: 80px;
