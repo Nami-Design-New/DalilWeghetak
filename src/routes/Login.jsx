@@ -1,14 +1,27 @@
+
 import { useState } from "react";
-import { Link } from "react-router";
+import { useNavigate } from "react-router"; 
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
 import { useTranslation } from "react-i18next";
+import useLogin from "../hooks/auth/useLogin";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { register, handleSubmit, errors, isLoading } = useLogin(t);
+
+
+  const handleAccountTypeSelect = (type) => {
+    if (type === "user") {
+      navigate("/user-signup",  { state: { type } });
+    } else if (type === "service_provider") {
+      navigate("/provider-signup", { state: { type } });
+    }
+  };
 
   return (
     <>
@@ -16,15 +29,17 @@ export default function Login() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 p-3">
-              <form className="form_ui">
+              <form className="form_ui" onSubmit={handleSubmit}>
                 <h3 className="section_title">{t("login.title")}</h3>
                 <p className="section_description">{t("login.description")}</p>
 
                 <div className="form_group">
                   <InputField
                     label={t("login.phoneLabel")}
-                    type="Phone"
+                    type="phone"
                     placeholder={t("login.phonePlaceholder")}
+                    {...register("phone")}
+                    error={errors.phone?.message}
                   />
                 </div>
 
@@ -32,21 +47,24 @@ export default function Login() {
                   <PasswordField
                     label={t("login.passwordLabel")}
                     placeholder={t("login.passwordPlaceholder")}
+                    {...register("password")}
+                    error={errors.password?.message}
                   />
                 </div>
 
-                <Link to="/reset-password" className="link">
+                <span className="link" onClick={() => navigate("/reset-password")}>
                   {t("login.forgotPassword")}
-                </Link>
+                </span>
 
-                <SubmitButton text={t("login.submit")} className="mt-3" />
+                <SubmitButton
+                  text={t("login.submit")}
+                  loading={isLoading}
+                  className="mt-3"
+                />
 
                 <p className="note">
                   {t("login.noAccount")}{" "}
-                  <span
-                    onClick={() => setShowModal(true)}
-                    className="link"
-                  >
+                  <span onClick={() => setShowModal(true)} className="link">
                     {t("login.createAccount")}
                   </span>
                 </p>
@@ -62,7 +80,11 @@ export default function Login() {
         </div>
       </section>
 
-      <AccountTypeModal show={showModal} handleClose={() => setShowModal(false)} />
+      <AccountTypeModal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        onSelect={handleAccountTypeSelect}
+      />
     </>
   );
 }

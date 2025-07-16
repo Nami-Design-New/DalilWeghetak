@@ -1,6 +1,9 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const EventCard = ({ event }) => {
+    const { t } = useTranslation();
+  
   return (
       <Link to={`/event/${event.id}`} className="activity-card-link">
   <div className="event-card">
@@ -37,7 +40,7 @@ const EventCard = ({ event }) => {
   </div>
 
   <div className="price-fav d-flex align-items-center gap-3">
-    <div className="price">من {event.price} ريال</div>
+    <div className="price">{t("Events.from")}  <span>{event.price}</span>  {t("Events.ryal")}</div>
   </div>
 </div>
 

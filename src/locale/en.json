@@ -1,67 +1,114 @@
 {
-    "errorPage": {
-        "pageNotFoundTitle": "Page Not Found",
-        "pageNotFoundMessage": "We couldn't find the page you're looking for. The page might have been moved, deleted, or never existed.",
-        "errorTitle": "Error",
-        "applicationErrorTitle": "Application Error",
-        "applicationErrorMessage": "An unexpected error occurred. Please try again later.",
-        "unexpectedErrorTitle": "Unexpected Error",
-        "unexpectedErrorMessage": "An unexpected error occurred. Please try again later.",
-        "oops": "Oops!",
-        "returnToHome": "Return To Home"
-    },
-    "header": {
-        "home": "Home",
-        "about": "About Us",
-        "login":"login",
-        "map":"Interactive map",
-        "Destinations":"Destinations",
-       "contact":"Contact Us"
-    },
-  "heroSection": {
-    "slides": [
-      {
-        "title": "Color Your Summer",
-        "description": "Discover vibrant experiences and unforgettable moments in Saudi Arabia this season.",
-        "image": "/assets/images/slide1.jpg"
-      },
-      {
-        "title": "Red Sea in Saudi Arabia",
-        "description": "Enjoy the beauty of the Red Sea, its stunning beaches and diving adventures.",
-        "image": "/assets/images/redsea.jpg"
-      },
-      {
-        "title": "Esports World Cup 2025",
-        "description": "Get ready for a world-class event in the heart of Saudi Arabia.",
-        "image": "/assets/images/esports.jpg"
-      }
-    ]
+  "errorPage": {
+    "pageNotFoundTitle": "Page Not Found",
+    "pageNotFoundMessage": "We couldn't find the page you're looking for. The page might have been moved, deleted, or never existed.",
+    "errorTitle": "Error",
+    "applicationErrorTitle": "Application Error",
+    "applicationErrorMessage": "An unexpected error occurred. Please try again later.",
+    "unexpectedErrorTitle": "Unexpected Error",
+    "unexpectedErrorMessage": "An unexpected error occurred. Please try again later.",
+    "oops": "Oops!",
+    "returnToHome": "Return To Home"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About Us",
+    "login": "login",
+    "map": "Interactive map",
+    "Destinations": "Destinations",
+    "contact": "Contact Us"
+  },
+  "auth": {
+    "loginSuccess": "Login successful",
+    "registerSuccess": "Registration successful",
+    "logout_success": "Logout successful",
+    "loginFailed": "Login failed, please check your credentials",
+    "registerTitle": "Create Your My CN Account",
+    "registerSubtitle": "Sign up to start managing your shipments, tracking packages, and accessing exclusive shipping solutions tailored to your needs",
+    "whatsapp": "WhatsApp Number",
+    "enterWhatsapp": "Enter your WhatsApp number",
+    "country": "Country",
+    "confirmPassword": "Confirm Password",
+    "acceptTerms": "I accept the",
+    "termsAndConditions": "Terms and Conditions",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "selectCountry": "Select your country",
+    "enterPhoneNumber": "Enter your phone number",
+    "somethingWentWrong": "Something went wrong, please try again later",
+    "resetPasswordTitle": "Reset Password",
+    "resetPasswordSubtitle": "Enter your phone to reset your password",
+    "phone": "Phone Number",
+    "send": "Send",
+    "confirm": "Confirm",
+    "resetPasswordTitle2": "enter verification code",
+    "resetPasswordSubtitle2": "Enter the verification code sent to your phone {{phone}} to reset your password",
+    "resetPasswordTitle3": "Change Password",
+    "resetPasswordSubtitle3": "Enter your new password and confirm password to change your password",
+    "newPassword": "New Password",
+    "resetLinkSent": "A password reset code has been sent to your phone  {{phone}}. Please check your inbox.",
+    "codeVerified": "Your code has been verified successfully",
+    "passwordChangedSuccess": "Your password has been updated successfully",
+    "registerTitle2": "Verify Your Email",
+    "registerSubtitle2": "Please verify your phone to receive a verification code",
+    "codeSent": "A verification code has been sent to your phone {{phone}}. Please check your inbox.",
+    "emailSubscribed": "Your phone has been subscribed successfully",
+    "wrongCode": "The verification code is incorrect",
+    "emailNotFound": "Email address not found",
+    "didnotReceiveCode": "Didn't receive the code?",
+    "resendCode": "Resend Code",
+    "acceptTermsWarning": "Please accept the terms and conditions to sign up"
+  },
+  "validation": {
+    "required": "This field is required",
+    "phone": "Please enter a valid PhoneNumber",
+    "passwordComplexity": "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+    "min": "Must be at least {{min}} characters",
+    "max": "Must be no more than {{max}} characters",
+    "passwordMatch": "Passwords do not match",
+    "terms": "You must agree to the terms and conditions",
+    "alphaNumericOnly": "Only letters and numbers are allowed",
+    "numbersOnly": "Only numeric values are allowed"
+  },
+  "dropdown": {
+    "notifications": "Notifications",
+    "myBookings": "My Bookings",
+    "myEvents": "My Events",
+    "wallet": "My Wallet",
+    "signOut": "Sign Out"
   },
   "destinations": {
     "popular": "Top Destinations",
     "title": " in Saudi Arabia",
     "subtitle": "We offer you a variety of travel experiences that suit all tastes, from adventure to relaxation."
   },
-  "jeddahEvents": {
+  "Events": {
     "label": "Jeddah Events",
     "title": "Events",
     "description": "Enjoy an unforgettable experience with the most famous parties, festivals, and entertainment events in Jeddah.",
-    "button": "All Events"
+    "button": "All Events",
+    "from": "from",
+    "ryal": "SAR"
   },
   "activities": {
     "titleDark": "Activities ",
     "titleMain": "to Do",
-    "categories": ["All", "Natural Sites", "Heritage Sites", "Entertainment Places"]
+    "categories": [
+      "All",
+      "Natural Sites",
+      "Heritage Sites",
+      "Entertainment Places"
+    ]
   },
   "holidays": {
     "titleDark": "Occasions of",
     "titleMain": "Holidays and Vacations",
-     "subtitle": "Explore the main official holidays and celebrations in the Kingdom"
+    "subtitle": "Explore the main official holidays and celebrations in the Kingdom"
   },
-   "seasons": {
+  "seasons": {
     "titleDark": "Seasons of",
     "titleMain": "Saudi Arabia",
-    "subtitle": "Enjoy the charm of Saudi seasons and live a unique experience"
+    "subtitle": "Enjoy the charm of Saudi seasons and live a unique experience",
+    "title": "Events Related"
   },
   "about": {
     "subtitle": "Your journey starts here",
@@ -87,7 +134,7 @@
     "noAccount": "Don't have an account?",
     "createAccount": "Create a new account"
   },
-"providerRegister": {
+  "providerRegister": {
     "title": "Create your account on Daleel Wajhatak",
     "description": "Register now to explore destinations, track your trips, and access personalized experiences.",
     "name": "Name",
@@ -113,7 +160,7 @@
     "haveAccount": "Already have an account?",
     "login": "Login"
   },
-   "userRegister": {
+  "userRegister": {
     "title": "Create a New Account",
     "description": "Sign up now to access the best experiences and exclusive tourism offers.",
     "name": "Name",
@@ -135,7 +182,7 @@
     "haveAccount": "Already have an account?",
     "login": "Login"
   },
-   "accountType": {
+  "accountType": {
     "title": "Choose Account Type",
     "userTitle": "User",
     "userDesc": "The person who uses the app to purchase tickets or benefit from the available services.",
@@ -144,7 +191,7 @@
     "providerDesc": "The entity responsible for delivering the services provided within the app.",
     "providerAlt": "Provider"
   },
-   "resetPassword": {
+  "resetPassword": {
     "title": "Reset Password",
     "description": "Enter your email and we'll send you a verification code.",
     "emailLabel": "Email",
@@ -152,7 +199,7 @@
     "send": "Send",
     "back": "Back"
   },
-    "verifyCode": {
+  "verifyCode": {
     "title": "Verify Code",
     "description": "Enter the 6-digit code sent to your email:",
     "noCode": "Didn't receive the code?",
@@ -160,7 +207,7 @@
     "confirm": "Confirm",
     "back": "Back"
   },
-    "resetPassword2": {
+  "resetPassword2": {
     "title": "Reset Password",
     "description": "Create a new password for your account.",
     "newPassword": "New Password",
@@ -170,43 +217,43 @@
     "confirm": "Confirm",
     "back": "Back"
   },
-"contact": {
-  "formTitle": "Get in Touch with Our Experts",
-  "formDescription": "Have a question or need assistance? Our expert team is always ready to provide you with the right solutions.",
-  "name": "Full Name",
-  "namePlaceholder": "Enter your name",
-  "email": "Email",
-  "emailPlaceholder": "Enter your email address",
-  "subject": "Subject",
-  "subjectPlaceholder": "Enter your subject",
-  "message": "Your Message",
-  "messagePlaceholder": "Write your message here",
-  "sendMessage": "Send Message",
-  "imageAlt": "Contact illustration",
-   "info": {
-    "location": {
-      "title": "Our Location",
-      "description": "Find us in Saudi Arabia.",
-      "linkText": "View location on map"
-    },
-    "phone": {
-      "title": "Call Us",
-      "description": "Reach out to us directly via phone for any inquiries.",
-      "linkText": "+20-100-123-4567"
-    },
-    "email": {
-      "title": "Technical Support",
-      "description": "For any questions or support regarding our services, email us.",
-      "linkText": "support@yourcompany.com"
-    },
-    "social": {
-      "title": "Follow us on Social Media",
-      "description": "Stay connected with us through our official accounts.",
-      "followUs": "Follow Us"
+  "contact": {
+    "formTitle": "Get in Touch with Our Experts",
+    "formDescription": "Have a question or need assistance? Our expert team is always ready to provide you with the right solutions.",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "subject": "Subject",
+    "subjectPlaceholder": "Enter your subject",
+    "message": "Your Message",
+    "messagePlaceholder": "Write your message here",
+    "sendMessage": "Send Message",
+    "imageAlt": "Contact illustration",
+    "info": {
+      "location": {
+        "title": "Our Location",
+        "description": "Find us in Saudi Arabia.",
+        "linkText": "View location on map"
+      },
+      "phone": {
+        "title": "Call Us",
+        "description": "Reach out to us directly via phone for any inquiries.",
+        "linkText": "+20-100-123-4567"
+      },
+      "email": {
+        "title": "Technical Support",
+        "description": "For any questions or support regarding our services, email us.",
+        "linkText": "support@yourcompany.com"
+      },
+      "social": {
+        "title": "Follow us on Social Media",
+        "description": "Stay connected with us through our official accounts.",
+        "followUs": "Follow Us"
+      }
     }
-  }
-},
- "addEvent": {
+  },
+  "addEvent": {
     "title": "Add a New Event",
     "description": "Fill in the event details to publish it in the destination guide.",
     "upload": "Upload event image",
@@ -239,26 +286,34 @@
     "submit": "Add Event Now"
   },
   "statistics": {
-  "titleDark": "Explore ",
-  "titleMain": "Saudi Arabia in Numbers",
-  "largeNumber": "+383",
-  "largeText": "tourist attractions waiting for you!",
-  "small1Number": "20",
-  "small1Text": "destinations you can visit!",
-  "small2Number": "+8",
-  "small2Text": "UNESCO World Heritage Sites",
-  "storiesNumber": "+172",
-  "storiesText": "stories to inspire you!",
-  "imageAlt": "Explore",
-  "stories": [
-    "The Saudi Red Sea",
-    "High-Speed Railways",
-    "Saudi Currency and Payment Methods",
-    "Saudi Culture and Traditions",
-    "Pilgrimage and Umrah Guide"
-  ]
-}
-,
+    "titleDark": "Explore ",
+    "titleMain": "Saudi Arabia in Numbers",
+    "largeNumber": "+383",
+    "largeText": "tourist attractions waiting for you!",
+    "small1Number": "20",
+    "small1Text": "destinations you can visit!",
+    "small2Number": "+8",
+    "small2Text": "UNESCO World Heritage Sites",
+    "storiesNumber": "+172",
+    "storiesText": "stories to inspire you!",
+    "imageAlt": "Explore",
+    "stories": [
+      "The Saudi Red Sea",
+      "High-Speed Railways",
+      "Saudi Currency and Payment Methods",
+      "Saudi Culture and Traditions",
+      "Pilgrimage and Umrah Guide"
+    ]
+  },
+  "bookingModal": {
+    "title": "Book Ticket",
+    "peopleLabel": "Number of People",
+    "ticketPriceLabel": "Ticket Price",
+    "currency": "SAR",
+    "totalLabel": "Total",
+    "cancel": "Cancel",
+    "confirm": "Confirm Booking"
+  },
   "footer": {
     "email": "Enter your email address",
     "subscribe": "Subscribe",
@@ -278,8 +333,4 @@
     "copyright": "All rights reserved to",
     "dalilweghetak": "Al3asal Travel & Tourism"
   }
-
-
-
-      
 }

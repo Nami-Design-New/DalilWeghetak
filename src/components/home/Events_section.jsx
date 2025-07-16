@@ -4,64 +4,35 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useTranslation } from "react-i18next";
 import "swiper/css";
-import EventCard from "../../ui/cards/EventCard";
 
-const events = [
-  {
-    id:"1",
-    name: "متحف مركز طارق عبد الحكيم",
-    image: "/images/ev1.png",
-    price: 500,
-    startDate: "20 يوليو 2024",
-    endDate: "30 يوليو 2024",
-    city: "جدة",
-    type: "مهرجانات",
-  },
-  {
-    id:"2",
-    name: "اكتشف عراقه المملكه وحاضرها المزدهر",
-    image: "/images/ev2.jpg",
-    price: 300,
-    startDate: "5 أغسطس 2024",
-    endDate: "10 أغسطس 2024",
-    city: "جدة",
-    type: "حفلات",
-  },
-  {
-    id:"3",
-    name: "موسم جدة",
-    image: "/images/ev1.png",
-    price: 250,
-    startDate: "15 سبتمبر 2024",
-    endDate: "25 سبتمبر 2024",
-    city: "جدة",
-    type: "فعاليات",
-  },
-  {
-    id:"4",
-    name: "حفلات الصيف",
-    image: "/images/ev2.jpg",
-    price: 450,
-    startDate: "10 يوليو 2024",
-    endDate: "20 يوليو 2024",
-    city: "جدة",
-    type: "حفلات",
-  },
-];
+import EventCard from "../../ui/cards/EventCard";
+import useGetEvents from "../../hooks/home/useGetEvents";
+import useGetCities from "../../hooks/home/useCities";
 
 const JeddahEvents = () => {
-    const { t } = useTranslation();
-const lang = localStorage.getItem("lang") || "ar";
+  const { t } = useTranslation();
+  const lang = localStorage.getItem("lang") || "ar";
+
+  const {
+    data: events = [],
+    isLoading: isEventsLoading,
+    error: eventsError,
+  } = useGetEvents();
+
+  const {
+    data: cities = [],
+    isLoading: isCitiesLoading,
+    error: citiesError,
+  } = useGetCities();
 
   return (
-    <section className="jeddah-events">
+    <section className="events">
       <div className="container">
         <div className="events-text col-md-4 mb-3 mb-md-0">
-          <span className="subtext">{t("jeddahEvents.label")}</span>
-          <h2 className="title">{t("jeddahEvents.title")}</h2>
-          <p className="description">{t("jeddahEvents.description")}</p>
+          <h2 className="title">{t("Events.title")}</h2>
+          <p className="description">{t("Events.description")}</p>
           <Link to="/events" className="btn explore-btn">
-            {t("jeddahEvents.button")} <i className="fal fa-arrow-right"></i>
+            {t("Events.button")} <i className="fal fa-arrow-right"></i>
           </Link>
         </div>
 
@@ -72,19 +43,35 @@ const lang = localStorage.getItem("lang") || "ar";
             slidesPerView={3}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
-            dir={lang === "ar" ? "rtl" : "ltr"} 
-            key={lang} 
+            dir={lang === "ar" ? "rtl" : "ltr"}
+            key={lang}
             breakpoints={{
               0: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               992: { slidesPerView: 3 },
             }}
           >
-            {events.map((event, idx) => (
-              <SwiperSlide key={idx}>
-                <EventCard event={event} />
-              </SwiperSlide>
-            ))}
+            {events.map((event) => {
+              const city = cities.find((c) => c.id === event.city_id);
+              const cityName = city ? city.name : "";
+
+              return (
+                <SwiperSlide key={event.id}>
+                  <EventCard
+                    event={{
+                      id: event.id,
+                      name: event.title,
+                      image: event.image,
+                      price: event.price,
+                      startDate: event.from_date,
+                      endDate: event.to_date,
+                      city: cityName,
+                      type: event.type,
+                    }}
+                  />
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

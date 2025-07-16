@@ -4,33 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-const holidays = [
-  {
-    id: 1,
-    name: "اليوم الوطني",
-    date: "23 سبتمبر 2025",
-    description: "احتفال باليوم الوطني للمملكة",
-    image: "/images/h1.png",
-  },
-  {
-    id: 2,
-    name: "عيد الفطر",
-    date: "10 أبريل 2025",
-    description: "احتفال بانتهاء شهر رمضان",
-    image: "/images/h2.png",
-  },
-  {
-    id: 3,
-    name: "عيد الأضحى",
-    date: "15 يونيو 2025",
-    description: "احتفال بعيد الأضحى المبارك",
-    image: "/images/h1.png",
-  },
-];
+import useGetHolidays from "../../hooks/home/useGetHolidays";
 
 export default function Holidays() {
-    const { t } = useTranslation();
-const lang = localStorage.getItem("lang") || "ar";
+  const { t } = useTranslation();
+  const lang = localStorage.getItem("lang") || "ar";
+
+  const { data: holidays = [] } = useGetHolidays(); 
 
   return (
     <section className="holidays-section">
@@ -49,8 +29,8 @@ const lang = localStorage.getItem("lang") || "ar";
           spaceBetween={20}
           slidesPerView={2}
           loop={true}
-           dir={lang === "ar" ? "rtl" : "ltr"} 
-            key={lang} 
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          key={lang}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -60,11 +40,17 @@ const lang = localStorage.getItem("lang") || "ar";
             <SwiperSlide key={holiday.id}>
               <div className="holiday-card">
                 <div className="holiday-image-wrapper">
-                  <img src={holiday.image} alt={holiday.name} className="holiday-img" />
+                  <img
+                    src={holiday.image}
+                    alt={holiday.name}
+                    className="holiday-img"
+                  />
                 </div>
                 <div className="holiday-info">
-                  <h4 className="holiday-name">{holiday.name}</h4>
-                  <p className="holiday-date">{holiday.date}</p>
+                  <h4 className="holiday-name">{holiday.title}</h4>
+                  <p className="holiday-date">
+                    {holiday.from_date} : {holiday.to_date}
+                  </p>
                   <p className="holiday-desc">{holiday.description}</p>
                 </div>
               </div>

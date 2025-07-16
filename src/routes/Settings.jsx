@@ -27,7 +27,6 @@ export default function Settings() {
     { title: "المحفظة", icon: "fa-regular fa-wallet", link: "/wallet" },
     { title: "تغيير كلمة المرور", icon: "fa-regular fa-lock", link: "/change-password" },
     { title: "تواصل معنا", icon: "fa-regular fa-message", link: "/contact" },
-    // { title: "من نحن", icon: "fa-regular fa-circle-info", link: "/about" },
     { title: "سياسة الشروط و الأحكام", icon: "fa-regular fa-file-lines", link: "/terms" },
   ];
 

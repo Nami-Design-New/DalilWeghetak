@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { CookiesProvider } from "react-cookie";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
@@ -24,9 +25,11 @@ import "./assets/styles/all.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>
-    <ReactQueryDevtools initialIsOpen={false} />
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <CookiesProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </CookiesProvider>
   </QueryClientProvider>
 );

@@ -3,13 +3,15 @@ import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router";
 import i18next from "i18next";
 import UserDropDown from "./UserDropDown";
+import { useCookies } from "react-cookie";
 
 export default function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
-
   const [lang, setLang] = useState(localStorage.getItem("lang") || "ar");
+  const [cookies] = useCookies(["token"]);
+  const isAuthed = Boolean(cookies.token); 
 
   const handleLanguageChange = () => {
     const newLang = lang === "ar" ? "en" : "ar";
@@ -72,6 +74,7 @@ export default function Header() {
     <header className="header">
       <nav className="container">
         <div className={`layer ${openMenu ? "open" : ""}`}></div>
+
         <Link to="/" className="logo">
           <img src="/images/logo.svg" alt="logo" />
         </Link>
@@ -86,7 +89,7 @@ export default function Header() {
           <NavLink to="/about" onClick={handleNavLinkClick}>
             {t("header.about")}
           </NavLink>
-          <NavLink to="map" onClick={handleNavLinkClick}>
+          <NavLink to="/map" onClick={handleNavLinkClick}>
             {t("header.map")}
           </NavLink>
           <NavLink to="/contact" onClick={handleNavLinkClick}>
@@ -100,8 +103,13 @@ export default function Header() {
             {lang === "ar" ? "EN" : "AR"}
           </button>
 
-          {/* <Link to="/signin" className="login">{t("header.login")}</Link> */}
-          <UserDropDown />
+          {isAuthed ? (
+            <UserDropDown />
+          ) : (
+            <Link to="/signin" className="login">
+              {t("header.login")}
+            </Link>
+          )}
 
           <button className="toggle_menu" onClick={handleToggleMenu}>
             <i className="fa-regular fa-bars"></i>

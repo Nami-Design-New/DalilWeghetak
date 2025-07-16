@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const OtpContainer = ({ setCode }) => {
-  const [otpValue, setOtpValue] = useState(Array(5).fill(""));
+  const [otpValue, setOtpValue] = useState(Array(6).fill(""));
 
   useEffect(() => {
     const firstInput = document.getElementById("input0");
@@ -19,7 +19,7 @@ const OtpContainer = ({ setCode }) => {
     setOtpValue(newOtpValue);
     setCode(newOtpValue.join(""));
 
-    if (value && index < 4) {
+    if (value && index < 5) {
       document.getElementById(`input${index + 1}`)?.focus();
     }
   };
@@ -33,7 +33,7 @@ const OtpContainer = ({ setCode }) => {
   const handlePaste = (event) => {
     const data = event.clipboardData.getData("Text");
     const numbers = data.replace(/\D/g, "");
-    if (numbers.length <= 5) {
+    if (numbers.length <= 6) {
       setOtpValue(numbers.split(""));
       setCode(numbers);
     }
@@ -42,7 +42,7 @@ const OtpContainer = ({ setCode }) => {
 
   return (
     <div className="otp-container" onPaste={handlePaste}>
-      {Array.from({ length: 5 }).map((_, index) => (
+      {Array.from({ length: 6 }).map((_, index) => (
         <input
           key={index}
           id={`input${index}`}

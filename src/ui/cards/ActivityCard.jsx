@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
+// import { useTranslation } from "react-i18next";
 
 export default function ActivityCard({ activity }) {
+    // const { t } = useTranslation();
+  
   return (
     <Link to={`/activity/${activity.id}`} className="activity-card-link">
       <div className="activity-card">

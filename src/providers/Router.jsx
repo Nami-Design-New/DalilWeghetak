@@ -4,7 +4,6 @@ import Home from "../routes/Home";
 import Error from "../routes/Error";
 import Contact from "../routes/Contact";
 import Login from "../routes/Login";
-import Register from "../routes/ProviderRegister";
 import About from "../routes/About";
 import ActivityDetails from "../routes/ActivityDetails";
 import Terms from "../routes/Terms";
@@ -23,6 +22,7 @@ import EventDetails from "../routes/EventDetails";
 import MyBooking from "../routes/MyBooking";
 import FaqPage from "../routes/Faqs";
 import InteractiveMap from "../routes/InteractiveMap";
+import SessionDetails from "../routes/SessionDetails";
 
 export const router = createBrowserRouter([
   {
@@ -70,7 +70,10 @@ export const router = createBrowserRouter([
         path: "event/:id",
         element: <EventDetails />,
       },
-
+ {
+        path: "session/:id",
+        element: <SessionDetails />,
+      },
       {
         path: "destination/:name",
         element: <DestinationDetails />,

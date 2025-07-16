@@ -5,7 +5,7 @@ const slides = [
     type: "video",
     title: "استكشف السعودية",
     description: "سواء كنت تبحث عن وجهات سياحية مبهرة، تجارب ثقافية غنية، أو مغامرات في الهواء الطلق، هنا تجد كل ما تحتاجه لتخطيط رحلتك.",
-  src: "/images/video.mp4",
+  src: "/images/herovideo.mp4",
 
   },
   {

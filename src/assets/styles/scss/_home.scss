@@ -74,7 +74,7 @@
     }
   }
 
- .hero-tabs {
+  .hero-tabs {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -157,14 +157,12 @@
   }
 }
 
-
-
 /////////
 .destinations {
   padding: 3rem 0;
   text-align: center;
   position: relative;
- &::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -175,8 +173,8 @@
     background-size: contain;
     transform: scaleX(-1);
     z-index: 0;
-    opacity: 0.5; 
-    pointer-events: none; 
+    opacity: 0.5;
+    pointer-events: none;
   }
   .section-title {
     font-size: 1.4rem;
@@ -286,74 +284,72 @@
     //   text-decoration: underline;
     // }
   }
- .tabs {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-
-  .tab-button {
+  .tabs {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    padding: 10px 15px;
-    transition: 0.3s ease;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 
-    .tab-icon {
-      font-size: 1.8rem;
-      color: #555;
-      margin-bottom: 6px;
-      transition: 0.3s;
-    }
-
-    .tab-label {
-      font-size: 0.9rem;
-      color: #444;
-      font-weight: 500;
-    }
-
-    .tab-check {
-      position: absolute;
-      top: -10px;
-      color: $main;
-      font-size: 1.6rem;
-    }
-
-    &.active {
-      .tab-label {
-        color: #000;
-        font-weight: bold;
-      }
+    .tab-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      padding: 10px 15px;
+      transition: 0.3s ease;
 
       .tab-icon {
-        color: $main;
+        font-size: 1.8rem;
+        color: #555;
+        margin-bottom: 6px;
+        transition: 0.3s;
       }
-    }
 
-    &:hover {
       .tab-label {
-        color: #000;
+        font-size: 0.9rem;
+        color: #444;
+        font-weight: 500;
       }
 
-      .tab-icon {
+      .tab-check {
+        position: absolute;
+        top: -10px;
         color: $main;
+        font-size: 1.6rem;
+      }
+
+      &.active {
+        .tab-label {
+          color: #000;
+          font-weight: bold;
+        }
+
+        .tab-icon {
+          color: $main;
+        }
+      }
+
+      &:hover {
+        .tab-label {
+          color: #000;
+        }
+
+        .tab-icon {
+          color: $main;
+        }
       }
     }
   }
 }
-
-
-}
 //////
-.jeddah-events {
+.events {
   background-color: $main;
   position: relative;
-    &::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -363,8 +359,8 @@
     background: url("../images/pattern.png") no-repeat left center;
     background-size: contain;
     z-index: 0;
-    opacity: 0.1; 
-    pointer-events: none; 
+    opacity: 0.1;
+    pointer-events: none;
   }
   .container {
     padding: 80px 0;
@@ -461,57 +457,6 @@
     gap: 0;
     border-radius: 20px;
     overflow: hidden;
-
-    .season-card {
-      position: relative;
-      flex: 1;
-      cursor: pointer;
-      overflow: hidden;
-
-      .season-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: 0.6s ease;
-      }
-
-      &:hover .season-img {
-        transform: scale(1.09);
-      }
-
-      .season-info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 20px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 60%, transparent);
-        width: 100%;
-.season-date {
-  font-size: 0.75rem;
-  color: #ddd;
-  margin-bottom: 6px;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: #ddd;
-    margin-top: 6px;
-  }
-}
-
-        .season-title {
-          font-size: 1rem;
-          font-weight: bold;
-          color: #fff;
-          line-height: 1.4;
-        }
-      }
-    }
   }
 }
 
@@ -520,7 +465,7 @@
   padding: 40px 0;
   background-color: #fff;
   position: relative;
- &::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -530,8 +475,8 @@
     background: url("../images/pattern2.png") no-repeat left center;
     background-size: contain;
     z-index: 0;
-    opacity: 0.5; 
-    pointer-events: none; 
+    opacity: 0.5;
+    pointer-events: none;
   }
   .section-title {
     font-size: 1.4rem;
@@ -578,7 +523,7 @@
       .holiday-name {
         font-size: 1.1rem;
         font-weight: bold;
-        color: $main; 
+        color: $main;
       }
 
       .holiday-date {
@@ -590,6 +535,10 @@
       .holiday-desc {
         font-size: 0.95rem;
         color: black;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
     }
   }
@@ -668,30 +617,28 @@
       font-weight: bold;
     }
   }
-.large-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-direction: row-reverse; 
+  .large-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-direction: row-reverse;
 
-  .card-content {
-    flex: 1;
-  }
+    .card-content {
+      flex: 1;
+    }
 
-  .card-image {
-    flex-shrink: 0;
+    .card-image {
+      flex-shrink: 0;
 
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
     }
   }
-}
-
-
 
   .card-row {
     display: flex;
@@ -736,6 +683,154 @@
           font-weight: bold;
           margin-left: 10px;
           color: #888;
+        }
+      }
+    }
+  }
+}
+////
+.session-details-section {
+  .session-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: #111;
+    overflow: hidden;
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5));
+      padding: 0 20px;
+
+      .banner-title {
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        margin-bottom: 1rem;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      .session-date {
+        font-size: 1.1rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 6px 18px;
+        border-radius: 30px;
+        color: #eee;
+
+        i {
+          margin-left: 6px;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      height: 50vh;
+    }
+  }
+
+  .session-content {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    margin-top: -80px;
+    position: relative;
+    z-index: 1;
+
+    .session-description {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  .session-sub-details {
+    margin: 60px 0;
+
+    .sub-details-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 30px;
+      border-right: 5px solid #4a90e2;
+      padding-right: 10px;
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        .detail-img {
+          width: 120px;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 8px;
+          flex-shrink: 0;
+
+          @media (max-width: 768px) {
+            width: 100%;
+            height: 200px;
+          }
+        }
+
+        .detail-text {
+          .detail-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #222;
+
+            @media (max-width: 768px) {
+              margin-top: 10px;
+            }
+          }
+
+          .detail-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+          }
+        }
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
         }
       }
     }

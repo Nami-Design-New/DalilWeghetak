@@ -454,6 +454,48 @@ button {
   color: #0048AA;
 }
 
+.logo-loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f9f9f9;
+}
+.logo-loader-wrapper .logo-loader {
+  width: 80px;
+  height: 80px;
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+.logo-loader-wrapper .loading-text {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #555;
+  animation: fadeText 2s ease-in-out infinite;
+}
+
+@keyframes pulse-scale {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+@keyframes fadeText {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 body {
   position: relative;
   direction: rtl;
@@ -929,9 +971,9 @@ body .back_btn {
   transition: all 0.3s ease-in-out;
 }
 body .back_btn:hover {
-  border-color: #000;
+  border-color: #626262;
   color: #fff;
-  background: #000;
+  background: #626262;
 }
 body .form_group {
   display: flex;
@@ -1066,6 +1108,43 @@ body .upload_box .upload_placeholder p {
 body .upload_box .upload_placeholder span {
   font-size: 12px;
   color: #aaaaaa;
+}
+body .resend-code {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+body .resend-code .resend_link {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: #0048AA;
+  gap: 6px;
+  color: #333333;
+  cursor: pointer;
+}
+body .resend-code .resend_link span {
+  white-space: nowrap;
+  color: #0048AA;
+  cursor: pointer;
+}
+body .resend-code .resend_link.disabled {
+  pointer-events: none;
+}
+body .resend-code .resend_link.disabled span {
+  color: #0048AA;
+  cursor: default;
+}
+body .resend-code .timer {
+  flex: 1 0;
+  display: flex;
+  justify-content: end !important;
+}
+body .resend-code .timer span {
+  color: #0048AA;
 }
 body .hero-section {
   position: relative;
@@ -1377,11 +1456,11 @@ body .activities-section .tabs .tab-button:hover .tab-label {
 body .activities-section .tabs .tab-button:hover .tab-icon {
   color: #0048AA;
 }
-body .jeddah-events {
+body .events {
   background-color: #0048AA;
   position: relative;
 }
-body .jeddah-events::before {
+body .events::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1394,7 +1473,7 @@ body .jeddah-events::before {
   opacity: 0.1;
   pointer-events: none;
 }
-body .jeddah-events .container {
+body .events .container {
   padding: 80px 0;
   display: flex;
   align-items: center;
@@ -1402,35 +1481,35 @@ body .jeddah-events .container {
   flex-direction: row;
 }
 @media (max-width: 767px) {
-  body .jeddah-events .container {
+  body .events .container {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
 }
-body .jeddah-events .events-text .subtext {
+body .events .events-text .subtext {
   color: #000;
   font-weight: 500;
   font-size: 0.9rem;
 }
 @media (max-width: 992px) {
-  body .jeddah-events .events-text .subtext {
+  body .events .events-text .subtext {
     flex: 0 0 100%;
     max-width: 100%;
     margin-bottom: 30px;
   }
 }
-body .jeddah-events .events-text .title {
+body .events .events-text .title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #fff;
 }
-body .jeddah-events .events-text .description {
+body .events .events-text .description {
   color: #f9f9f9;
   margin: 20px 0;
   line-height: 1.8;
 }
-body .jeddah-events .events-text .explore-btn {
+body .events .events-text .explore-btn {
   background-color: #fff;
   color: #0048AA;
   padding: 10px 25px;
@@ -1438,27 +1517,27 @@ body .jeddah-events .events-text .explore-btn {
   border-radius: 6px;
   transition: 0.3s ease;
 }
-body .jeddah-events .events-text .explore-btn:hover {
+body .events .events-text .explore-btn:hover {
   opacity: 0.85;
 }
-body .jeddah-events .events-slider {
+body .events .events-slider {
   position: relative;
 }
 @media (max-width: 992px) {
-  body .jeddah-events .events-slider {
+  body .events .events-slider {
     flex: 0 0 100%;
     max-width: 100%;
   }
 }
-body .jeddah-events .events-slider .swiper {
+body .events .events-slider .swiper {
   padding: 10px;
 }
-body .jeddah-events .events-slider .swiper-slide {
+body .events .events-slider .swiper-slide {
   display: flex;
   justify-content: center;
 }
 @media (max-width: 992px) {
-  body .jeddah-events .events-slider .swiper-slide {
+  body .events .events-slider .swiper-slide {
     padding: 0 20px;
   }
 }
@@ -1485,52 +1564,6 @@ body .seasons-section .seasons-cards {
   gap: 0;
   border-radius: 20px;
   overflow: hidden;
-}
-body .seasons-section .seasons-cards .season-card {
-  position: relative;
-  flex: 1;
-  cursor: pointer;
-  overflow: hidden;
-}
-body .seasons-section .seasons-cards .season-card .season-img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: 0.6s ease;
-}
-body .seasons-section .seasons-cards .season-card:hover .season-img {
-  transform: scale(1.09);
-}
-body .seasons-section .seasons-cards .season-card .season-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 60%, transparent);
-  width: 100%;
-}
-body .seasons-section .seasons-cards .season-card .season-info .season-date {
-  font-size: 0.75rem;
-  color: #ddd;
-  margin-bottom: 6px;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-}
-body .seasons-section .seasons-cards .season-card .season-info .season-date::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: #ddd;
-  margin-top: 6px;
-}
-body .seasons-section .seasons-cards .season-card .season-info .season-title {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  line-height: 1.4;
 }
 body .holidays-section {
   padding: 40px 0;
@@ -1604,6 +1637,10 @@ body .holidays-section .holiday-card .holiday-info .holiday-date {
 body .holidays-section .holiday-card .holiday-info .holiday-desc {
   font-size: 0.95rem;
   color: black;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 body .statistics-section {
   padding: 60px 0;
@@ -1731,6 +1768,144 @@ body .statistics-section .stories-card .stories-list li span {
   font-weight: bold;
   margin-left: 10px;
   color: #888;
+}
+body .session-details-section .session-banner {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background-color: #111;
+  overflow: hidden;
+}
+body .session-details-section .session-banner .banner-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.5);
+}
+body .session-details-section .session-banner .banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5));
+  padding: 0 20px;
+}
+body .session-details-section .session-banner .banner-overlay .banner-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-banner .banner-overlay .banner-title {
+    font-size: 2rem;
+  }
+}
+body .session-details-section .session-banner .banner-overlay .session-date {
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 18px;
+  border-radius: 30px;
+  color: #eee;
+}
+body .session-details-section .session-banner .banner-overlay .session-date i {
+  margin-left: 6px;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-banner {
+    height: 50vh;
+  }
+}
+body .session-details-section .session-content {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  margin-top: -80px;
+  position: relative;
+  z-index: 1;
+}
+body .session-details-section .session-content .session-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-content {
+    padding: 20px;
+  }
+}
+body .session-details-section .session-sub-details {
+  margin: 60px 0;
+}
+body .session-details-section .session-sub-details .sub-details-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 30px;
+  border-right: 5px solid #4a90e2;
+  padding-right: 10px;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-sub-details .sub-details-title {
+    font-size: 1.5rem;
+  }
+}
+body .session-details-section .session-sub-details .details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+body .session-details-section .session-sub-details .details-list .detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+body .session-details-section .session-sub-details .details-list .detail-item .detail-img {
+  width: 120px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-sub-details .details-list .detail-item .detail-img {
+    width: 100%;
+    height: 200px;
+  }
+}
+body .session-details-section .session-sub-details .details-list .detail-item .detail-text .detail-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-sub-details .details-list .detail-item .detail-text .detail-title {
+    margin-top: 10px;
+  }
+}
+body .session-details-section .session-sub-details .details-list .detail-item .detail-text .detail-description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  body .session-details-section .session-sub-details .details-list .detail-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 body .contact_section {
   padding: 60px 0 0 0;
@@ -1946,6 +2121,11 @@ body .auth_section .link {
   margin-top: 10px;
   text-decoration: underline;
   cursor: pointer;
+}
+body .auth_section .reset_btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 body .account-type-options {
   display: flex;
@@ -2637,6 +2817,7 @@ body .event-card {
   transition: 0.4s ease;
   margin-bottom: 10px;
   cursor: pointer;
+  min-height: 100%;
 }
 body .event-card .image-wrapper {
   position: relative;
@@ -2645,10 +2826,10 @@ body .event-card .image-wrapper {
 }
 body .event-card .image-wrapper img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 body .event-card .image-wrapper .dates-vertical {
   position: absolute;
@@ -2729,6 +2910,10 @@ body .event-card .event-details .details-row .price-fav .price {
   font-weight: 600;
   color: #0f172a;
 }
+body .event-card .event-details .details-row .price-fav .price span {
+  font-weight: 700;
+  color: #0048AA;
+}
 body .event-card .event-details .event-name {
   font-size: 1.1rem;
   font-weight: bold;
@@ -2742,6 +2927,12 @@ body .event-card .event-details .event-name {
 }
 body .SwiperSlide {
   padding: 10px;
+}
+body .session-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  float: 1;
 }
 body .activity-card-link {
   text-decoration: none;
@@ -2874,6 +3065,52 @@ body .experience-card .card-content .details-btn {
 }
 body .experience-card .card-content .details-btn:hover {
   opacity: 0.9;
+}
+body .season-card {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  overflow: hidden;
+}
+body .season-card .season-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.6s ease;
+}
+body .season-card:hover .season-img {
+  transform: scale(1.09);
+}
+body .season-card .season-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 60%, transparent);
+  width: 100%;
+}
+body .season-card .season-info .season-date {
+  font-size: 0.75rem;
+  color: #ddd;
+  margin-bottom: 6px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+body .season-card .season-info .season-date::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  margin-top: 6px;
+}
+body .season-card .season-info .season-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.4;
 }
 body .my-booking-page {
   padding: 60px 0;

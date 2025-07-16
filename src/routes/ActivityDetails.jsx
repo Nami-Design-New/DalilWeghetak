@@ -147,6 +147,7 @@ export default function ActivityDetails() {
           </button>
         </div>
       </div>
+      
       <BookTicketModal
         show={showBookingModal}
         handleClose={() => setShowBookingModal(false)}

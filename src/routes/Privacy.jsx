@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Privacy() {
   return (
-    <section className="privacy-policy-page mt-80">
+    <section className="privacy-policy-page py-5">
       <div className="container">
         <h1 className="page-title text-center mb-4">سياسة الخصوصية</h1>
 

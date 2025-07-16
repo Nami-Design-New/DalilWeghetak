@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 import SubmitButton from "../../ui/forms/SubmitButton";
 import OtpContainer from "../../ui/forms/OtpContainer";
-import { useTranslation } from "react-i18next";
+import axiosInstance from "../../utils/axiosInstance";
 
-export default function Step2({ setStep, email }) {
+export default function Step2({ setStep, hashed_code }) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState("");
@@ -19,23 +21,49 @@ export default function Step2({ setStep, email }) {
     }
   }, [timer]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("الكود المدخل:", code);
-    setStep(3);
+    setLoading(true);
+    try {
+      const res = await axiosInstance.post("/user/check_code", {
+        hashed_code: hashed_code,
+        code: code,
+      });
+      if (res.status === 200) {
+        toast.success(t("auth.codeVerified", { hashed_code }));
+        setStep(3);
+      }
+    } catch (error) {
+      toast.error(t("auth.wrongCode"));
+      console.log("error in step 2", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleResend = () => {
-    setResendDisabled(true);
-    setTimer(60);
-    console.log("إعادة إرسال الكود إلى:", email);
+  const handleResend = async () => {
+    try {
+      const res = await axiosInstance.post("/user/check_code", {
+        hashed_code: hashed_code,
+        type: "reset_password ",
+      });
+      if (res.status === 200) {
+        toast.success(t("auth.resetLinkSent", { hashed_code }));
+        setResendDisabled(true);
+        setTimer(60);
+      } else {
+        toast.error(t("auth.emailNotFound"));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
-      <h3 className="section_title">{t("verifyCode.title")}</h3>
+      <h3 className="section_title">{t("auth.resetPasswordTitle2")}</h3>
       <p className="section_description">
-        {t("verifyCode.description")} {email}
+        {t("auth.resetPasswordSubtitle2", { hashed_code})}
       </p>
 
       <form className="form_ui mt-5" onSubmit={handleSubmit}>
@@ -43,28 +71,40 @@ export default function Step2({ setStep, email }) {
           <OtpContainer setCode={setCode} />
         </div>
 
-        <div className="resend-code mb-3">
+        <div className="resend-code">
           <span className={`resend_link ${resendDisabled ? "disabled" : ""}`}>
-            {t("verifyCode.noCode")}{" "}
+            {t("auth.didnotReceiveCode")}
             <span
+              className=""
+              style={{ cursor: "pointer" }}
               onClick={handleResend}
-              style={{ cursor: resendDisabled ? "not-allowed" : "pointer" }}
             >
-              {t("verifyCode.resend")}
+              {t("auth.resendCode")}
             </span>
           </span>
-          <div className="timer text-end mt-2">
-            <span>{String(Math.floor(timer / 60)).padStart(2, "0")}</span>:
-            <span>{String(timer % 60).padStart(2, "0")}</span>
+          <div
+            className="timer flex-row-reverse"
+            style={{ justifyContent: "end !important" }}
+          >
+            <span>
+              {Math.floor(timer / 60)
+                .toString()
+                .padStart(2, "0")}
+            </span>
+            :<span>{(timer % 60).toString().padStart(2, "0")}</span>
           </div>
         </div>
 
-        <div className="reset_btns d-flex justify-content-between align-items-center">
-          <div aria-label={t("verifyCode.back")} className="back_btn" onClick={() => setStep(1)}>
-            <i className="fal fa-arrow-right me-2"></i> {t("verifyCode.back")}
+        <div className="reset_btns">
+          <div
+            aria-label="Back"
+            className="back_btn"
+            onClick={() => setStep(1)}
+          >
+            <i className="fal fa-arrow-right"></i>
           </div>
 
-          <SubmitButton text={t("verifyCode.confirm")} loading={loading} />
+          <SubmitButton text={t("auth.confirm")} loading={loading} />
         </div>
       </form>
     </>
