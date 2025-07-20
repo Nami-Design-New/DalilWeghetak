@@ -1,22 +1,41 @@
 .my-booking-page {
   padding: 60px 0;
 
-  .btn-link {
-    font-size: 1rem;
-    border: none;
-    background: none;
-    padding: 0;
-    text-decoration: none;
-  }
+  .tabs-wrapper {
+    .tab-card {
+      background-color: #f5f5f5;
+      padding: 15px 25px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      font-weight: 500;
+      color: #666;
+      display: flex;
+      gap: 10px;
+      &:hover {
+        background-color: #eee;
+      }
 
-  .active-tab {
-    color: $main;
-    font-weight: bold;
-    border-bottom: 2px solid $main;
-  }
+      &.active {
+        background-color: $main;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
 
-  .inactive-tab {
-    color: #888;
+      i {
+        font-size: 1.4rem;
+        margin-top: 8px;
+      }
+
+      span {
+        margin-top: 5px;
+        font-size: 1rem;
+      }
+    }
   }
 
   .booking-card {
@@ -27,86 +46,85 @@
     display: flex;
     flex-direction: column;
 
-  .image-section {
-  position: relative;
+    .image-section {
+      position: relative;
 
-  img {
-    height: 180px;
-    width: 100%;
-    object-fit: cover;
+      img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
 
-    @media (max-width: 576px) {
-      height: 140px;
-    }
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
-    z-index: 1;
-  }
-
-  .ticket-id {
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    font-size: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.9); 
-    padding: 3px 8px;
-    border-radius: 8px;
-    z-index: 2;
-
-    span {
-      color: $main;
-      font-weight: bold;
-    }
-  }
-
-  .check-icon {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    color: #28a745;
-    font-size: 1.3rem;
-    z-index: 2;
-  }
-
-  .overlay-text {
-    position: absolute;
-    bottom: 8px;
-   margin: 0px 10px;
-    color: #fff;
-    z-index: 2;
-
-    .title {
-      font-size: 1rem;
-      font-weight: bold;
-
-      @media (max-width: 576px) {
-        font-size: 0.9rem;
+        @media (max-width: 576px) {
+          height: 140px;
+        }
       }
-    }
-   .reserve-date {
-      font-size: 0.85rem;
 
-      @media (max-width: 576px) {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .ticket-id {
+        position: absolute;
+        top: 8px;
+        left: 12px;
         font-size: 0.75rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 3px 8px;
+        border-radius: 8px;
+        z-index: 2;
+
+        span {
+          color: $main;
+          font-weight: bold;
+        }
+      }
+
+      .check-icon {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        color: #28a745;
+        font-size: 1.3rem;
+        z-index: 2;
+      }
+
+      .overlay-text {
+        position: absolute;
+        bottom: 8px;
+        margin: 0px 10px;
+        color: #fff;
+        z-index: 2;
+
+        .title {
+          font-size: 1rem;
+          font-weight: bold;
+
+          @media (max-width: 576px) {
+            font-size: 0.9rem;
+          }
+        }
+        .reserve-date {
+          font-size: 0.85rem;
+
+          @media (max-width: 576px) {
+            font-size: 0.75rem;
+          }
+        }
       }
     }
-  }
-}
-
 
     .details-section {
-        display: flex;
-        justify-content: space-between;
-        color: #888;
-        padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      padding: 10px;
       background-color: #fff;
       font-size: 0.9rem;
 
@@ -118,10 +136,37 @@
       div {
         flex: 1;
       }
-      .title{
-    font-weight: bold;
-}
- 
+      .title {
+        font-weight: bold;
+      }
     }
+    
+  }
+}
+.no-bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .no-booking-img {
+    width: 300px;
+    max-width: 100%;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+    color: #888;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .booking-card .image-section img {
+    height: 140px !important;
   }
 }

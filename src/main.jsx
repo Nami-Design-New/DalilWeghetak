@@ -21,6 +21,7 @@ const queryClient = new QueryClient({
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/main.css";
 import "./assets/styles/all.min.css";
+import 'leaflet/dist/leaflet.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

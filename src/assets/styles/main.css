@@ -934,6 +934,23 @@ body .form_ui button.success {
   border-color: #44b50c;
   background-color: #44b50c;
 }
+body .form_ui .form_select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+body .form_ui .form_select select {
+  color: #aaaaaa;
+  background: #fafafa;
+  border: 1px solid #f4f4f4;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  box-shadow: none !important;
+}
 body .otp-container {
   display: flex;
   gap: 8px;
@@ -1141,10 +1158,76 @@ body .resend-code .resend_link.disabled span {
 body .resend-code .timer {
   flex: 1 0;
   display: flex;
-  justify-content: end !important;
+  justify-content: flex-end !important;
 }
 body .resend-code .timer span {
   color: #0048AA;
+}
+body .category_select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body .category_select > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+body .category_select input {
+  display: none;
+}
+body .category_select .category_card {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #f3f6f9;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 130px;
+  transition: all 0.3s;
+}
+body .category_select .category_card img {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s;
+}
+body .category_select .category_card.active {
+  background-color: #0048AA;
+  border-color: #0048AA;
+  color: #fff;
+}
+body .category_select .category_card.active img {
+  filter: brightness(0) invert(1);
+}
+body .skeleton_card {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  min-width: 130px;
+  height: 44px;
+  background-color: #f3f6f9;
+}
+body .skeleton_card .skeleton_icon,
+body .skeleton_card .skeleton_text {
+  background: linear-gradient(90deg, #eee 25%, #ddd 37%, #eee 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+body .skeleton_card .skeleton_icon {
+  width: 20px;
+  height: 20px;
+}
+body .skeleton_card .skeleton_text {
+  width: 50px;
+  height: 12px;
 }
 body .hero-section {
   position: relative;
@@ -2271,6 +2354,44 @@ body .notifications .notification_card {
   flex-direction: column;
   gap: 12px;
 }
+body .notifications .notification_card.skeleton .notification_body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body .notifications .notification_card.skeleton .icon.skeleton-img {
+  min-width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+body .notifications .notification_card.skeleton .content {
+  flex: 1;
+}
+body .notifications .notification_card.skeleton .content .skeleton-text {
+  background: #e0e0e0;
+  height: 16px;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 50%;
+}
+body .notifications .notification_card.skeleton .content .skeleton-text.skeleton-title {
+  width: 70%;
+  height: 20px;
+}
+body .notifications .notification_card.skeleton .date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+body .notifications .notification_card.skeleton .date .skeleton-text {
+  width: 60px;
+  height: 14px;
+  border-radius: 4px;
+  background: #e0e0e0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
 body .notifications .notification_card .notification_body {
   display: flex;
   align-items: center;
@@ -3115,20 +3236,36 @@ body .season-card .season-info .season-title {
 body .my-booking-page {
   padding: 60px 0;
 }
-body .my-booking-page .btn-link {
-  font-size: 1rem;
-  border: none;
-  background: none;
-  padding: 0;
-  text-decoration: none;
+body .my-booking-page .tabs-wrapper .tab-card {
+  background-color: #f5f5f5;
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  color: #666;
+  display: flex;
+  gap: 10px;
 }
-body .my-booking-page .active-tab {
-  color: #0048AA;
+body .my-booking-page .tabs-wrapper .tab-card:hover {
+  background-color: #eee;
+}
+body .my-booking-page .tabs-wrapper .tab-card.active {
+  background-color: #0048AA;
+  color: white;
   font-weight: bold;
-  border-bottom: 2px solid #0048AA;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-body .my-booking-page .inactive-tab {
-  color: #888;
+body .my-booking-page .tabs-wrapper .tab-card i {
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+body .my-booking-page .tabs-wrapper .tab-card span {
+  margin-top: 5px;
+  font-size: 1rem;
 }
 body .my-booking-page .booking-card {
   background: #fff;
@@ -3227,6 +3364,29 @@ body .my-booking-page .booking-card .details-section div {
 }
 body .my-booking-page .booking-card .details-section .title {
   font-weight: bold;
+}
+body .no-bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .no-bookings .no-booking-img {
+  width: 300px;
+  max-width: 100%;
+}
+body .no-bookings h5 {
+  font-size: 1.1rem;
+  color: #888;
+}
+@media (max-width: 768px) {
+  body .details-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  body .booking-card .image-section img {
+    height: 140px !important;
+  }
 }
 body main {
   min-height: calc(100dvh - 300px);

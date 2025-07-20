@@ -10,6 +10,53 @@
     flex-direction: column;
     gap: 12px;
 
+    &.skeleton {
+      .notification_body {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .icon.skeleton-img {
+        min-width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      .content {
+        flex: 1;
+
+        .skeleton-text {
+          background: #e0e0e0;
+          height: 16px;
+          border-radius: 4px;
+          animation: pulse 1.5s ease-in-out infinite;
+          width: 50%;
+
+          &.skeleton-title {
+            width: 70%;
+            height: 20px;
+          }
+        }
+      }
+
+      .date {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .skeleton-text {
+          width: 60px;
+          height: 14px;
+          border-radius: 4px;
+          background: #e0e0e0;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+      }
+    }
+
     .notification_body {
       display: flex;
       align-items: center;
@@ -51,6 +98,7 @@
     }
   }
 }
+
 ////
 .settings_page {
   padding: 60px 0;
