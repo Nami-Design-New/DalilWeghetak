@@ -7,12 +7,12 @@ import { useCookies } from "react-cookie";
 import * as yup from "yup";
 import axiosInstance from "../../utils/axiosInstance";
 import { useDispatch } from "react-redux";
-import { setClientData } from "../../redux/slices/clientData"; 
+import { setClientData, setUserType } from "../../redux/slices/clientData";
 
 export default function useLogin(t) {
   const [, setCookie] = useCookies(["token"]);
-  const dispatch = useDispatch(); 
-const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     phone: yup
@@ -55,12 +55,13 @@ const navigate = useNavigate();
         });
 
         dispatch(setClientData(data.data));
+        dispatch(setUserType(data?.data?.type));
         navigate("/");
       } else {
         toast.error(t("auth.loginFailed"));
       }
     },
- 
+
     onError: (error) => {
       toast.error(error.message || t("auth.somethingWentWrong"));
     },

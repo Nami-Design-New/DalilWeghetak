@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
         path: "event/:id",
         element: <EventDetails />,
       },
- {
+      {
         path: "session/:id",
         element: <SessionDetails />,
       },
@@ -106,15 +106,15 @@ export const router = createBrowserRouter([
         path: "wallet",
         element: <MyWallet />,
       },
-       {
+      {
         path: "my-bookings",
         element: <MyBooking />,
       },
-       {
+      {
         path: "faq",
         element: <FaqPage />,
       },
-       {
+      {
         path: "map",
         element: <InteractiveMap />,
       },

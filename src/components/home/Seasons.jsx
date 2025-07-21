@@ -1,12 +1,10 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+import useGetHolidays from "../../hooks/holidays/useGetHolidays";
 import SeasonCard from "../../ui/cards/SeasonCard";
-import useGetSeasons from "../../hooks/home/useGetSeasons";
 
 export default function Seasons() {
   const { t } = useTranslation();
-  const { data: seasons = [], isLoading } = useGetSeasons();
-
+  const { data: seasons = [] } = useGetHolidays();
 
   return (
     <section className="seasons-section">

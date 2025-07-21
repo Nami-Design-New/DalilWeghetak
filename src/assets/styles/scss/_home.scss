@@ -303,6 +303,8 @@
       transition: 0.3s ease;
 
       .tab-icon {
+        width: 2rem;
+        height: 2rem;
         font-size: 1.8rem;
         color: #555;
         margin-bottom: 6px;
@@ -324,7 +326,7 @@
 
       &.active {
         .tab-label {
-          color: #000;
+          color: $main;
           font-weight: bold;
         }
 

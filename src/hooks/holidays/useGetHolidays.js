@@ -1,10 +1,9 @@
-// src/hooks/useGetSaudiSeasons.js
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function useGetSeasons() {
+export default function useGetHolidays() {
   return useQuery({
-    queryKey: ["saudiSeasons"],
+    queryKey: ["holiays"],
     queryFn: async () => {
       const res = await axiosInstance.post("/get_saudi_holidays");
       if (res.status === 200) {

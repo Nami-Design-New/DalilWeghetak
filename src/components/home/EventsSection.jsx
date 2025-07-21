@@ -1,29 +1,19 @@
-import React from "react";
-import { Link } from "react-router";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import { useTranslation } from "react-i18next";
-import "swiper/css";
+import { Link } from "react-router";
+import { useSelector } from "react-redux";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import EventCard from "../../ui/cards/EventCard";
-import useGetEvents from "../../hooks/home/useGetEvents";
 import useGetCities from "../../hooks/home/useCities";
+import EventCard from "../../ui/cards/EventCard";
+import useGetEvents from "../../hooks/events/useGetEvents";
+import "swiper/css";
 
 const JeddahEvents = () => {
   const { t } = useTranslation();
-  const lang = localStorage.getItem("lang") || "ar";
-
-  const {
-    data: events = [],
-    isLoading: isEventsLoading,
-    error: eventsError,
-  } = useGetEvents();
-
-  const {
-    data: cities = [],
-    isLoading: isCitiesLoading,
-    error: citiesError,
-  } = useGetCities();
+  const { lang } = useSelector((state) => state.settings);
+  const { data: events = [] } = useGetEvents();
+  const { data: cities = [] } = useGetCities();
 
   return (
     <section className="events">

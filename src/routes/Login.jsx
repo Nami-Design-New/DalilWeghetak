@@ -1,27 +1,71 @@
-
 import { useState } from "react";
-import { useNavigate } from "react-router"; 
+import { useNavigate } from "react-router";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
 import { useTranslation } from "react-i18next";
 import useLogin from "../hooks/auth/useLogin";
+import { useGoogleLogin } from "@react-oauth/google";
+import { toast } from "sonner";
+import axiosInstance from "../utils/axiosInstance";
+import { useDispatch } from "react-redux";
+import { setClientData } from "../redux/slices/clientData";
+import { useCookies } from "react-cookie";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
+  const [, setCookie] = useCookies(["token"]);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { register, handleSubmit, errors, isLoading } = useLogin(t);
 
-
   const handleAccountTypeSelect = (type) => {
     if (type === "user") {
-      navigate("/user-signup",  { state: { type } });
+      navigate("/user-signup", { state: { type } });
     } else if (type === "service_provider") {
       navigate("/provider-signup", { state: { type } });
     }
   };
+
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        const res = await axiosInstance.post("/user/social_login", {
+          login_from: "google",
+          google_token: tokenResponse.access_token,
+        });
+
+        if (res.data.code === 200) {
+          toast.success(t("auth.loginSuccess"));
+          dispatch(setClientData(res.data.data));
+          setCookie("token", res.data.data.token, {
+            path: "/",
+            secure: true,
+            sameSite: "Strict",
+          });
+          setCookie("id", res.data.data.id, {
+            path: "/",
+            secure: true,
+            sameSite: "Strict",
+          });
+          axiosInstance.defaults.headers.common[
+            "Authorization"
+          ] = `${res.data.data.token}`;
+        } else {
+          toast.error(res.data.message);
+        }
+      } catch (error) {
+        toast.error(t("auth.loginErorr"));
+        throw new Error(error.message);
+      }
+    },
+    onError: (error) => {
+      console.log("Google Login Error:", error);
+      toast.error(error.response.data.message);
+    },
+  });
 
   return (
     <>
@@ -52,7 +96,10 @@ export default function Login() {
                   />
                 </div>
 
-                <span className="link" onClick={() => navigate("/reset-password")}>
+                <span
+                  className="link"
+                  onClick={() => navigate("/reset-password")}
+                >
                   {t("login.forgotPassword")}
                 </span>
 
@@ -69,6 +116,12 @@ export default function Login() {
                   </span>
                 </p>
               </form>
+              <div className="social-login-buttons">
+                <button onClick={handleGoogleLogin}>
+                  <img src="/icons/google.png" alt="google login" />
+                  <span>{t("auth.googleAccount")}</span>
+                </button>
+              </div>
             </div>
 
             <div className="col-lg-6 d-none d-lg-block p-3">

@@ -1,13 +1,12 @@
-import React from "react";
-import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 import useGetCities from "../../hooks/home/useCities";
 
 export default function Destinations() {
   const { t } = useTranslation();
   const { data } = useGetCities();
 
-const cities = data || [];
+  const cities = data || [];
 
   return (
     <section className="destinations">
