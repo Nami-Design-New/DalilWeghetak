@@ -12,12 +12,18 @@ import { setClientData } from "../../redux/slices/clientData";
 export default function useRegister(t, type = "user") {
   const navigate = useNavigate();
   const [, setCookie] = useCookies(["token"]);
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const baseSchema = {
     name: yup.string().required(t("validation.required")).min(2).max(32),
-    phone: yup.string().required(t("validation.required")).matches(/^\d+$/, t("validation.numbersOnly")),
-    email: yup.string().required(t("validation.required")).email(t("validation.email")),
+    phone: yup
+      .string()
+      .required(t("validation.required"))
+      .matches(/^\d+$/, t("validation.numbersOnly")),
+    email: yup
+      .string()
+      .required(t("validation.required"))
+      .email(t("validation.email")),
     password: yup.string().required(t("validation.required")).min(6),
   };
 
@@ -26,9 +32,13 @@ const dispatch = useDispatch();
     bio: yup.string().required(t("validation.required")),
   };
 
-  const schema = yup.object().shape(
-    type === "service_provider" ? { ...baseSchema, ...providerSchema } : baseSchema
-  );
+  const schema = yup
+    .object()
+    .shape(
+      type === "service_provider"
+        ? { ...baseSchema, ...providerSchema }
+        : baseSchema
+    );
 
   const {
     register,
@@ -41,7 +51,14 @@ const dispatch = useDispatch();
     mode: "onChange",
     defaultValues:
       type === "service_provider"
-        ? { name: "", phone: "", email: "", password: "", activity: "", bio: "" }
+        ? {
+            name: "",
+            phone: "",
+            email: "",
+            password: "",
+            activity: "",
+            bio: "",
+          }
         : { name: "", phone: "", email: "", password: "" },
   });
 
@@ -57,7 +74,11 @@ const dispatch = useDispatch();
       }
 
       const imageFile = watch("image");
-      if (Array.isArray(imageFile) && imageFile.length > 0 && imageFile[0] instanceof File) {
+      if (
+        Array.isArray(imageFile) &&
+        imageFile.length > 0 &&
+        imageFile[0] instanceof File
+      ) {
         formData.append("image", imageFile[0]);
       }
 
@@ -65,19 +86,19 @@ const dispatch = useDispatch();
       return response.data;
     },
 
-  onSuccess: (data) => {
-  toast.success(t("auth.registerSuccess"));
+    onSuccess: (data) => {
+      toast.success(t("auth.registerSuccess"));
 
-  setCookie("token", data.data?.token, {
-    path: "/",
-    secure: true,
-    sameSite: "Strict",
-  });
+      setCookie("token", data.data?.token, {
+        path: "/",
+        secure: true,
+        sameSite: "Strict",
+      });
 
-  dispatch(setClientData(data.data)); 
+      dispatch(setClientData(data.data));
 
-  navigate("/");
-},
+      navigate("/");
+    },
 
     onError: (error) => {
       toast.error(error.response?.data?.message || error.message);

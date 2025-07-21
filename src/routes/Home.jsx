@@ -1,4 +1,3 @@
-
 import Activities from "../components/home/Activities";
 import Destinations from "../components/home/Destinations";
 import JeddahEvents from "../components/home/Events_section";
@@ -11,12 +10,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-    <Destinations/>
-    <Activities/>
-    <JeddahEvents />
-    <Seasons/>
-   <Statistics/>
-    <Holidays/>
+      <Destinations />
+      <Activities />
+      <JeddahEvents />
+      <Seasons />
+      <Statistics />
+      <Holidays />
     </>
   );
 }
