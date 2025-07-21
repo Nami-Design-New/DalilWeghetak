@@ -1,16 +1,15 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
-
-import useGetHolidays from "../../hooks/home/useGetHolidays";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import useGetsessions from "../../hooks/sessions/useGetsessions";
+import HolidayLoader from "../../ui/loader/HolidayLoader";
 
 export default function Holidays() {
   const { t } = useTranslation();
   const lang = localStorage.getItem("lang") || "ar";
 
-  const { data: holidays = [] } = useGetHolidays(); 
+  const { sessions, isLoading } = useGetsessions();
 
   return (
     <section className="holidays-section">
@@ -36,26 +35,34 @@ export default function Holidays() {
             768: { slidesPerView: 2 },
           }}
         >
-          {holidays.map((holiday) => (
-            <SwiperSlide key={holiday.id}>
-              <div className="holiday-card">
-                <div className="holiday-image-wrapper">
-                  <img
-                    src={holiday.image}
-                    alt={holiday.name}
-                    className="holiday-img"
-                  />
-                </div>
-                <div className="holiday-info">
-                  <h4 className="holiday-name">{holiday.title}</h4>
-                  <p className="holiday-date">
-                    {holiday.from_date} : {holiday.to_date}
-                  </p>
-                  <p className="holiday-desc">{holiday.description}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
+          {isLoading
+            ? Array(2)
+                .fill()
+                .map((_, i) => (
+                  <SwiperSlide key={i}>
+                    <HolidayLoader />
+                  </SwiperSlide>
+                ))
+            : sessions.map((session) => (
+                <SwiperSlide key={session.id}>
+                  <div className="holiday-card">
+                    <div className="holiday-image-wrapper">
+                      <img
+                        src={session.image}
+                        alt={session.name}
+                        className="holiday-img"
+                      />
+                    </div>
+                    <div className="holiday-info">
+                      <h4 className="holiday-name">{session.title}</h4>
+                      <p className="holiday-date">
+                        {session.from_date} : {session.to_date}
+                      </p>
+                      <p className="holiday-desc">{session.description}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
         </Swiper>
       </div>
     </section>

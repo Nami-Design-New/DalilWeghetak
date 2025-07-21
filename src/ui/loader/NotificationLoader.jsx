@@ -1,6 +1,6 @@
 export default function NotificationLoader() {
   return (
-    <div className="notification_card skeleton">
+    <div className="notification_card ">
       <div className="notification_body">
         <div className="icon skeleton-img"></div>
         <div className="content">
