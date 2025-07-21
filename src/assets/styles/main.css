@@ -1510,6 +1510,8 @@ body .activities-section .tabs .tab-button {
   transition: 0.3s ease;
 }
 body .activities-section .tabs .tab-button .tab-icon {
+  width: 2rem;
+  height: 2rem;
   font-size: 1.8rem;
   color: #555;
   margin-bottom: 6px;
@@ -1527,7 +1529,7 @@ body .activities-section .tabs .tab-button .tab-check {
   font-size: 1.6rem;
 }
 body .activities-section .tabs .tab-button.active .tab-label {
-  color: #000;
+  color: #0048AA;
   font-weight: bold;
 }
 body .activities-section .tabs .tab-button.active .tab-icon {

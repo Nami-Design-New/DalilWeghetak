@@ -1,23 +1,14 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
+import useGetEvents from "../hooks/events/useGetEvents";
+import useGetCities from "../hooks/home/useCities";
 import EventCard from "../ui/cards/EventCard";
 import Loader from "../ui/loader/Loader";
-import useGetEvents from "../hooks/home/useGetEvents";
-import useGetCities from "../hooks/home/useCities";
-import { useTranslation } from "react-i18next";
 
 const AllEvents = () => {
   const { t } = useTranslation();
-  const {
-    data: events = [],
-    isLoading: isEventsLoading,
-    error: eventsError,
-  } = useGetEvents();
+  const { data: events = [], isLoading: isEventsLoading } = useGetEvents();
 
-  const {
-    data: cities = [],
-    isLoading: isCitiesLoading,
-    error: citiesError,
-  } = useGetCities();
+  const { data: cities = [], isLoading: isCitiesLoading } = useGetCities();
 
   if (isEventsLoading || isCitiesLoading) return <Loader />;
 

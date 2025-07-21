@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next";
-import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from "react-redux";
 import useGetsessions from "../../hooks/sessions/useGetsessions";
 import HolidayLoader from "../../ui/loader/HolidayLoader";
+import "swiper/css";
 
 export default function Holidays() {
   const { t } = useTranslation();
-  const lang = localStorage.getItem("lang") || "ar";
+  const { lang } = useSelector((state) => state.settings);
 
   const { sessions, isLoading } = useGetsessions();
 

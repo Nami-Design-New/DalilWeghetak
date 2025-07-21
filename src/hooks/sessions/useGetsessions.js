@@ -2,8 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function useGetsessions() {
-  console.log("-- sessions - hook");
-
   const { data: sessions, isLoading } = useQuery({
     queryKey: ["sessions"],
     queryFn: getSessions,
@@ -16,8 +14,6 @@ export default function useGetsessions() {
 }
 
 async function getSessions() {
-  console.log("start ");
-
   try {
     const response = await axiosInstance.post("get_saudi_sessions");
     if (response.status === 200) {

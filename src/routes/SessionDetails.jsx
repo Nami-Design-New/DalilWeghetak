@@ -1,12 +1,11 @@
-import React from "react";
-import { useParams, Link } from "react-router";
-import useGetSessionDetails from "../hooks/home/useGetSessionDetails";
-import Loader from "../ui/loader/Loader";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router";
+import useGetHolidayDetails from "../hooks/holidays/useGetHolidayDetails";
+import Loader from "../ui/loader/Loader";
 
 export default function SessionDetails() {
   const { id } = useParams();
-  const { data: session, isLoading, error } = useGetSessionDetails(id);
+  const { data: session, isLoading, error } = useGetHolidayDetails(id);
   const { t } = useTranslation();
 
   if (isLoading) return <Loader />;

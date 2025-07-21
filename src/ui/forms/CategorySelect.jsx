@@ -1,5 +1,5 @@
-import useGetCategories from "../../hooks/useGetCategories";
 import { useTranslation } from "react-i18next";
+import useGetCategories from "../../hooks/home/useGetCategories";
 
 export default function CategorySelect({ selectedCategory, onChange }) {
   const { data: categories = [], isLoading, isError } = useGetCategories();
@@ -9,8 +9,7 @@ export default function CategorySelect({ selectedCategory, onChange }) {
 
   return (
     <div className="category_select">
-      <label>{t("addEvent.addcat")}
-        </label>
+      <p className="category_heading">{t("addEvent.addcat")}</p>{" "}
       <div className="category_list">
         {isLoading
           ? Array.from({ length: 2 }).map((_, index) => (
