@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
 import axiosInstance from "../../utils/axiosInstance";
-import { useParams, useSearchParams } from "react-router"; // use react-router-dom, not react-router
+import { useParams, useSearchParams } from "react-router"; 
+
 
 export default function useGetEvents(type = "event") {
   const [searchParams] = useSearchParams();
+
+  const { lang } = useSelector((state) => state.settings);
 
   const rawCategories = searchParams.get("categories_id");
   const categories_id = rawCategories

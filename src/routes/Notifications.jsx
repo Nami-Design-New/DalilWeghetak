@@ -12,7 +12,7 @@ export default function Notifications() {
   const { data: notifications = [], isLoading, isError } = useGetNotifications(); 
 
   return (
-    <div className="notifications h-100 mt-80">
+    <div className="notifications h-100 ">
       <div className="container">
         <h2 className="page-title mb-3">{t("dropdown.notifications")}</h2>
 

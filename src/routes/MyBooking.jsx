@@ -22,7 +22,7 @@ export default function MyBooking() {
   const { myBookings, isLoading } = useGetMyBooking(activeTab);
 
   return (
-    <div className="my-booking-page mt-80 py-5">
+    <div className="my-booking-page  py-5">
       <div className="container">
         <div className="tabs-wrapper d-flex justify-content-center gap-3 mb-5 flex-wrap">
           <div

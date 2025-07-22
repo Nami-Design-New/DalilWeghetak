@@ -9,7 +9,7 @@ export default function ResetPassword() {
   const [hashedCode, setHashedCode] = useState("");
 
   return (
-    <section className="auth_section main_section mt-80">
+    <section className="auth_section main_section ">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-12 p-2 d-flex flex-column justify-content-center">

@@ -7,7 +7,7 @@ export default function Contact() {
 
   return (
     <>
-      <section className="contact_section mt-80">
+      <section className="contact_section ">
         <div className="container">
           <ContactInfo />
           <ContactForm />
