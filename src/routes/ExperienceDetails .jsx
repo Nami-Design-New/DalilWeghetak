@@ -1,29 +1,21 @@
-import { useState } from "react";
-import { useParams } from "react-router";
-import BookTicketModal from "../ui/modals/BookTicketModal";
-import useGetEventDetails from "../hooks/events/useGetEventDetails";
+import useGetHighLightsDetails from "../hooks/hightlights/useGetHighLightsDetails";
 import Loader from "../ui/loader/Loader";
 
-export default function ActivityDetails() {
-  const { id } = useParams();
-  const [showBookingModal, setShowBookingModal] = useState(false);
-
-  const { eventDetails, isLoading } = useGetEventDetails();
+export default function ExperienceDetails() {
+  const { highlightsDetails, isLoading } = useGetHighLightsDetails();
 
   if (isLoading) return <Loader />;
-  console.log(eventDetails);
-
+  console.log(highlightsDetails);
   return (
     <>
       <section className="activity-details">
         <div
           className="hero-banner"
-          style={{ backgroundImage: `url(${eventDetails.image})` }}
+          style={{ backgroundImage: `url(${highlightsDetails.image})` }}
         >
           <div className="overlay">
             <div className="text-content container text-center">
-              <h1>{eventDetails.title}</h1>
-              {/* <p className="lead">{eventDetails.description}</p> */}
+              <h1>{highlightsDetails.title}</h1>
             </div>
           </div>
         </div>
@@ -31,24 +23,21 @@ export default function ActivityDetails() {
         <div className="info-cards container ">
           <div className="row g-4">
             {[
-              { icon: "calendar", label: "من", value: eventDetails.from_date },
+              {
+                icon: "calendar",
+                label: "من",
+                value: highlightsDetails.from_date,
+              },
               {
                 icon: "calendar-alt",
                 label: "إلى",
-                value: eventDetails.to_date,
+                value: highlightsDetails.to_date,
               },
               {
-                icon: "clock",
-                label: "وقت البدء",
-                value: eventDetails.from_time,
+                icon: "users",
+                label: "الجمهور",
+                value: highlightsDetails.audience,
               },
-              {
-                icon: "clock",
-                label: "وقت الانتهاء",
-                value: eventDetails.to_time,
-              },
-              { icon: "tags", label: "الفئة", value: eventDetails.type },
-              { icon: "users", label: "الجمهور", value: eventDetails.audience },
             ].map((item, index) => (
               <div className="col-6 col-md-4" key={index}>
                 <div className="info_card">
@@ -67,13 +56,13 @@ export default function ActivityDetails() {
               <div className="col-lg-6">
                 <div className="description-section mb-4">
                   <h3 className="section-title">عن الفعالية</h3>
-                  <p className="text-body">{eventDetails.description}</p>
+                  <p className="text-body">{highlightsDetails.description}</p>
                 </div>
 
                 <div className="policy-section">
                   <h4 className="section-title">سياسة الاسترجاع</h4>
                   <div className="policy-card">
-                    <p>{eventDetails.policy}</p>
+                    <p>{highlightsDetails.policy}</p>
                   </div>
                 </div>
               </div>
@@ -83,7 +72,7 @@ export default function ActivityDetails() {
                   <h4 className="section-title">موقع الفعالية</h4>
                   <div className="map-wrapper shadow-sm rounded overflow-hidden h-100">
                     <iframe
-                      src={`https://www.google.com/maps?q=${eventDetails.lat},${eventDetails.lng}&z=15&output=embed`}
+                      src={`https://www.google.com/maps?q=${highlightsDetails.lat},${highlightsDetails.lng}&z=15&output=embed`}
                       width="100%"
                       height="100%"
                       style={{ minHeight: "400px", border: 0 }}
@@ -99,28 +88,6 @@ export default function ActivityDetails() {
           </div>
         </div>
       </section>
-
-      <div className="purchase-bar">
-        <div className="container d-flex justify-content-between align-items-center">
-          <strong>
-            {" "}
-            <span className="price"> {eventDetails.price}</span>ريال للفرد
-          </strong>
-          <button
-            className="btn btn-main"
-            onClick={() => setShowBookingModal(true)}
-          >
-            احجز تذكرتك الآن
-          </button>
-        </div>
-      </div>
-
-      <BookTicketModal
-        show={showBookingModal}
-        handleClose={() => setShowBookingModal(false)}
-        price={eventDetails.price}
-        eventId={id}
-      />
     </>
   );
 }

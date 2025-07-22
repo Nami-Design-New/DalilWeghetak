@@ -20,7 +20,7 @@ export default function Destinations() {
         <div className="destinations-grid mt-4">
           {cities.map((city, index) => (
             <Link
-              to={`/destination/${encodeURIComponent(city.name)}`}
+              to={`/destination/${encodeURIComponent(city.id)}`}
               key={index}
               className={`destination ${index === 0 ? "big" : ""}`}
             >

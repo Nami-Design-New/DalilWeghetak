@@ -294,7 +294,8 @@
     "submit": "Add Event Now",
     "next": "Next",
     "back": "Back",
-    "addcat": "choose category:"
+    "addcat": "choose category:",
+    "bookConfirm": "Your booking has been confirmed!"
   },
   "statistics": {
     "titleDark": "Explore ",

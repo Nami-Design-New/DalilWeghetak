@@ -23,6 +23,7 @@ import MyBooking from "../routes/MyBooking";
 import FaqPage from "../routes/Faqs";
 import InteractiveMap from "../routes/InteractiveMap";
 import SessionDetails from "../routes/SessionDetails";
+import ExperienceDetails from "../routes/ExperienceDetails ";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
         element: <ActivityDetails />,
       },
       {
+        path: "experiences/:id",
+        element: <ExperienceDetails />,
+      },
+      {
         path: "event/:id",
         element: <EventDetails />,
       },
@@ -75,7 +80,7 @@ export const router = createBrowserRouter([
         element: <SessionDetails />,
       },
       {
-        path: "destination/:name",
+        path: "destination/:id",
         element: <DestinationDetails />,
       },
       {
