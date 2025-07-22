@@ -22,7 +22,6 @@ const queryClient = new QueryClient({
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/main.css";
 import "./assets/styles/all.min.css";
-// import 'leaflet/dist/leaflet.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,9 +29,7 @@ root.render(
     <CookiesProvider>
       <ReactQueryDevtools initialIsOpen={false} />
       <Provider store={store}>
-        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-          <App />
-        </GoogleOAuthProvider>
+        <App />
       </Provider>
     </CookiesProvider>
   </QueryClientProvider>

@@ -343,5 +343,13 @@
     "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience.",
     "copyright": "All rights reserved to",
     "dalilweghetak": "Al3asal Travel & Tourism"
-  }
+  },
+  "startsFrom": "Starts from",
+  "sar": "SAR",
+  "showDetails": "Show Details",
+  "from": "From",
+  "to": "To",
+  "fromTime": "From Time",
+  "toTime": "To Time",
+  "audience": "Audience"
 }

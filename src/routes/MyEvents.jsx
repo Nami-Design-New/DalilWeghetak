@@ -24,7 +24,7 @@ const myEvents = [
 
 export default function MyEvents() {
   return (
-    <section className="my-events-page mt-80">
+    <section className="my-events-page ">
       <div className="container">
         <h2 className="page-title">فعالياتي</h2>
         <div className="row g-4">
