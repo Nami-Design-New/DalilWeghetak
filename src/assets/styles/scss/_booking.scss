@@ -111,6 +111,9 @@
           }
         }
         .reserve-date {
+          display: flex;
+          align-items: center;
+          gap: 0.75 rem;
           font-size: 0.85rem;
 
           @media (max-width: 576px) {
@@ -140,7 +143,6 @@
         font-weight: bold;
       }
     }
-    
   }
 }
 .no-bookings {

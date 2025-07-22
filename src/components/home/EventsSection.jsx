@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import useGetCities from "../../hooks/home/useCities";
 import EventCard from "../../ui/cards/EventCard";
 import useGetEvents from "../../hooks/events/useGetEvents";
-import "swiper/css";
 
 const JeddahEvents = () => {
   const { t } = useTranslation();

@@ -1,6 +1,7 @@
-import React from "react";
+import { formatDate } from "../../utils/helpers";
+
 export default function BookingCard({ booking }) {
-  const event = booking?.event || {};
+  const event = booking?.event;
 
   return (
     <div className="booking-card shadow-sm">
@@ -19,27 +20,24 @@ export default function BookingCard({ booking }) {
         <div className="overlay-text">
           <h5 className="title">{event.title}</h5>
           <p className="reserve-date">
-            تم الحجز بتاريخ {moment(booking.created_at).format("YYYY/MM/DD")}
+            <span>تم الحجز بتاريخ</span>
+            <span>{formatDate(booking.created_at)}</span>
           </p>
         </div>
       </div>
 
       <div className="details-section">
-        <div className="text-center">
+        <div className="">
           <div className="small">عدد الأفراد</div>
           <div className="title">{booking.quantity}</div>
         </div>
-        <div className="text-center">
+        <div className="">
           <div className="small">التاريخ</div>
-          <div className="title">
-            {event.from_date} - {event.to_date}
-          </div>
+          <div className="title">{event.from_date}</div>
         </div>
-        <div className="text-center">
+        <div className="">
           <div className="small">التوقيت</div>
-          <div className="title">
-            {event.from_time} - {event.to_time}
-          </div>
+          <div className="title">{event.from_time}</div>
         </div>
       </div>
     </div>

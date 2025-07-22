@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import useGetsessions from "../../hooks/sessions/useGetsessions";
 import HolidayLoader from "../../ui/loader/HolidayLoader";
-import "swiper/css";
 
 export default function Holidays() {
   const { t } = useTranslation();

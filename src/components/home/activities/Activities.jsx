@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useGetEvents from "../../../hooks/events/useGetEvents";

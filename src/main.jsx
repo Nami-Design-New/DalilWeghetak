@@ -19,6 +19,7 @@ const queryClient = new QueryClient({
   },
 });
 
+import "swiper/css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/main.css";
 import "./assets/styles/all.min.css";
