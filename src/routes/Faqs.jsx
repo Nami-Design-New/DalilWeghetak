@@ -27,7 +27,7 @@ export default function FaqPage() {
   };
 
   return (
-    <div className="faq-page mt-80">
+    <div className="faq-page ">
       <div className="container">
         <div className="row">
         <div className="col-md-5 info">

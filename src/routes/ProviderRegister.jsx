@@ -14,7 +14,7 @@ export default function ProviderRegister() {
     useRegister(t, "service_provider");
 
   return (
-    <section className="auth_section mt-80">
+    <section className="auth_section ">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 col-12 p-3">

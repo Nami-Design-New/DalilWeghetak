@@ -5,7 +5,7 @@ body {
   direction: rtl;
   overflow-x: hidden;
   scrollbar-width: none;
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 
   @import "./scss/layout";
   @import "./scss/form_ui";
@@ -27,7 +27,7 @@ body {
   }
 
   &.en {
-  font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     direction: ltr;
 
     .form_ui .input-field .pass-group {
@@ -42,11 +42,10 @@ body {
         border-right: 1px solid $input_stroke !important;
       }
     }
-  .footer h5 {
-    &::after {
-      left: 0;
-  }}}
-}
-.mt-80{
-  margin-top: 80px;
+    .footer h5 {
+      &::after {
+        left: 0;
+      }
+    }
+  }
 }

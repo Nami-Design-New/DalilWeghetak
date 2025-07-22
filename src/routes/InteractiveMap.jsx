@@ -1,19 +1,137 @@
-import React from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import ZoomControlButtons from "../components/map/ZoomControlsButtons";
+import DetectLocation from "../components/map/DetectLocation";
+import useGetEvents from "../hooks/events/useGetEvents";
+
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import EventDetails from "../components/map/EventDetails";
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
+
+const defaultPosition = {
+  lat: 21.285407,
+  lng: 39.237551,
+};
 
 export default function InteractiveMap() {
-  return (
- <section className="map-section mt-80 ">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6953844998495!2d46.675295315001!3d24.713551284116317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f038758877ccf%3A0x9c7c94d5cbf4876d!2z2KfZhNio2YrYp9izINin2YTYo9mI2YjZhtipINmE2YTYs9mF2YjYsQ!5e0!3m2!1sar!2seg!4v1655227510684!5m2!1sar!2seg"
-      width="100%"
-      height="100%"
-      style={{ minHeight: "100vh", border: 0 }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="الموقع"
-    ></iframe>
-</section>
+  const { t } = useTranslation();
 
+  const [userLocation, setUserLocation] = useState(null);
+  const [activeMarkerId, setActiveMarkerId] = useState(null);
+  const [detectLocation, setDetectLocation] = useState(false);
+
+  const { data: events, isLoading, isError } = useGetEvents("event");
+
+  console.log(events);
+
+  const mapCenter = events?.length
+    ? { lat: events[0].lat, lng: events[0].lng }
+    : defaultPosition;
+
+  const handleMarkerClick = (id) => {
+    setActiveMarkerId((prev) => (prev === id ? null : id));
+  };
+
+  return (
+    <section className="map-section">
+      {isLoading && <div>Loading map...</div>}
+      {isError && <div>Error loading events.</div>}
+      {!isLoading && !isError && (
+        <MapContainer
+          center={mapCenter}
+          zoom={10}
+          zoomControl={false}
+          style={{ height: "100%", width: "100%" }}
+        >
+          {/* Base Map Layer */}
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; OpenStreetMap contributors"
+          />
+
+          {/* User Location Detection */}
+          {detectLocation && (
+            <DetectLocation
+              setUserLocation={setUserLocation}
+              setShouldDetectLocation={setDetectLocation}
+            />
+          )}
+
+          {/* Show User Marker */}
+          {userLocation && (
+            <Marker position={userLocation}>
+              <Popup>{t("Your location")}</Popup>
+            </Marker>
+          )}
+
+          {/* Event Markers */}
+          {events.map((event) => (
+            <Marker
+              key={event.id}
+              position={{
+                lat: event.lat,
+                lng: event.lng,
+              }}
+              eventHandlers={{ click: () => handleMarkerClick(event.id) }}
+              icon={
+                new L.DivIcon({
+                  className: "custom-marker",
+                  html: `
+                  <div class="event_marker" title="${event.title}">
+                    <img src="${event.image}" alt="${event.title}" />
+                  </div>
+                  `,
+                  iconAnchor: [15, 30],
+                })
+              }
+            />
+          ))}
+
+          {/* Active Marker Popup */}
+          {activeMarkerId &&
+            (() => {
+              const activeEvent = events.find((e) => e.id === activeMarkerId);
+              if (!activeEvent?.lat || !activeEvent?.lng) return null;
+
+              return (
+                <Popup
+                  key={activeMarkerId}
+                  position={{
+                    lat: activeEvent.lat,
+                    lng: activeEvent.lng,
+                  }}
+                  onClose={() => setActiveMarkerId(null)}
+                >
+                  <EventDetails t={t} activeEvent={activeEvent} />
+                </Popup>
+              );
+            })()}
+
+          {/* Custom Controls */}
+          <div className="map-controls">
+            <button
+              className="control-btn"
+              onClick={() => setDetectLocation(true)}
+              aria-label="Detect my location"
+            >
+              <i className="fa-solid fa-location-arrow" />
+            </button>
+
+            <ZoomControlButtons />
+          </div>
+        </MapContainer>
+      )}
+    </section>
   );
 }

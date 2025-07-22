@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router";
+import { useSelector } from "react-redux";
 import axiosInstance from "../../utils/axiosInstance";
-import { useSearchParams } from "react-router"; // use react-router-dom, not react-router
 
 export default function useGetEvents(type = "event") {
   const [searchParams] = useSearchParams();
+
+  const { lang } = useSelector((state) => state.settings);
 
   const rawCategories = searchParams.get("categories_id");
   const categories_id = rawCategories
@@ -11,7 +14,7 @@ export default function useGetEvents(type = "event") {
     : null;
 
   const { data, isLoading, error } = useQuery({
-    queryKey: [type, categories_id],
+    queryKey: [type, categories_id, lang],
     queryFn: () => getEvents(type, categories_id),
     enabled: !!type,
   });

@@ -13,7 +13,7 @@ const AllEvents = () => {
   if (isEventsLoading || isCitiesLoading) return <Loader />;
 
   return (
-    <section className="all-events-page mt-80 py-5">
+    <section className="all-events-page  py-5">
       <div className="container">
         <h1 className="page-title">{t("Events.button")}</h1>
         <div className="row g-4">

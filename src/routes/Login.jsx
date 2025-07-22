@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { useCookies } from "react-cookie";
+import { useGoogleLogin } from "@react-oauth/google";
+import { setClientData } from "../redux/slices/clientData";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
-import { useTranslation } from "react-i18next";
 import useLogin from "../hooks/auth/useLogin";
-import { useGoogleLogin } from "@react-oauth/google";
-import { toast } from "sonner";
 import axiosInstance from "../utils/axiosInstance";
-import { useDispatch } from "react-redux";
-import { setClientData } from "../redux/slices/clientData";
-import { useCookies } from "react-cookie";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
@@ -29,47 +29,47 @@ export default function Login() {
     }
   };
 
-  const handleGoogleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      try {
-        const res = await axiosInstance.post("/user/social_login", {
-          login_from: "google",
-          google_token: tokenResponse.access_token,
-        });
+  // const handleGoogleLogin = useGoogleLogin({
+  //   onSuccess: async (tokenResponse) => {
+  //     try {
+  //       const res = await axiosInstance.post("/user/social_login", {
+  //         login_from: "google",
+  //         google_token: tokenResponse.access_token,
+  //       });
 
-        if (res.data.code === 200) {
-          toast.success(t("auth.loginSuccess"));
-          dispatch(setClientData(res.data.data));
-          setCookie("token", res.data.data.token, {
-            path: "/",
-            secure: true,
-            sameSite: "Strict",
-          });
-          setCookie("id", res.data.data.id, {
-            path: "/",
-            secure: true,
-            sameSite: "Strict",
-          });
-          axiosInstance.defaults.headers.common[
-            "Authorization"
-          ] = `${res.data.data.token}`;
-        } else {
-          toast.error(res.data.message);
-        }
-      } catch (error) {
-        toast.error(t("auth.loginErorr"));
-        throw new Error(error.message);
-      }
-    },
-    onError: (error) => {
-      console.log("Google Login Error:", error);
-      toast.error(error.response.data.message);
-    },
-  });
+  //       if (res.data.code === 200) {
+  //         toast.success(t("auth.loginSuccess"));
+  //         dispatch(setClientData(res.data.data));
+  //         setCookie("token", res.data.data.token, {
+  //           path: "/",
+  //           secure: true,
+  //           sameSite: "Strict",
+  //         });
+  //         setCookie("id", res.data.data.id, {
+  //           path: "/",
+  //           secure: true,
+  //           sameSite: "Strict",
+  //         });
+  //         axiosInstance.defaults.headers.common[
+  //           "Authorization"
+  //         ] = `${res.data.data.token}`;
+  //       } else {
+  //         toast.error(res.data.message);
+  //       }
+  //     } catch (error) {
+  //       toast.error(t("auth.loginErorr"));
+  //       throw new Error(error.message);
+  //     }
+  //   },
+  //   onError: (error) => {
+  //     console.log("Google Login Error:", error);
+  //     toast.error(error.response.data.message);
+  //   },
+  // });
 
   return (
     <>
-      <section className="auth_section mt-80">
+      <section className="auth_section ">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-12 p-3">
@@ -117,7 +117,7 @@ export default function Login() {
                 </p>
               </form>
               <div className="social-login-buttons">
-                <button onClick={handleGoogleLogin}>
+                <button>
                   <img src="/icons/google.png" alt="google login" />
                   <span>{t("auth.googleAccount")}</span>
                 </button>
