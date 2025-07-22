@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useCookies } from "react-cookie";
-import useGetProfile from "./useGetProfile";
 import { setClientData, setUserType } from "../../redux/slices/clientData";
 import axiosInstance from "../../utils/axiosInstance";
+import useGetProfile from "../account/useGetProfile";
 
 export default function useAuth() {
   const dispatch = useDispatch();
   const [cookies, , removeCookie] = useCookies(["token"]);
-  const token = cookies.token;
+  const { token } = cookies;
+  console.log(token);
 
   useEffect(() => {
     if (token) {

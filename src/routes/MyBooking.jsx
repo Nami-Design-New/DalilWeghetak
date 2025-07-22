@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router";
-import useGetMyBooking from "../hooks/useGetMyBooking";
 import BookingCard from "../ui/cards/BookingCard";
+import useGetMyBooking from "../hooks/account/useGetMyBooking";
 
 export default function MyBooking() {
   const { t } = useTranslation();
