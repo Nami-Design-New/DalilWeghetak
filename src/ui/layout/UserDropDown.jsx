@@ -28,11 +28,6 @@ export default function UserDropDown() {
           {t("dropdown.myBookings")}
         </Dropdown.Item>
 
-        {/* <Dropdown.Item as={Link} to="/my-events">
-          <i className="fa-solid fa-calendar-check"></i>
-           {t("dropdown.myEvents")}
-        </Dropdown.Item> */}
-
         {!isUser && (
           <Dropdown.Item as={Link} to="/my-events">
             <i className="fa-solid fa-calendar-check"></i>
@@ -43,6 +38,10 @@ export default function UserDropDown() {
         <Dropdown.Item as={Link} to="/wallet">
           <i className="fa-regular fa-wallet"></i>
           {t("dropdown.wallet")}
+        </Dropdown.Item>
+        <Dropdown.Item as={Link} to="/favorites">
+          <i className="fa-regular fa-heart"></i>
+          {t("dropdown.favorites")}
         </Dropdown.Item>
 
         <Dropdown.Item

@@ -81,7 +81,8 @@
     "signOut": "Sign Out",
     "current_bookings": "Current Bookings",
     "previous_bookings": "Previous Bookings",
-    "no-book": "You have no bookings yet"
+    "no-book": "You have no bookings yet",
+    "favorites": "Favorites"
   },
   "destinations": {
     "popular": "Top Destinations",
@@ -93,6 +94,7 @@
     "title": "Events",
     "description": "Enjoy an unforgettable experience with the most famous parties, festivals, and entertainment events in Jeddah.",
     "button": "All Events",
+    "allFavs": "My List",
     "from": "from",
     "ryal": "SAR"
   },
@@ -344,6 +346,10 @@
     "description": "Discover the best tourist destinations and activities in Saudi Arabia with a modern style and a unique experience.",
     "copyright": "All rights reserved to",
     "dalilweghetak": "Al3asal Travel & Tourism"
+  },
+  "favorites": {
+    "addedSuccess": "Successfully added to favorites",
+    "removedSuccess": "Successfully removed from favorites"
   },
   "startsFrom": "Starts from",
   "sar": "SAR",

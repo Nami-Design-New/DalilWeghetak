@@ -9,7 +9,6 @@ export default function useAuth() {
   const dispatch = useDispatch();
   const [cookies, , removeCookie] = useCookies(["token"]);
   const { token } = cookies;
-  console.log(token);
 
   useEffect(() => {
     if (token) {

@@ -46,18 +46,7 @@ const JeddahEvents = () => {
 
               return (
                 <SwiperSlide key={event.id}>
-                  <EventCard
-                    event={{
-                      id: event.id,
-                      name: event.title,
-                      image: event.image,
-                      price: event.price,
-                      startDate: event.from_date,
-                      endDate: event.to_date,
-                      city: cityName,
-                      type: event.type,
-                    }}
-                  />
+                  <EventCard event={event} cityName={cityName} />
                 </SwiperSlide>
               );
             })}

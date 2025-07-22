@@ -23,18 +23,7 @@ const AllEvents = () => {
 
             return (
               <div className="col-md-4" key={event.id}>
-                <EventCard
-                  event={{
-                    id: event.id,
-                    name: event.title,
-                    image: event.image,
-                    price: event.price,
-                    startDate: event.from_date,
-                    endDate: event.to_date,
-                    city: cityName,
-                    type: event.type,
-                  }}
-                />
+                <EventCard event={event} cityName={cityName} />
               </div>
             );
           })}

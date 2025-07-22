@@ -1,8 +1,41 @@
-import { Link } from "react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
+import { toast } from "sonner";
+import useAddFavorites from "../../hooks/favorites/useAddFavorites";
+import useRemoveFavorites from "../../hooks/favorites/useRemoveFavorites";
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, cityName }) => {
   const { t } = useTranslation();
+  console.log(event);
+
+  const queryClient = useQueryClient();
+  const { addFavorite, isPending: isAddToFavPending } = useAddFavorites();
+  const { removeFavorite, isPending: isRemoveFormFavPending } =
+    useRemoveFavorites();
+
+  const handleFavorite = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(event);
+
+    const mutationFn = event?.is_favorite ? removeFavorite : addFavorite;
+
+    mutationFn(event.id, {
+      onSuccess: () => {
+        toast.success(
+          t(
+            event?.is_favorite
+              ? "favorites.removedSuccess"
+              : "favorites.addedSuccess"
+          )
+        );
+        ["favorites", "event", "activity", "event-details"].forEach((key) =>
+          queryClient.invalidateQueries({ queryKey: [key] })
+        );
+      },
+    });
+  };
 
   return (
     <Link to={`/event/${event.id}`} className="activity-card-link">
@@ -10,22 +43,32 @@ const EventCard = ({ event }) => {
         <div className="image-wrapper">
           <div className="dates-vertical">
             <div className="date-item">
-              <div className="day">{event.startDate.split(" ")[0]}</div>
-              <div className="month">{event.startDate.split(" ")[1]}</div>
-              <div className="year">{event.startDate.split(" ")[2]}</div>
+              <div className="day">{event.from_date.split(" ")[0]}</div>
+              <div className="month">{event.from_date.split(" ")[1]}</div>
+              <div className="year">{event.from_date.split(" ")[2]}</div>
             </div>
             <div className="date-item">
-              <div className="day">{event.endDate.split(" ")[0]}</div>
-              <div className="month">{event.endDate.split(" ")[1]}</div>
-              <div className="year">{event.endDate.split(" ")[2]}</div>
+              <div className="day">{event.to_date.split(" ")[0]}</div>
+              <div className="month">{event.to_date.split(" ")[1]}</div>
+              <div className="year">{event.to_date.split(" ")[2]}</div>
             </div>
           </div>
 
-          <img src={event.image} alt={event.name} />
+          <img src={event.image} alt={event.title} />
 
           {/* fav button */}
-          <button className="fav-btn">
-            <i className="fa-regular fa-heart"></i>
+          <button
+            className="fav-btn"
+            onClick={handleFavorite}
+            disabled={isAddToFavPending || isRemoveFormFavPending}
+          >
+            <i
+              className={
+                event.is_favorite
+                  ? "fa-solid fa-heart text-primary"
+                  : "fa-regular fa-heart"
+              }
+            ></i>
           </button>
         </div>
 
@@ -34,7 +77,7 @@ const EventCard = ({ event }) => {
             <div>
               <div className="location-type">
                 <i className="fa-solid fa-location-dot me-1"></i>
-                {event.city} | {event.type}
+                {cityName} | {event.type}
               </div>
             </div>
 
@@ -45,7 +88,7 @@ const EventCard = ({ event }) => {
             </div>
           </div>
 
-          <h3 className="event-name">{event.name}</h3>
+          <h3 className="event-name">{event.title}</h3>
         </div>
       </div>
     </Link>

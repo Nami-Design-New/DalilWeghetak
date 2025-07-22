@@ -41,18 +41,7 @@ export default function DestinationsEvents({ city }) {
                   ))
               : events.map((event) => (
                   <SwiperSlide key={event.id}>
-                    <EventCard
-                      event={{
-                        id: event.id,
-                        name: event.title,
-                        image: event.image,
-                        price: event.price,
-                        startDate: event.from_date,
-                        endDate: event.to_date,
-                        city: city?.name,
-                        type: event.type,
-                      }}
-                    />
+                    <EventCard event={event} cityName={city.name} />
                   </SwiperSlide>
                 ))}
           </Swiper>

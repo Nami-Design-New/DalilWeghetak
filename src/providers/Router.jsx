@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Outlet } from "react-router";
 import RootLayout from "../layout/RootLayout";
 import Home from "../routes/Home";
 import Error from "../routes/Error";
@@ -24,6 +24,8 @@ import FaqPage from "../routes/Faqs";
 import InteractiveMap from "../routes/InteractiveMap";
 import SessionDetails from "../routes/SessionDetails";
 import ExperienceDetails from "../routes/ExperienceDetails ";
+import GardProvider from "./GardProvider";
+import Favorites from "../routes/Favorites";
 
 export const router = createBrowserRouter([
   {
@@ -95,26 +97,7 @@ export const router = createBrowserRouter([
         path: "events",
         element: <AllEvents />,
       },
-      {
-        path: "notifications",
-        element: <Notifications />,
-      },
-      {
-        path: "settings",
-        element: <Settings />,
-      },
-      {
-        path: "my-events",
-        element: <MyEvents />,
-      },
-      {
-        path: "wallet",
-        element: <MyWallet />,
-      },
-      {
-        path: "my-bookings",
-        element: <MyBooking />,
-      },
+
       {
         path: "faq",
         element: <FaqPage />,
@@ -122,6 +105,41 @@ export const router = createBrowserRouter([
       {
         path: "map",
         element: <InteractiveMap />,
+      },
+
+      {
+        path: "",
+        element: (
+          <GardProvider>
+            <Outlet />
+          </GardProvider>
+        ),
+        children: [
+          {
+            path: "my-bookings",
+            element: <MyBooking />,
+          },
+          {
+            path: "wallet",
+            element: <MyWallet />,
+          },
+          {
+            path: "favorites",
+            element: <Favorites />,
+          },
+          {
+            path: "notifications",
+            element: <Notifications />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+          {
+            path: "my-events",
+            element: <MyEvents />,
+          },
+        ],
       },
     ],
   },
