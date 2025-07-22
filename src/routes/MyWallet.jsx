@@ -23,7 +23,7 @@ export default function MyWallet() {
   };
 
   return (
-    <section className="wallet-page mt-80">
+    <section className="wallet-page ">
       <div className="container">
         <h2 className="page-title mb-3">محفظتي</h2>
         <div className="wallet-card p-3 mb-4">

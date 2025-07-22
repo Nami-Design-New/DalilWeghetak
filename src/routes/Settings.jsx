@@ -31,7 +31,7 @@ export default function Settings() {
   ];
 
   return (
-    <div className="settings_page mt-80">
+    <div className="settings_page ">
         <div className="container">
       <div className="user_card">
         <div className="avatar">
