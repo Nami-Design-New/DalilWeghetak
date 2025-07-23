@@ -1,31 +1,31 @@
 import { createBrowserRouter, Outlet } from "react-router";
 import RootLayout from "../layout/RootLayout";
-import Home from "../routes/Home";
-import Error from "../routes/Error";
-import Contact from "../routes/Contact";
-import Login from "../routes/Login";
 import About from "../routes/About";
 import ActivityDetails from "../routes/ActivityDetails";
-import Terms from "../routes/Terms";
-import Privacy from "../routes/Privacy";
-import AllEvents from "../routes/Events";
-import ResetPassword from "../routes/ResetPassword";
-import ProviderRegister from "../routes/ProviderRegister";
-import UserRegister from "../routes/UserResgister";
+import AddEvent from "../routes/AddEvent";
+import Contact from "../routes/Contact";
 import DestinationDetails from "../routes/DestinationDetails";
-import AddEventForm from "../routes/AddEventForm";
-import Notifications from "../routes/Notifications";
-import Settings from "../routes/Settings";
+import Error from "../routes/Error";
+import EventDetails from "../routes/EventDetails";
+import AllEvents from "../routes/Events";
+import ExperienceDetails from "../routes/ExperienceDetails ";
+import FaqPage from "../routes/Faqs";
+import Favorites from "../routes/Favorites";
+import Home from "../routes/Home";
+import InteractiveMap from "../routes/InteractiveMap";
+import Login from "../routes/Login";
+import MyBooking from "../routes/MyBooking";
 import MyEvents from "../routes/MyEvents";
 import MyWallet from "../routes/MyWallet";
-import EventDetails from "../routes/EventDetails";
-import MyBooking from "../routes/MyBooking";
-import FaqPage from "../routes/Faqs";
-import InteractiveMap from "../routes/InteractiveMap";
+import Notifications from "../routes/Notifications";
+import Privacy from "../routes/Privacy";
+import ProviderRegister from "../routes/ProviderRegister";
+import ResetPassword from "../routes/ResetPassword";
 import SessionDetails from "../routes/SessionDetails";
-import ExperienceDetails from "../routes/ExperienceDetails ";
+import Settings from "../routes/Settings";
+import Terms from "../routes/Terms";
+import UserRegister from "../routes/UserResgister";
 import GardProvider from "./GardProvider";
-import Favorites from "../routes/Favorites";
 
 export const router = createBrowserRouter([
   {
@@ -57,10 +57,7 @@ export const router = createBrowserRouter([
         path: "reset-password",
         element: <ResetPassword />,
       },
-      {
-        path: "add-event",
-        element: <AddEventForm />,
-      },
+
       {
         path: "about",
         element: <About />,
@@ -138,6 +135,10 @@ export const router = createBrowserRouter([
           {
             path: "my-events",
             element: <MyEvents />,
+          },
+          {
+            path: "add-event",
+            element: <AddEvent />,
           },
         ],
       },
