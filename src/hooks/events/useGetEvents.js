@@ -35,7 +35,6 @@ async function getEvents(type, categories_id, city_id) {
     };
 
     const response = await axiosInstance.post("/get_events", requestBody);
-    console.log(response.data);
 
     if (response.status === 200) {
       return response?.data?.data;

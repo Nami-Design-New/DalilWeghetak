@@ -47,7 +47,6 @@ export default function AddEventForm() {
 
               {step === 1 && (
                 <>
-                  {/* STEP 1 */}
                   <div className="form_group">
                     <label className="upload_box">
                       {selectedImage ? (
@@ -124,7 +123,10 @@ export default function AddEventForm() {
                     </div>
                   </div>
 
-<SubmitButton text={t("addEvent.next")} onClick={() => setStep(2)} />
+                  <SubmitButton
+                    text={t("addEvent.next")}
+                    onClick={() => setStep(2)}
+                  />
                 </>
               )}
 

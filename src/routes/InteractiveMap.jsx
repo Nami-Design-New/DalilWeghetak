@@ -11,6 +11,7 @@ import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import EventDetails from "../components/map/EventDetails";
+import Loader from "../ui/loader/Loader";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -33,8 +34,6 @@ export default function InteractiveMap() {
 
   const { data: events, isLoading, isError } = useGetEvents("event");
 
-  console.log(events);
-
   const mapCenter = events?.length
     ? { lat: events[0].lat, lng: events[0].lng }
     : defaultPosition;
@@ -45,7 +44,7 @@ export default function InteractiveMap() {
 
   return (
     <section className="map-section">
-      {isLoading && <div>Loading map...</div>}
+      {isLoading && <Loader />}
       {isError && <div>Error loading events.</div>}
       {!isLoading && !isError && (
         <MapContainer

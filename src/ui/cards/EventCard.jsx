@@ -7,7 +7,6 @@ import useRemoveFavorites from "../../hooks/favorites/useRemoveFavorites";
 
 const EventCard = ({ event, cityName }) => {
   const { t } = useTranslation();
-  console.log(event);
 
   const queryClient = useQueryClient();
   const { addFavorite, isPending: isAddToFavPending } = useAddFavorites();
