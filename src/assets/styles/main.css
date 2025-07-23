@@ -656,7 +656,7 @@ body .dropdown-menu {
 }
 body .dropdown-menu .dropdown-item {
   margin-bottom: 4px;
-  padding: 8px 24px 8px 16px;
+  padding: 8px 8px 8px 52px;
   border-radius: 4px;
   display: flex !important;
   align-items: center !important;
@@ -885,21 +885,31 @@ body .form_ui .input-field textarea {
   padding: 12px 16px;
   box-shadow: none !important;
 }
+body .form_ui .input-field input::-moz-placeholder, body .form_ui .input-field select::-moz-placeholder, body .form_ui .input-field textarea::-moz-placeholder {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+body .form_ui .input-field input::placeholder,
+body .form_ui .input-field select::placeholder,
+body .form_ui .input-field textarea::placeholder {
+  color: #aaaaaa;
+  font-size: 12px;
+}
 body .form_ui .input-field textarea {
-  height: 122px;
+  height: 100px;
 }
 body .form_ui .input-field label {
   color: #000;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
 }
 body .form_ui .input-field label i {
   font-size: 12px;
   color: #0048aa;
 }
 body .form_ui .input-field label span {
-  font-size: 12px;
-  color: #777;
+  font-size: 10px;
+  color: #ff0000;
 }
 body .form_ui .check_field {
   cursor: pointer;
@@ -1103,7 +1113,7 @@ body .upload_box {
 }
 body .upload_box img {
   width: 100%;
-  height: 400px;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 12px;
@@ -1228,6 +1238,38 @@ body .skeleton_card .skeleton_icon {
 body .skeleton_card .skeleton_text {
   width: 50px;
   height: 12px;
+}
+body .searchMapGroup {
+  gap: 8px;
+  display: flex;
+}
+body .searchMapGroup button {
+  min-width: 54px;
+  max-width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  border: none;
+  background: none;
+  outline: none;
+  background-image: url("/icons/mapIcon.svg");
+}
+body .searchMapGroup span {
+  width: 100%;
+  height: 54px;
+  overflow: hidden;
+  outline: none;
+  font-size: 14px;
+  border: 1px solid #f4f4f4;
+  border-radius: 12px;
+  color: #aaaaaa;
+  background: #fafafa;
+  padding: 12px 16px;
+}
+body button.back {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 42px;
+  background: #000;
 }
 body .hero-section {
   position: relative;
@@ -1627,7 +1669,7 @@ body .events .events-slider .swiper-slide {
   }
 }
 body .seasons-section {
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: #f8f8f8;
 }
 body .seasons-section .section-title {
@@ -1728,7 +1770,7 @@ body .holidays-section .holiday-card .holiday-info .holiday-desc {
   overflow: hidden;
 }
 body .statistics-section {
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: #f8f8f8;
 }
 body .statistics-section.en .card::before,
@@ -2116,7 +2158,7 @@ body .map-section .map-controls .control-btn:hover {
   background-color: #f0f0f0;
 }
 body .contact_section {
-  padding: 60px 0 0 0;
+  padding: 40px 0 0 0;
 }
 body .contact_section .contact_info {
   padding: 24px;
@@ -2160,7 +2202,7 @@ body .contact_section .contact_info .icon.icon-email {
   background-color: rgb(181.8, 163.5, 224.5);
 }
 body .contact_section .contact_info .icon.icon-social {
-  background-color: #0048AA;
+  background-color: #0048aa;
 }
 body .contact_section .contact_info h6 {
   color: #000;
@@ -2286,7 +2328,7 @@ body .error-page a:hover {
   background: #000;
 }
 body .auth_section {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .auth_section .auth-image-wrapper {
   height: 100%;
@@ -2396,8 +2438,7 @@ body .account-type-options .type-card:hover h5 {
   color: #0048aa;
 }
 body .about-section {
-  padding: 60px 0;
-  margin-top: 90px;
+  padding: 40px 0;
 }
 body .about-section .container {
   display: flex;
@@ -2488,7 +2529,7 @@ body .about-section .about-image .image-wrapper .dot-pattern {
   z-index: 0;
 }
 body .notifications {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .notifications .notification_card {
   background: #fafafa;
@@ -2574,7 +2615,7 @@ body .notifications .notification_card .date {
   margin-inline-start: auto;
 }
 body .settings_page {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .settings_page .user_card {
   display: flex;
@@ -2659,10 +2700,10 @@ body .settings_page .settings_list .settings_item .arrow {
   font-size: 14px;
 }
 body .my-events-page {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .wallet-page {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .wallet-page .wallet-card {
   background: #0048aa;
@@ -2685,8 +2726,111 @@ body .wallet-page .charge-box {
 body .wallet-page .charge-box input {
   flex: 1;
 }
+body .steps {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+body .steps:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #f4f4f4;
+  z-index: -1;
+}
+body .steps .step {
+  padding: 8px 32px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  padding-inline-start: 0;
+  filter: grayscale(1);
+}
+body .steps .step:last-child {
+  padding-inline-start: 16px;
+}
+body .steps .step.active {
+  color: #0048aa;
+  filter: none;
+}
+body .steps .step .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f4f4f4;
+}
+body .steps .step .icon img {
+  height: 28px;
+}
+body .paid_free {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0;
+}
+body .paid_free h6 {
+  font-size: 14px;
+  color: #000;
+}
+body .paid_free .radio_group {
+  display: flex;
+  background: #fafafa;
+  border-radius: 12px;
+}
+body .paid_free .radio_group input {
+  display: none;
+}
+body .paid_free .radio_group input:checked + label {
+  background: #0048aa;
+  color: #fff;
+}
+body .paid_free .radio_group label {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+body .check_boxes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+body .check_boxes .checkbox_group input {
+  display: none;
+}
+body .check_boxes .checkbox_group input:checked + label {
+  background: #0048aa;
+  color: #fff;
+}
+body .check_boxes .checkbox_group input:checked + label img {
+  filter: brightness(0) invert(1);
+}
+body .check_boxes .checkbox_group label {
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #fafafa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .check_boxes .checkbox_group img {
+  filter: brightness(0);
+  height: 18px;
+}
 body .activity-details, body .event-details {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .activity-details .hero-banner, body .event-details .hero-banner {
   height: 400px;
@@ -2903,7 +3047,7 @@ body .privacy-policy-page .policy-section p {
   }
 }
 body .faq-page {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .faq-page .info .section-title {
   font-size: 2rem;
@@ -3379,7 +3523,7 @@ body .season-card .season-info .season-title {
   line-height: 1.4;
 }
 body .my-booking-page {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 body .my-booking-page .tabs-wrapper .tab-card {
   background-color: #f5f5f5;

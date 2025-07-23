@@ -42,14 +42,14 @@ const EventCard = ({ event, cityName }) => {
         <div className="image-wrapper">
           <div className="dates-vertical">
             <div className="date-item">
-              <div className="day">{event.from_date.split(" ")[0]}</div>
-              <div className="month">{event.from_date.split(" ")[1]}</div>
-              <div className="year">{event.from_date.split(" ")[2]}</div>
+              <div className="day">{event.from_date?.split(" ")[0]}</div>
+              <div className="month">{event.from_date?.split(" ")[1]}</div>
+              <div className="year">{event.from_date?.split(" ")[2]}</div>
             </div>
             <div className="date-item">
-              <div className="day">{event.to_date.split(" ")[0]}</div>
-              <div className="month">{event.to_date.split(" ")[1]}</div>
-              <div className="year">{event.to_date.split(" ")[2]}</div>
+              <div className="day">{event.to_date?.split(" ")[0]}</div>
+              <div className="month">{event.to_date?.split(" ")[1]}</div>
+              <div className="year">{event.to_date?.split(" ")[2]}</div>
             </div>
           </div>
 

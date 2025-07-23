@@ -1,74 +1,73 @@
 .contact_section {
-  padding: 60px  0 0 0;
+  padding: 40px 0 0 0;
   .contact_info {
     padding: 24px;
     border-radius: 16px;
     height: 100%;
     border: 2px solid $input_stroke;
-  padding: 24px;
-  border-radius: 16px;
-  height: 100%;
-  border: 2px solid $input_stroke;
+    padding: 24px;
+    border-radius: 16px;
+    height: 100%;
+    border: 2px solid $input_stroke;
 
-  &.bg-location {
-        background-color: #fceeee;
-  }
-  &.bg-phone {
-    background-color: #e8f6f3;
-  }
-  &.bg-email {
-    background-color: #f3f0fa;
-  }
-  &.bg-social {
-        background-color: #e7f1fd;
-
-  }
-
-  .icon {
-    width: 52px;
-    height: 52px;
-    @include centerFlex();
-    border-radius: 12px;
-    margin-bottom: 24px;
-    color: #fff;
-
-    &.icon-location {
-    background-color: darken(#fceeee, 20%);
+    &.bg-location {
+      background-color: #fceeee;
+    }
+    &.bg-phone {
+      background-color: #e8f6f3;
+    }
+    &.bg-email {
+      background-color: #f3f0fa;
+    }
+    &.bg-social {
+      background-color: #e7f1fd;
     }
 
-    &.icon-phone {
-      background-color: darken(#e8f6f3, 20%);
+    .icon {
+      width: 52px;
+      height: 52px;
+      @include centerFlex();
+      border-radius: 12px;
+      margin-bottom: 24px;
+      color: #fff;
+
+      &.icon-location {
+        background-color: darken(#fceeee, 20%);
+      }
+
+      &.icon-phone {
+        background-color: darken(#e8f6f3, 20%);
+      }
+
+      &.icon-email {
+        background-color: darken(#f3f0fa, 20%);
+      }
+      &.icon-social {
+        background-color: #0048aa;
+      }
     }
 
-    &.icon-email {
-      background-color: darken(#f3f0fa, 20%);
+    h6 {
+      color: $black;
+      font-size: 16px;
+      font-weight: 500;
     }
-    &.icon-social {
-       background-color: #0048AA; 
+
+    p {
+      color: $input_hint;
+      font-size: 14px;
+      margin-top: 8px;
     }
-  }
 
-  h6 {
-    color: $black;
-    font-size: 16px;
-    font-weight: 500;
-  }
+    a {
+      color: $black;
+      font-size: 14px;
+      transition: $transition;
 
-  p {
-    color: $input_hint;
-    font-size: 14px;
-    margin-top: 8px;
-  }
-
-  a {
-    color: $black;
-    font-size: 14px;
-    transition: $transition;
-
-    &:hover {
-      color: $main;
+      &:hover {
+        color: $main;
+      }
     }
-  }
 
     h6 {
       color: $black;
@@ -91,29 +90,27 @@
       }
     }
   }
-.social-media-links {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  .social-media-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-  a {
-    font-size: 16px;
-    color: $black;
-    transition: $transition;
+    a {
+      font-size: 16px;
+      color: $black;
+      transition: $transition;
 
-    &:hover {
-      color: $main;
+      &:hover {
+        color: $main;
+      }
     }
   }
-}
-
 
   .map_container {
     margin-top: 30px;
     margin-bottom: -8px;
   }
 
- 
   .form_ui {
     padding-inline-end: 16px;
 
@@ -138,11 +135,10 @@
       margin: 0;
     }
   }
-   .contact_img {
+  .contact_img {
     width: 100%;
     height: 100%;
     border-radius: 16px;
     object-fit: cover;
   }
-
 }

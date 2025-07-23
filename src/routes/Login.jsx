@@ -1,22 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import { toast } from "sonner";
-import { useDispatch } from "react-redux";
-import { useCookies } from "react-cookie";
-import { useGoogleLogin } from "@react-oauth/google";
-import { setClientData } from "../redux/slices/clientData";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
 import useLogin from "../hooks/auth/useLogin";
-import axiosInstance from "../utils/axiosInstance";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
-  const [, setCookie] = useCookies(["token"]);
-  const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { register, handleSubmit, errors, isLoading } = useLogin(t);

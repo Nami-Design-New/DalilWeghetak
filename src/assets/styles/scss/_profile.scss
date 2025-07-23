@@ -1,5 +1,5 @@
 .notifications {
-  padding: 60px 0;
+  padding: 40px 0;
 
   .notification_card {
     background: $input_bg;
@@ -99,72 +99,70 @@
   }
 }
 
-////
 .settings_page {
-  padding: 60px 0;
+  padding: 40px 0;
 
-.user_card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  border: 1px solid $input_stroke;
-  border-radius: 16px;
-  background: $input_bg;
-  position: relative;
-  margin-bottom: 20px;
-
-  .avatar {
+  .user_card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid $input_stroke;
+    border-radius: 16px;
+    background: $input_bg;
     position: relative;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    overflow: hidden;
+    margin-bottom: 20px;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .avatar {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .edit-icon {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        background: $main;
+        color: $white;
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        z-index: 2;
+
+        &:hover {
+          background: darken($main, 5%);
+        }
+      }
     }
 
-   .edit-icon {
-  position: absolute;
-  bottom: 4px; 
-  right: 4px;
-  background: $main;
-  color: $white;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 12px;
-  z-index: 2;
+    .info {
+      h6 {
+        margin: 0;
+        font-size: 16px;
+        color: $black;
+      }
 
-  &:hover {
-    background: darken($main, 5%);
-  }
-}
-
-  }
-
-  .info {
-    h6 {
-      margin: 0;
-      font-size: 16px;
-      color: $black;
-    }
-
-    p {
-      margin: 0;
-      font-size: 14px;
-      color: $gray;
+      p {
+        margin: 0;
+        font-size: 14px;
+        color: $gray;
+      }
     }
   }
-}
 
   .settings_list {
     display: flex;
@@ -195,44 +193,154 @@
         color: $gray;
         font-size: 14px;
       }
-
-   
     }
   }
 }
-///
-.my-events-page{
-    padding: 60px 0;
-}
-////
-.wallet-page{
- padding: 60px 0;
- 
-.wallet-card {
-  background: $main;
-  color: $white;
-  border-radius: 16px;
-  h3 {
-    margin: 0;
-  }
 
-  .wallet-icon {
+.my-events-page {
+  padding: 40px 0;
+}
+
+.wallet-page {
+  padding: 40px 0;
+
+  .wallet-card {
+    background: $main;
     color: $white;
+    border-radius: 16px;
+    h3 {
+      margin: 0;
+    }
+
+    .wallet-icon {
+      color: $white;
+    }
+  }
+
+  .transactions-list {
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .charge-box {
+    background: $input_bg;
+    border-radius: 12px;
+
+    input {
+      flex: 1;
+    }
   }
 }
 
-.transactions-list {
-  span {
+.steps {
+  position: relative;
+  @include space-between();
+  margin-bottom: 16px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $input_stroke;
+    z-index: -1;
+  }
+
+  .step {
+    padding: 8px 32px;
+    background: $white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-inline-start: 0;
+    filter: grayscale(1);
+
+    &:last-child {
+      padding-inline-start: 16px;
+    }
+
+    &.active {
+      color: $main;
+      filter: none;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      @include centerFlex();
+      border: 1px solid $input_stroke;
+      img {
+        height: 28px;
+      }
+    }
+  }
+}
+
+.paid_free {
+  @include space-between();
+  margin: 24px 0;
+  h6 {
     font-size: 14px;
+    color: $black;
+  }
+  .radio_group {
+    display: flex;
+    background: $input_bg;
+    border-radius: 12px;
+    input {
+      display: none;
+      &:checked + label {
+        background: $main;
+        color: $white;
+      }
+    }
+    label {
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 12px;
+    }
   }
 }
 
-.charge-box {
-  background: $input_bg;
-  border-radius: 12px;
+.check_boxes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
 
-  input {
-    flex: 1;
+  .checkbox_group {
+    input {
+      display: none;
+
+      &:checked + label {
+        background: $main;
+        color: $white;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+
+    label {
+      padding: 8px 16px;
+      border-radius: 12px;
+      background: $input_bg;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    img {
+      filter: brightness(0);
+      height: 18px;
+    }
   }
 }
- }
