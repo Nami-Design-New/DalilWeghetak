@@ -57,7 +57,7 @@ header {
     .nav_links {
       flex: 2;
       @include centerFlex();
-      gap: 42px;
+      gap: 62px;
 
       .logo {
         display: none;
@@ -75,7 +75,7 @@ header {
         font-weight: 600;
         color: $black;
         transition: $transition;
-        font-size: 14px;
+        font-size: 12px;
 
         &.active,
         &:hover {

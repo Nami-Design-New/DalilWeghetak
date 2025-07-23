@@ -101,6 +101,7 @@ export default function useAddEventForm() {
       audience: "all",
       from_age: null,
       to_age: null,
+      categories: [],
       is_free: true,
     },
   });
@@ -121,14 +122,19 @@ export default function useAddEventForm() {
     }
     return await methods.trigger();
   };
-
   const { mutate: addEventMutation, isPending } = useMutation({
     mutationFn: async (data) => {
-      const response = await axiosInstance.post("/user/create_event", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { is_free, ...filteredData } = data;
+      
+      const response = await axiosInstance.post(
+        "/user/create_event",
+        filteredData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       return response.data;
     },
     onSuccess: (data) => {

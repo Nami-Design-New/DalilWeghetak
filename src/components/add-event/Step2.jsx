@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
+import { useFormContext } from "react-hook-form";
 import InputField from "../../ui/forms/InputField";
 import SubmitButton from "../../ui/forms/SubmitButton";
 import SelectField from "../../ui/forms/SelectField";
 import useGetCategories from "../../hooks/home/useGetCategories";
-import { useFormContext } from "react-hook-form";
 
 export default function Step2({ onBack, isPending }) {
   const { t } = useTranslation();
@@ -11,6 +11,7 @@ export default function Step2({ onBack, isPending }) {
   const {
     register,
     watch,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -33,6 +34,14 @@ export default function Step2({ onBack, isPending }) {
               id={category.id}
               name={category.name}
               value={category.id}
+              onChange={(e) => {
+                setValue(
+                  "categories",
+                  e.target.checked
+                    ? [...watch("categories"), category.id]
+                    : watch("categories").filter((id) => id !== category.id)
+                );
+              }}
             />
             <label htmlFor={category.id}>
               <img src={category.icon} alt="" />
