@@ -1738,7 +1738,7 @@ body .holidays-section .holiday-card {
 }
 body .holidays-section .holiday-card .holiday-image-wrapper {
   width: 100%;
-  height: 180px;
+  height: 320px;
   overflow: hidden;
 }
 body .holidays-section .holiday-card .holiday-image-wrapper .holiday-img {
@@ -2620,6 +2620,7 @@ body .settings_page {
 body .settings_page .user_card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   padding: 16px;
   border: 1px solid #f4f4f4;
@@ -2641,12 +2642,8 @@ body .settings_page .user_card .avatar img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-body .settings_page .user_card .avatar .edit-icon {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  background: #0048aa;
-  color: #fff;
+body .settings_page .user_card .edit-icon {
+  color: #0048aa;
   border: none;
   width: 24px;
   height: 24px;
@@ -2655,11 +2652,8 @@ body .settings_page .user_card .avatar .edit-icon {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 18px;
   z-index: 2;
-}
-body .settings_page .user_card .avatar .edit-icon:hover {
-  background: rgb(0, 61.2, 144.5);
 }
 body .settings_page .user_card .info h6 {
   margin: 0;
@@ -2829,16 +2823,19 @@ body .check_boxes .checkbox_group img {
   filter: brightness(0);
   height: 18px;
 }
-body .activity-details, body .event-details {
+body .activity-details,
+body .event-details {
   padding: 40px 0;
 }
-body .activity-details .hero-banner, body .event-details .hero-banner {
+body .activity-details .hero-banner,
+body .event-details .hero-banner {
   height: 400px;
   background-size: cover;
   background-position: center;
   position: relative;
 }
-body .activity-details .hero-banner .overlay, body .event-details .hero-banner .overlay {
+body .activity-details .hero-banner .overlay,
+body .event-details .hero-banner .overlay {
   background: rgba(0, 0, 0, 0.55);
   width: 100%;
   height: 100%;
@@ -2847,73 +2844,90 @@ body .activity-details .hero-banner .overlay, body .event-details .hero-banner .
   color: white;
   text-align: center;
 }
-body .activity-details .hero-banner .overlay .text-content, body .event-details .hero-banner .overlay .text-content {
+body .activity-details .hero-banner .overlay .text-content,
+body .event-details .hero-banner .overlay .text-content {
   max-width: 700px;
   margin: auto;
 }
-body .activity-details .hero-banner .overlay .text-content h1, body .event-details .hero-banner .overlay .text-content h1 {
+body .activity-details .hero-banner .overlay .text-content h1,
+body .event-details .hero-banner .overlay .text-content h1 {
   font-size: 2.5rem;
   font-weight: 700;
 }
-body .activity-details .hero-banner .overlay .text-content .lead, body .event-details .hero-banner .overlay .text-content .lead {
+body .activity-details .hero-banner .overlay .text-content .lead,
+body .event-details .hero-banner .overlay .text-content .lead {
   font-size: 1.2rem;
   margin-top: 10px;
 }
-body .activity-details .info-cards .info_card, body .event-details .info-cards .info_card {
+body .activity-details .info-cards .info_card,
+body .event-details .info-cards .info_card {
   border-radius: 12px;
   transition: 0.3s ease;
   text-align: center;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
   padding: 15px;
 }
-body .activity-details .info-cards .info_card .icon, body .event-details .info-cards .info_card .icon {
+body .activity-details .info-cards .info_card .icon,
+body .event-details .info-cards .info_card .icon {
   font-size: 2rem;
   color: #0048aa;
 }
-body .activity-details .info-cards .info_card:hover, body .event-details .info-cards .info_card:hover {
+body .activity-details .info-cards .info_card:hover,
+body .event-details .info-cards .info_card:hover {
   transform: translateY(-5px);
 }
-body .activity-details .details, body .event-details .details {
+body .activity-details .details,
+body .event-details .details {
   margin: 20px 0;
 }
-body .activity-details .section-title, body .event-details .section-title {
+body .activity-details .section-title,
+body .event-details .section-title {
   font-weight: 600;
   font-size: 1.4rem;
   margin-bottom: 15px;
   color: #0048aa;
 }
-body .activity-details .description-section p, body .event-details .description-section p {
+body .activity-details .description-section p,
+body .event-details .description-section p {
   font-size: 1.1rem;
   line-height: 1.9;
   color: #555;
 }
-body .activity-details .policy-section .policy-card, body .event-details .policy-section .policy-card {
+body .activity-details .policy-section .policy-card,
+body .event-details .policy-section .policy-card {
   padding: 10px;
   border-right: 3px solid #0048aa;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.068);
 }
-body .activity-details .map-wrapper, body .event-details .map-wrapper {
+body .activity-details .map-wrapper,
+body .event-details .map-wrapper {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 768px) {
-  body .activity-details .hero-banner, body .event-details .hero-banner {
+  body .activity-details .hero-banner,
+  body .event-details .hero-banner {
     height: 300px;
   }
-  body .activity-details .hero-banner .text-content h1, body .event-details .hero-banner .text-content h1 {
+  body .activity-details .hero-banner .text-content h1,
+  body .event-details .hero-banner .text-content h1 {
     font-size: 1.8rem;
   }
-  body .activity-details .hero-banner .text-content .lead, body .event-details .hero-banner .text-content .lead {
+  body .activity-details .hero-banner .text-content .lead,
+  body .event-details .hero-banner .text-content .lead {
     font-size: 1rem;
   }
-  body .activity-details .info-cards .info_card .icon, body .event-details .info-cards .info_card .icon {
+  body .activity-details .info-cards .info_card .icon,
+  body .event-details .info-cards .info_card .icon {
     font-size: 1.3rem;
   }
-  body .activity-details .purchase-bar, body .event-details .purchase-bar {
+  body .activity-details .purchase-bar,
+  body .event-details .purchase-bar {
     flex-direction: column;
     gap: 10px;
   }
-  body .activity-details .purchase-bar span, body .event-details .purchase-bar span {
+  body .activity-details .purchase-bar span,
+  body .event-details .purchase-bar span {
     color: #0048aa;
   }
 }

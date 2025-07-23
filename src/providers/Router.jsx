@@ -26,6 +26,7 @@ import Settings from "../routes/Settings";
 import Terms from "../routes/Terms";
 import UserRegister from "../routes/UserResgister";
 import GardProvider from "./GardProvider";
+import EditProfile from "../routes/EditProfile";
 
 export const router = createBrowserRouter([
   {
@@ -131,6 +132,10 @@ export const router = createBrowserRouter([
           {
             path: "settings",
             element: <Settings />,
+          },
+          {
+            path: "/edit-profile",
+            element: <EditProfile />,
           },
           {
             path: "my-events",

@@ -1,71 +1,98 @@
-import { useState, useRef } from "react";
 import { Link } from "react-router";
+import useGetProfile from "../hooks/account/useGetProfile";
+import useGetSettings from "../hooks/useGetSettings";
+import Loader from "../ui/loader/Loader";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export default function Settings() {
-  const [selectedImage, setSelectedImage] = useState("/icons/user.png");
-  const fileInputRef = useRef(null);
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-    }
-  };
-
-  const handleEditClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const user = {
-    name: "محمد احمد معتز",
-    greeting: "مرحباً بك",
-  };
-
-  const settingsItems = [
-{ title: "حجوزاتي", icon: "fa-regular fa-ticket", link: "/my-bookings" },
-    { title: "فعالياتي", icon: "", link: "/my-events" },
-    { title: "المحفظة", icon: "fa-regular fa-wallet", link: "/wallet" },
-    { title: "تغيير كلمة المرور", icon: "fa-regular fa-lock", link: "/change-password" },
-    { title: "تواصل معنا", icon: "fa-regular fa-message", link: "/contact" },
-    { title: "سياسة الشروط و الأحكام", icon: "fa-regular fa-file-lines", link: "/terms" },
-  ];
+  const { t } = useTranslation();
+  const { data, isLoading } = useGetProfile();
+  const { settings = {} } = useGetSettings();
+  const { client } = useSelector((state) => state.clientData);
+  const isUser = client?.type === "user";
+  if (isLoading) return <Loader />;
 
   return (
-    <div className="settings_page ">
-        <div className="container">
-      <div className="user_card">
-        <div className="avatar">
-          <img src={selectedImage} alt={user.name} />
-          <button className="edit-icon" onClick={handleEditClick}>
-            <i className="fa-regular fa-pen-to-square"></i>
-          </button>
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept="image/*"
-            onChange={handleImageChange}
-            style={{ display: "none" }}
-          />
-        </div>
-
-        <div className="info">
-          <h6>{user.name}</h6>
-          <p>{user.greeting}</p>
-        </div>
-      </div>
-
-      <div className="settings_list">
-        {settingsItems.map((item, index) => (
-          <Link to={item.link} className="settings_item" key={index}>
-            <div className="icon">
-              <i className={item.icon}></i>
+    <div className="settings_page">
+      <div className="container">
+        <div className="user_card">
+          <div className="d-flex align-items-center gap-2">
+            <div className="avatar">
+              <img src={data.image} alt={data.name} />
             </div>
-            <span>{item.title}</span>
+            <div className="info">
+              <h6>{data.name}</h6>
+              <p>{t("settings.welcome")}</p>
+            </div>
+          </div>
+          <Link to="/edit-profile" className="edit-icon">
+            <i className="fa-regular fa-pen-to-square"></i>
+          </Link>
+        </div>
+
+        <div className="settings_list">
+          <Link to="/my-bookings" className="settings_item">
+            <div className="icon">
+              <i className="fa-regular fa-ticket"></i>
+            </div>
+            <span>{t("settings.myBookings")}</span>
             <i className="fa-solid fa-chevron-left arrow"></i>
           </Link>
-        ))}
+          {!isUser && (
+            <Link to="/my-events" className="settings_item">
+              <div className="icon">
+                <i className="fa-regular fa-calendar-check"></i>
+              </div>
+              <span>{t("settings.myEvents")}</span>
+              <i className="fa-solid fa-chevron-left arrow"></i>
+            </Link>
+          )}
+
+          <Link to="/wallet" className="settings_item">
+            <div className="icon">
+              <i className="fa-regular fa-wallet"></i>
+            </div>
+            <span>{t("settings.wallet")}</span>
+            <i className="fa-solid fa-chevron-left arrow"></i>
+          </Link>
+
+          <Link to="/change-password" className="settings_item">
+            <div className="icon">
+              <i className="fa-regular fa-lock"></i>
+            </div>
+            <span>{t("settings.changePassword")}</span>
+            <i className="fa-solid fa-chevron-left arrow"></i>
+          </Link>
+
+          <Link to="/contact" className="settings_item">
+            <div className="icon">
+              <i className="fa-regular fa-message"></i>
+            </div>
+            <span>{t("settings.contactUs")}</span>
+            <i className="fa-solid fa-chevron-left arrow"></i>
+          </Link>
+
+          <Link to={settings.terms_link} className="settings_item">
+            <div className="icon">
+              <i className="fa-regular fa-file-lines"></i>
+            </div>
+            <span>{t("settings.terms")}</span>
+            <i className="fa-solid fa-chevron-left arrow"></i>
+          </Link>
+
+          <Link
+            to={settings.delete_account_link || "/delete-account"}
+            className="settings_item"
+          >
+            <div className="icon">
+              <i className="fa-regular fa-file-lines"></i>
+            </div>
+            <span>{t("settings.deleteAccount")}</span>
+            <i className="fa-solid fa-chevron-left arrow"></i>
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

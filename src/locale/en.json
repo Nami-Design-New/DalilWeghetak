@@ -82,7 +82,8 @@
     "current_bookings": "Current Bookings",
     "previous_bookings": "Previous Bookings",
     "no-book": "You have no bookings yet",
-    "favorites": "Favorites"
+    "favorites": "Favorites",
+    "myAccount": "My Account"
   },
   "destinations": {
     "popular": "Top Destinations",
@@ -107,6 +108,11 @@
       "Heritage Sites",
       "Entertainment Places"
     ]
+  },
+  "exp": {
+    "title": "Experiences Worth Doing",
+    "titleDark": "Experiences ",
+    "titleMain": "Worth Doing"
   },
   "holidays": {
     "titleDark": "Occasions of",
@@ -350,6 +356,34 @@
   "favorites": {
     "addedSuccess": "Successfully added to favorites",
     "removedSuccess": "Successfully removed from favorites"
+  },
+  "profile": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "activity": "Activity",
+    "bio": "Bio",
+    "image": "Image",
+    "edit": "Edit",
+    "saveChanges": "Save Changes",
+    "successMessage": "Profile updated successfully.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email",
+    "phoneRequired": "Phone is required",
+    "activityRequired": "Activity is required",
+    "bioRequired": "Bio is required",
+    "imageInvalid": "The file must be an image"
+  },
+  "settings": {
+    "welcome": "Welcome",
+    "myBookings": "My Bookings",
+    "myEvents": "My Events",
+    "wallet": "Wallet",
+    "changePassword": "Change Password",
+    "contactUs": "Contact Us",
+    "terms": "Terms and Conditions",
+    "deleteAccount": "Delete Account"
   },
   "startsFrom": "Starts from",
   "sar": "SAR",

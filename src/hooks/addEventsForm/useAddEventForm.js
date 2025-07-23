@@ -1,11 +1,12 @@
-import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useTranslation } from "react-i18next";
-import { toast } from "sonner";
-import { useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
+import { FormProvider, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
+import { toast } from "sonner";
 import * as yup from "yup";
 import axiosInstance from "../../utils/axiosInstance";
+import { addEventFormatDate } from "../../utils/helpers";
 
 export default function useAddEventForm() {
   const { t } = useTranslation();
@@ -125,10 +126,19 @@ export default function useAddEventForm() {
   const { mutate: addEventMutation, isPending } = useMutation({
     mutationFn: async (data) => {
       const { is_free, ...filteredData } = data;
-      
+      const formattedData = {
+        ...filteredData,
+        to_date: filteredData.to_date
+          ? addEventFormatDate(filteredData.to_date)
+          : undefined,
+        from_date: filteredData.from_date
+          ? addEventFormatDate(filteredData.from_date)
+          : undefined,
+      };
+
       const response = await axiosInstance.post(
         "/user/create_event",
-        filteredData,
+        formattedData,
         {
           headers: {
             "Content-Type": "multipart/form-data",

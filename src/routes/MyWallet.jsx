@@ -1,35 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router";
+import useGetProfile from "../hooks/account/useGetProfile";
 import useGetWalletOperations from "../hooks/account/useGetWalletOperations";
 import Loader from "../ui/loader/Loader";
-import useGetProfile from "../hooks/account/useGetProfile";
-import { Link } from "react-router";
-import { useCookies } from "react-cookie";
+import { formatDate } from "../utils/helpers";
 
 export default function MyWallet() {
   const [chargeAmount, setChargeAmount] = useState();
-  const [cookies] = useCookies(["token"]);
-  const token = cookies?.token;
   const { walletOperations, isLoading } = useGetWalletOperations();
   const { data, isLoading: profileLoading } = useGetProfile();
-
-  // const walletData = {
-  //   balance: 3000,
-  //   name: "TEST Admin App",
-  //   transactions: [
-  //     {
-  //       id: 1,
-  //       amount: 30,
-  //       date: "5 نوفمبر 2024",
-  //       type: "إيداع",
-  //     },
-  //     {
-  //       id: 2,
-  //       amount: 30,
-  //       date: "5 نوفمبر 2024",
-  //       type: "خصم",
-  //     },
-  //   ],
-  // };
 
   if (isLoading || profileLoading) return <Loader />;
 
@@ -56,20 +35,22 @@ export default function MyWallet() {
 
         <div className="transactions-list mb-4">
           {walletOperations.length > 0 ? (
-            walletOperations.transactions.map((tx) => (
+            walletOperations.transactions.map((opertaion) => (
               <div
-                key={tx.id}
+                key={opertaion.id}
                 className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
               >
-                <span className="text-primary">ريال {tx.amount}</span>
-                <span>{tx.date}</span>
+                <span className="text-primary">ريال {opertaion.amount}</span>
+                <span>{formatDate(opertaion.created_at)}</span>
                 <span
                   className={
-                    tx.type === "إيداع" ? "text-success" : "text-danger"
+                    opertaion.operation === "charge"
+                      ? "text-success"
+                      : "text-danger"
                   }
                 >
-                  {tx.type}
-                  {tx.type === "إيداع" ? " ▲" : " ▼"}
+                  {opertaion.operation}
+                  {opertaion.operation === "charge" ? " ▲" : " ▼"}
                 </span>
               </div>
             ))

@@ -1,6 +1,7 @@
 import Activities from "../components/home/activities/Activities";
 import Destinations from "../components/home/Destinations";
 import JeddahEvents from "../components/home/EventsSection";
+import Experiences from "../components/home/Experiences";
 import Hero from "../components/home/Hero";
 import Holidays from "../components/home/Holidays";
 import Seasons from "../components/home/Seasons";
@@ -13,6 +14,7 @@ export default function Home() {
       <Destinations />
       <Activities />
       <JeddahEvents />
+      <Experiences />
       <Seasons />
       <Statistics />
       <Holidays />

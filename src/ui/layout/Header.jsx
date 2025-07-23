@@ -11,7 +11,7 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [lang, setLang] = useState(localStorage.getItem("lang") || "ar");
   const [cookies] = useCookies(["token"]);
-  const isAuthed = Boolean(cookies.token); 
+  const isAuthed = Boolean(cookies.token);
 
   const handleLanguageChange = () => {
     const newLang = lang === "ar" ? "en" : "ar";
@@ -102,6 +102,15 @@ export default function Header() {
             <i className="fa-regular fa-globe"></i>{" "}
             {lang === "ar" ? "EN" : "AR"}
           </button>
+          {isAuthed && (
+            <Link to="/notifications">
+              {" "}
+              <i
+                className="fa-solid fa-bell"
+                style={{ color: "#0048aa" }}
+              ></i>{" "}
+            </Link>
+          )}
 
           {isAuthed ? (
             <UserDropDown />

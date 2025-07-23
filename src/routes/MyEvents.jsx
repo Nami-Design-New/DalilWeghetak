@@ -1,8 +1,9 @@
 import useGetMyEvents from "../hooks/account/useGetMyEvents";
 import EventCard from "../ui/cards/EventCard";
+import Loader from "../ui/loader/Loader";
 export default function MyEvents() {
-  const { data: myEventsData } = useGetMyEvents();
-
+  const { data: myEventsData, isLoading } = useGetMyEvents();
+  if (isLoading) return <Loader />;
   return (
     <section className="my-events-page ">
       <div className="container">

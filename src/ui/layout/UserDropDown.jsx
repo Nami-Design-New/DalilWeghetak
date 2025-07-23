@@ -18,27 +18,11 @@ export default function UserDropDown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="custom-dropdown-menu text-end">
-        <Dropdown.Item as={Link} to="/notifications">
-          <i className="fa-regular fa-bell"></i>
-          {t("dropdown.notifications")}
+        <Dropdown.Item as={Link} to="/settings">
+          <i className="fa-regular fa-user"></i>
+          {t("dropdown.myAccount")}
         </Dropdown.Item>
 
-        <Dropdown.Item as={Link} to="/my-bookings">
-          <i className="fa-regular fa-ticket"></i>
-          {t("dropdown.myBookings")}
-        </Dropdown.Item>
-
-        {!isUser && (
-          <Dropdown.Item as={Link} to="/my-events">
-            <i className="fa-solid fa-calendar-check"></i>
-            {t("dropdown.myEvents")}
-          </Dropdown.Item>
-        )}
-
-        <Dropdown.Item as={Link} to="/wallet">
-          <i className="fa-regular fa-wallet"></i>
-          {t("dropdown.wallet")}
-        </Dropdown.Item>
         <Dropdown.Item as={Link} to="/favorites">
           <i className="fa-regular fa-heart"></i>
           {t("dropdown.favorites")}

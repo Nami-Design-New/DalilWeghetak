@@ -83,7 +83,8 @@
     "current_bookings": "الحجوزات الحالية",
     "previous_bookings": "الحجوزات السابقة",
     "no-book": " ليس لديك أي حجوزات بعد",
-    "favorites": "المفضلة"
+    "favorites": "المفضلة",
+    "myAccount": "حسابي"
   },
   "destinations": {
     "popular": "أشهر ",
@@ -102,12 +103,12 @@
   "activities": {
     "titleDark": "أنشطة ",
     "titleMain": "تقوم بها",
-    "categories": [
-      "الكل",
-      "مواقع طبيعية",
-      "اماكن تراثية",
-      "اماكن ترفيهية"
-    ]
+    "categories": ["الكل", "مواقع طبيعية", "اماكن تراثية", "اماكن ترفيهية"]
+  },
+  "exp": {
+    "title": " تجارب تستحق القيام بها ",
+    "titleDark": "تجارب ",
+    "titleMain": "تستحق القيام بها"
   },
   "holidays": {
     "titleDark": "مناسبات",
@@ -350,6 +351,34 @@
     "addedSuccess": "تمت الإضافة إلى المفضلة بنجاح",
     "removedSuccess": "تمت الإزالة من المفضلة بنجاح"
   },
+  "profile": {
+    "name": "الاسم",
+    "email": "البريد الالكتروني",
+    "phone": "الهاتف",
+    "activity": "النشاط",
+    "bio": "الوصف",
+    "image": "الصورة",
+    "edit": "تعديل",
+    "saveChanges": "حفظ التعديلات",
+    "successMessage": "تم تعديل الحساب بنجاح",
+    "nameRequired": "الاسم مطلوب",
+    "emailRequired": "البريد مطلوب",
+    "emailInvalid": "بريد غير صالح",
+    "phoneRequired": "الهاتف مطلوب",
+    "activityRequired": "النشاط مطلوب",
+    "bioRequired": "الوصف مطلوب",
+    "imageInvalid": "الملف يجب أن يكون صورة"
+  },
+  "settings": {
+    "welcome": "مرحباً بك",
+    "myBookings": "حجوزاتي",
+    "myEvents": "فعالياتي",
+    "wallet": "المحفظة",
+    "changePassword": "تغيير كلمة المرور",
+    "contactUs": "تواصل معنا",
+    "terms": "سياسة الشروط و الأحكام",
+    "deleteAccount": "حذف الحساب"
+  },
   "startsFrom": "يبدأ من",
   "sar": "ر.س",
   "showDetails": "عرض التفاصيل",
@@ -413,7 +442,7 @@
     "fromTimeRequired": "وقت البداية مطلوب",
     "toTimeRequired": "وقت النهاية مطلوب",
     "audienceRequired": "الفئة المستهدفة مطلوبة",
-    "somethingWentWrong":"حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا",
+    "somethingWentWrong": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا",
     "eventAdded": "تمت اضافة الفعالية بنجاح"
   }
 }
