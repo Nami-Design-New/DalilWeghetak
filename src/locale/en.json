@@ -358,5 +358,9 @@
   "to": "To",
   "fromTime": "From Time",
   "toTime": "To Time",
-  "audience": "Audience"
+  "audience": "Audience",
+  "addEventForm": {
+    "step1": "Event Details",
+    "step2": "Event Schedule"
+  }
 }

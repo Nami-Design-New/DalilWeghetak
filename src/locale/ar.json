@@ -63,7 +63,6 @@
     "googleAccount": "حساب جوجل",
     "acceptTermsWarning": "يرجى قبول الشروط والأحكام للتسجيل"
   },
-
   "validation": {
     "required": "هذا الحقل مطلوب",
     "phone": "يرجى إدخال رقم هاتف صالح",
@@ -103,7 +102,12 @@
   "activities": {
     "titleDark": "أنشطة ",
     "titleMain": "تقوم بها",
-    "categories": ["الكل", "مواقع طبيعية", "اماكن تراثية", "اماكن ترفيهية"]
+    "categories": [
+      "الكل",
+      "مواقع طبيعية",
+      "اماكن تراثية",
+      "اماكن ترفيهية"
+    ]
   },
   "holidays": {
     "titleDark": "مناسبات",
@@ -116,7 +120,6 @@
     "subtitle": "استمتع بسحر مواسم السعودية وعيّش تجربة مختلفة",
     "title": "الفعاليات المرتبطة"
   },
-
   "about": {
     "subtitle": "رحلتك تبدأ من هنا",
     "titleStart": "استكشف",
@@ -263,8 +266,6 @@
   "addEvent": {
     "title": "أضف فعالية جديدة",
     "description": "املأ بيانات الفعالية ليتم نشرها في دليل الوجهات.",
-    "upload": "قم بتحميل صورة الفعالية",
-    "clickToSelect": "اضغط على الصندوق لتحديدها",
     "titleLabel": "عنوان الفعالية",
     "titleRequired": "عنوان الفعالية مطلوب",
     "city": "المدينة",
@@ -356,5 +357,63 @@
   "to": "إلى",
   "fromTime": "من الساعة",
   "toTime": "إلى الساعة",
-  "audience": "الجمهور"
+  "audience": "الجمهور",
+  "addEventForm": {
+    "step1": "البيانات الأساسية",
+    "step2": "أكمل الفعالية",
+    "titleAr": "عنوان الفعالية بالعربية",
+    "titleEn": "عنوان الفعالية بالإنجليزية",
+    "descriptionAr": "وصف الفعالية بالعربية",
+    "descriptionEn": "وصف الفعالية بالإنجليزية",
+    "upload": "قم بتحميل صورة الفعالية",
+    "clickToSelect": "اضغط على الصندوق لتحديدها",
+    "eventPrice": "سعر الفعالية",
+    "city": "المدينة",
+    "selectCity": "اختر المدينة",
+    "isEventFreeOrPaid": "هل الفعالية مجانية أم مدفوعة؟",
+    "free": "مجانية",
+    "paid": "مدفوعة",
+    "next": "التالي",
+    "back": "رجوع",
+    "selectEventLocationOnMap": "حدد موقع الفعالية على الخريطة",
+    "addEvent": "أضف فعالية",
+    "returnTermsAr": "شروط الاسترجاع بالعربية",
+    "returnTermsEn": "شروط الاسترجاع بالانجليزية",
+    "audience": "الجمهور",
+    "selectAudience": "اختر الجمهور",
+    "eventStartDate": "تاريخ البدء",
+    "eventEndDate": "تاريخ  الانتهاء",
+    "eventStartTime": "وقت البدء",
+    "eventEndTime": "وقت الانتهاء",
+    "all": "الكل",
+    "women": "نساء",
+    "men": "رجال",
+    "adults": "البالغين",
+    "customAge": "عمر محدد",
+    "ageFrom": "من عمر",
+    "ageTo": "إلى عمر",
+    "categories": "التصنيفات",
+    "titleArRequired": "عنوان الفعالية باللغة العربية مطلوب",
+    "titleEnRequired": "عنوان الفعالية باللغة الإنجليزية مطلوب",
+    "priceMustBeNumber": "يجب أن يكون السعر رقمًا",
+    "priceMin": "يجب ألا يكون السعر أقل من 0",
+    "priceRequired": "السعر مطلوب",
+    "cityIdMustBeNumber": "يجب اختيار مدينة صالحة",
+    "cityIdRequired": "المدينة مطلوبة",
+    "locationRequired": "خط العرض مطلوب",
+    "descriptionArRequired": "الوصف باللغة العربية مطلوب",
+    "descriptionEnRequired": "الوصف باللغة الإنجليزية مطلوب",
+    "imageRequired": "الصورة مطلوبة",
+    "imageFormat": "يجب أن تكون الصورة بصيغة JPEG أو PNG",
+    "invalidFromDate": "تاريخ البداية غير صالح",
+    "fromDateRequired": "تاريخ البداية مطلوب",
+    "invalidToDate": "تاريخ النهاية غير صالح",
+    "toDateAfterFromDate": "يجب أن يكون تاريخ النهاية بعد تاريخ البداية",
+    "toDateRequired": "تاريخ النهاية مطلوب",
+    "fromTimeRequired": "وقت البداية مطلوب",
+    "toTimeRequired": "وقت النهاية مطلوب",
+    "audienceRequired": "الفئة المستهدفة مطلوبة",
+    "somethingWentWrong":"حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا",
+    "eventAdded": "تمت اضافة الفعالية بنجاح"
+  }
 }

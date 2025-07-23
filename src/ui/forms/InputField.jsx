@@ -1,19 +1,15 @@
 import { Form } from "react-bootstrap";
 
-export default function InputField({ label, hint, error, icon, ...props }) {
+export default function InputField({ label, error, icon, ...props }) {
   return (
     <div className="input-field">
       {label && (
         <label htmlFor={props?.id}>
-          {icon && <i className={icon}></i> } {label} {hint && <span className="hint">{hint}</span>}
+          {icon && <i className={icon}></i> } {label} {error && <span className="hint">{error}</span>}
         </label>
       )}
 
       <Form.Control isInvalid={!!error} {...props} />
-
-      {error && (
-        <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
-      )}
     </div>
   );
 }

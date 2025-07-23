@@ -1,11 +1,11 @@
 import { Form } from "react-bootstrap";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import InputField from "../ui/forms/InputField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import PasswordField from "../ui/forms/PasswordField";
 import ImageUpload from "../ui/forms/ImageUpload";
 import TextareaField from "../ui/forms/TextareaField";
-import { useTranslation } from "react-i18next";
 import useRegister from "../hooks/auth/useRegister";
 
 export default function ProviderRegister() {
