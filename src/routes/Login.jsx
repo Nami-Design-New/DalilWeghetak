@@ -6,12 +6,19 @@ import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
 import useLogin from "../hooks/auth/useLogin";
+import AccountTypeModalSocial from "../ui/modals/AccountTypeModalSocial";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
+  const [showSocialModal, setShowSocialModal] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { register, handleSubmit, errors, isLoading } = useLogin(t);
+  const [userType, setUserType] = useState("");
+
+  const handleSelectType = (type) => {
+    setUserType(type);
+  };
 
   const handleAccountTypeSelect = (type) => {
     if (type === "user") {
@@ -27,6 +34,7 @@ export default function Login() {
   //       const res = await axiosInstance.post("/user/social_login", {
   //         login_from: "google",
   //         google_token: tokenResponse.access_token,
+  //         type: userType
   //       });
 
   //       if (res.data.code === 200) {
@@ -109,7 +117,7 @@ export default function Login() {
                 </p>
               </form>
               <div className="social-login-buttons">
-                <button>
+                <button onClick={() => setShowSocialModal(true)}>
                   <img src="/icons/google.png" alt="google login" />
                   <span>{t("auth.googleAccount")}</span>
                 </button>
@@ -129,6 +137,11 @@ export default function Login() {
         show={showModal}
         handleClose={() => setShowModal(false)}
         onSelect={handleAccountTypeSelect}
+      />
+      <AccountTypeModalSocial
+        showSocialModal={showSocialModal}
+        setShowSocialModal={setShowSocialModal}
+        handleChangeType={handleSelectType}
       />
     </>
   );

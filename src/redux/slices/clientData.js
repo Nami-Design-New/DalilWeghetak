@@ -17,6 +17,7 @@ export const clientData = createSlice({
     },
     logout: (state) => {
       state.client = null;
+      state.userType = "user";
     },
   },
 });

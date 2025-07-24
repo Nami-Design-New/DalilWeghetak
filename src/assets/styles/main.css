@@ -2193,13 +2193,13 @@ body .contact_section .contact_info .icon {
   color: #fff;
 }
 body .contact_section .contact_info .icon.icon-location {
-  background-color: rgb(236.7, 151.3, 151.3);
+  background-color: #ed9797;
 }
 body .contact_section .contact_info .icon.icon-phone {
-  background-color: rgb(158.6875, 217.3125, 204.75);
+  background-color: #9fd9cd;
 }
 body .contact_section .contact_info .icon.icon-email {
-  background-color: rgb(181.8, 163.5, 224.5);
+  background-color: #b6a4e1;
 }
 body .contact_section .contact_info .icon.icon-social {
   background-color: #0048aa;
@@ -2404,6 +2404,7 @@ body .account-type-options {
 }
 body .account-type-options .type-card {
   background: #f9f9f9;
+  cursor: pointer;
   border-radius: 12px;
   padding: 20px;
   border: 1px solid #e0e0e0;
@@ -3109,7 +3110,7 @@ body .purchase-bar .btn-main {
   border: none;
 }
 body .purchase-bar .btn-main:hover {
-  background-color: rgb(0, 50.4, 119);
+  background-color: #003277;
 }
 body .purchase-bar .price {
   color: #0048aa;
@@ -3178,7 +3179,7 @@ body .terms-section .terms-content .link {
   text-decoration: underline;
 }
 body .terms-section .terms-content .link:hover {
-  color: rgb(0, 50.4, 119);
+  color: #003277;
 }
 @media (max-width: 768px) {
   body .terms-section .main-title {
@@ -3372,7 +3373,7 @@ body .book-ticket-modal .btn-primary {
   border-color: #0048aa;
 }
 body .book-ticket-modal .btn-primary:hover {
-  background-color: rgb(0, 59.04, 139.4);
+  background-color: #003b8b;
   color: #fff;
 }
 body .book-ticket-modal .btn-secondary {

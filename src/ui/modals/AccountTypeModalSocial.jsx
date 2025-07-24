@@ -1,18 +1,20 @@
 import { Modal } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-export default function AccountTypeModal({ show, handleClose, onSelect }) {
+export default function AccountTypeModalSocial({
+  showSocialModal,
+  setShowSocialModal,
+  handleChangeType,
+}) {
   const { t } = useTranslation();
-
-  const handleSelect = (type) => {
-    onSelect(type);
-    handleClose();
+  const handleSelectType = (type) => {
+    handleChangeType(type);
+    setShowSocialModal(false);
   };
-
   return (
     <Modal
-      show={show}
-      onHide={handleClose}
+      show={showSocialModal}
+      onHide={() => setShowSocialModal(false)}
       centered
       className="account-type-modal"
     >
@@ -22,7 +24,7 @@ export default function AccountTypeModal({ show, handleClose, onSelect }) {
 
       <Modal.Body>
         <div className="account-type-options">
-          <div className="type-card" onClick={() => handleSelect("user")}>
+          <div className="type-card" onClick={() => handleSelectType("user")}>
             <div className="card-content">
               <img src="/images/user.png" alt={t("accountType.userAlt")} />
               <div className="text">
@@ -34,7 +36,7 @@ export default function AccountTypeModal({ show, handleClose, onSelect }) {
 
           <div
             className="type-card"
-            onClick={() => handleSelect("service_provider")}
+            onClick={() => handleSelectType("service_provider")}
           >
             <div className="card-content">
               <img

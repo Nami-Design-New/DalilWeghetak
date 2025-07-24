@@ -387,6 +387,10 @@
     "deleteAccount": "Delete Account"
   },
   "plan": { "title": "Plan your trip to explore a new life." },
+  "addEventForm": {
+    "step1": "Event Details",
+    "step2": "Event Schedule"
+  },
   "startsFrom": "Starts from",
   "sar": "SAR",
   "showDetails": "Show Details",
@@ -403,8 +407,14 @@
   "ambulance": "Ambulance",
   "civilDefense": "Civil Defense",
   "najdah": "Police (Najdah)",
-  "addEventForm": {
-    "step1": "Event Details",
-    "step2": "Event Schedule"
-  }
+  "changePassword": "Change Password",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "confirm": "Confirm",
+  "passwordRequired": "Password is required",
+  "confirmPasswordRequired": "Confirm password is required",
+  "passwordsMustMatch": "Passwords must match",
+  "cancel": "cancel",
+  "areYouSure": "Are you sure to delete your avvount",
+  "deleteAccount": "Delete Account"
 }
