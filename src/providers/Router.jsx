@@ -27,6 +27,8 @@ import Terms from "../routes/Terms";
 import UserRegister from "../routes/UserResgister";
 import GardProvider from "./GardProvider";
 import EditProfile from "../routes/EditProfile";
+import Plan from "../routes/Plan";
+import PlanDetails from "../routes/PlanDetails";
 
 export const router = createBrowserRouter([
   {
@@ -103,6 +105,14 @@ export const router = createBrowserRouter([
       {
         path: "map",
         element: <InteractiveMap />,
+      },
+      {
+        path: "plan",
+        element: <Plan />,
+      },
+      {
+        path: "plan/:id",
+        element: <PlanDetails />,
       },
 
       {

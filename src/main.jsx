@@ -1,12 +1,11 @@
-import App from "./App";
 import ReactDOM from "react-dom/client";
+import App from "./App";
 
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import { CookiesProvider } from "react-cookie";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CookiesProvider } from "react-cookie";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,8 +20,8 @@ const queryClient = new QueryClient({
 
 import "swiper/css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./assets/styles/main.css";
 import "./assets/styles/all.min.css";
+import "./assets/styles/main.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

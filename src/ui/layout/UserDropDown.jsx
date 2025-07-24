@@ -8,7 +8,6 @@ export default function UserDropDown() {
   const { t } = useTranslation();
   const { logout } = useLogout(t);
   const { client } = useSelector((state) => state.clientData);
-  const isUser = client?.type === "user";
 
   return (
     <Dropdown>

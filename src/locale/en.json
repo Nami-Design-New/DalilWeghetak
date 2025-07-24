@@ -20,7 +20,8 @@
     "login": "login",
     "map": "Interactive map",
     "Destinations": "Destinations",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "plan": "Plan"
   },
   "auth": {
     "loginSuccess": "Login successful",
@@ -385,6 +386,7 @@
     "terms": "Terms and Conditions",
     "deleteAccount": "Delete Account"
   },
+  "plan": { "title": "Plan your trip to explore a new life." },
   "startsFrom": "Starts from",
   "sar": "SAR",
   "showDetails": "Show Details",
@@ -393,6 +395,14 @@
   "fromTime": "From Time",
   "toTime": "To Time",
   "audience": "Audience",
+  "emergencyNumbers": "Emergency Numbers",
+  "selectType": "Select Type",
+  "number": "Number",
+  "callNow": "Call Now",
+  "kingdomEmergency": "Kingdom Emergency",
+  "ambulance": "Ambulance",
+  "civilDefense": "Civil Defense",
+  "najdah": "Police (Najdah)",
   "addEventForm": {
     "step1": "Event Details",
     "step2": "Event Schedule"

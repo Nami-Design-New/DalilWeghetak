@@ -1803,59 +1803,6 @@ body .statistics-section .stats-cards {
   flex-direction: column;
   gap: 20px;
 }
-body .statistics-section .card,
-body .statistics-section .stories-card {
-  position: relative;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-}
-body .statistics-section .card::before,
-body .statistics-section .stories-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 100%;
-  background-image: url("/images/p.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-body .statistics-section .card h3,
-body .statistics-section .stories-card h3 {
-  font-size: 20px;
-  margin: 0;
-}
-body .statistics-section .card .highlight,
-body .statistics-section .stories-card .highlight {
-  color: #0048aa;
-  font-size: 28px;
-  font-weight: bold;
-}
-body .statistics-section .large-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-direction: row-reverse;
-}
-body .statistics-section .large-card .card-content {
-  flex: 1;
-}
-body .statistics-section .large-card .card-image {
-  flex-shrink: 0;
-}
-body .statistics-section .large-card .card-image img {
-  width: 100%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-  display: block;
-}
 body .statistics-section .card-row {
   display: flex;
   gap: 20px;
@@ -1895,6 +1842,59 @@ body .statistics-section .stories-card .stories-list li span {
   font-weight: bold;
   margin-left: 10px;
   color: #888;
+}
+body .card,
+body .stories-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+body .card::before,
+body .stories-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background-image: url("/images/p.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body .card h3,
+body .stories-card h3 {
+  font-size: 20px;
+  margin: 0;
+}
+body .card .highlight,
+body .stories-card .highlight {
+  color: #0048aa;
+  font-size: 28px;
+  font-weight: bold;
+}
+body .large-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+body .large-card .card-content {
+  flex: 1;
+}
+body .large-card .card-image {
+  flex-shrink: 0;
+}
+body .large-card .card-image img {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
 }
 body .session-details-section .session-banner {
   position: relative;
@@ -2527,6 +2527,167 @@ body .about-section .about-image .image-wrapper .dot-pattern {
   background-image: radial-gradient(#0048aa 1px, transparent 1px);
   background-size: 10px 10px;
   z-index: 0;
+}
+body .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+body .card_plan_details {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform: translateY(0);
+}
+body .card_plan_details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background-image: url("/images/p.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body .card_plan_details:hover {
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5rem);
+}
+body .card_plan_details .card-image {
+  position: relative;
+  height: 24rem;
+  overflow: hidden;
+}
+body .card_plan_details .card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.7s ease;
+}
+body .card_plan_details .card-image img:hover {
+  transform: scale(1.1);
+}
+body .card_plan_details .card-image .gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent, transparent);
+}
+body .card_plan_details .card-image .card-title {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: white;
+}
+body .card_plan_details .card-image .card-title h3 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+body .card_plan_details .card-image .card-title p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+body .card_plan_details .card-body {
+  padding: 2rem;
+}
+body .card_plan_details .card-body .description {
+  color: #4b5563;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+body .card_plan_details .card-body .card-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+body .card_plan_details .card-body .card-details .detail-box {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+body .card_plan_details .card-body .card-details .detail-box h4 {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+body .card_plan_details .card-body .card-details .detail-box h4 .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.5rem;
+  color: #16a34a;
+}
+body .card_plan_details .card-body .card-details .detail-box p {
+  color: #4b5563;
+}
+body .emergency-contact {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+body .emergency-contact .title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+body .emergency-contact .select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body .emergency-contact .select-group .label {
+  font-weight: 500;
+  color: #374151;
+}
+body .emergency-contact .select-group .select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border 0.2s;
+}
+body .emergency-contact .select-group .select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+}
+body .emergency-contact .number-display {
+  font-size: 1.125rem;
+  color: #374151;
+}
+body .emergency-contact .number-display .label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+body .emergency-contact .number-display .number {
+  font-weight: 500;
+}
+body .emergency-contact .call-button {
+  display: block;
+  text-align: center;
+  background-color: #0048aa;
+  color: #ffffff;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+body .emergency-contact .call-button:hover {
+  background-color: #1e40af;
 }
 body .notifications {
   padding: 40px 0;

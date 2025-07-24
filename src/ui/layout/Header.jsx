@@ -89,6 +89,9 @@ export default function Header() {
           <NavLink to="/about" onClick={handleNavLinkClick}>
             {t("header.about")}
           </NavLink>
+          <NavLink to="/plan" onClick={handleNavLinkClick}>
+            {t("header.plan")}
+          </NavLink>
           <NavLink to="/map" onClick={handleNavLinkClick}>
             {t("header.map")}
           </NavLink>

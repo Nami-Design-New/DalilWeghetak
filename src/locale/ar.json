@@ -20,7 +20,8 @@
     "login": "تسجيل الدخول",
     "map": "الخريطة التفاعلية",
     "Destinations": "الوجهات",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "plan": "المخطط"
   },
   "auth": {
     "loginSuccess": "تم تسجيل الدخول بنجاح",
@@ -379,6 +380,7 @@
     "terms": "سياسة الشروط و الأحكام",
     "deleteAccount": "حذف الحساب"
   },
+  "plan": { "title": "خطط رحلتك لاستكشاف حياة جديدا" },
   "startsFrom": "يبدأ من",
   "sar": "ر.س",
   "showDetails": "عرض التفاصيل",
@@ -387,6 +389,14 @@
   "fromTime": "من الساعة",
   "toTime": "إلى الساعة",
   "audience": "الجمهور",
+  "emergencyNumbers": "أرقام الطوارئ",
+  "selectType": "اختر النوع",
+  "number": "الرقم",
+  "callNow": "اتصل الآن",
+  "kingdomEmergency": "طوارئ المملكة",
+  "ambulance": "الإسعاف",
+  "civilDefense": "الدفاع المدني",
+  "najdah": "النجدة",
   "addEventForm": {
     "step1": "البيانات الأساسية",
     "step2": "أكمل الفعالية",
