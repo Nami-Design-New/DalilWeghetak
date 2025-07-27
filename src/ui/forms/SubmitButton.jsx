@@ -13,7 +13,7 @@ export default function SubmitButton({
       type="submit"
       className={`log ${className || ""}`}
     >
-      {fileLoading ? "Wait File Uploading" : text}
+      {fileLoading ? "Wait File Uploading" : text}{" "}
       <i
         className={
           loading || fileLoading ? "fa-regular fa-circle-notch fa-spin" : ""

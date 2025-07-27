@@ -126,6 +126,8 @@ export default function useAddEventForm() {
   const { mutate: addEventMutation, isPending } = useMutation({
     mutationFn: async (data) => {
       const { is_free, ...filteredData } = data;
+      console.log(is_free);
+
       const formattedData = {
         ...filteredData,
         to_date: filteredData.to_date
@@ -152,12 +154,14 @@ export default function useAddEventForm() {
         navigate("/my-events");
         toast.success(t("addEventForm.eventAdded"));
       } else {
-        toast.error(t("addEventForm.somethingWentWrong"));
+        toast.error(data?.message || t("addEventForm.somethingWentWrong"));
       }
     },
 
     onError: (error) => {
-      toast.error(error.message || t("auth.somethingWentWrong"));
+      toast.error(
+        error.response?.data?.message || t("auth.somethingWentWrong")
+      );
     },
   });
 

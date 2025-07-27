@@ -1,14 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import * as yup from "yup";
 import axiosInstance from "../../utils/axiosInstance";
 import PasswordField from "../../ui/forms/PasswordField";
 import SubmitButton from "../../ui/forms/SubmitButton";
 
-export default function Step3({ setStep, phone, hashed_code }) {
+export default function Step3({ setStep, code }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     password: yup
@@ -41,21 +43,21 @@ export default function Step3({ setStep, phone, hashed_code }) {
   const handleReset = async (data) => {
     try {
       const res = await axiosInstance.post("/user/update_password", {
-        phone,
         password: data.password,
-        password_confirmation: data.password_confirmation,
-        hashed_code,
+        code: code,
       });
 
       if (res.data?.code === 200) {
         toast.success(t("auth.passwordChangedSuccess"));
-        setStep(1); 
+        navigate("/login");
       } else {
-        toast.error(t("auth.somethingWentWrong"));
+        toast.error(res.data?.message || t("auth.somethingWentWrong"));
       }
     } catch (error) {
       console.log("Reset error:", error);
-      toast.error(error?.response?.data?.message || t("auth.somethingWentWrong"));
+      toast.error(
+        error?.response?.data?.message || t("auth.somethingWentWrong")
+      );
     }
   };
 

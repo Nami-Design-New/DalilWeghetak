@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function useGetEventDetails() {
   const { id } = useParams();
+  const { lang } = useSelector((state) => state.settings);
 
   const { data: eventDetails, isLoading } = useQuery({
-    queryKey: ["event-details", id],
+    queryKey: ["event-details", id, lang],
     queryFn: ({ queryKey }) => getEventDetails(queryKey[1]),
     enabled: !!id,
   });

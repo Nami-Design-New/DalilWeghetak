@@ -44,6 +44,9 @@
     "resetPasswordSubtitle": "Enter your phone to reset your password",
     "phone": "Phone Number",
     "send": "Send",
+    "confirmCode": "Confirm Code",
+    "enterCodeSent": "Enter the 6-digit code sent to your phone:",
+    "registerCodeSent": "A verification code has been sent to your phone {{phone}}. Please check your inbox.",
     "confirm": "Confirm",
     "resetPasswordTitle2": "enter verification code",
     "resetPasswordSubtitle2": "Enter the verification code sent to your phone {{phone}} to reset your password",
@@ -72,7 +75,8 @@
     "passwordMatch": "Passwords do not match",
     "terms": "You must agree to the terms and conditions",
     "alphaNumericOnly": "Only letters and numbers are allowed",
-    "numbersOnly": "Only numeric values are allowed"
+    "numbersOnly": "Only numeric values are allowed",
+    "termsRequired": "You must accept the terms and conditions"
   },
   "dropdown": {
     "notifications": "Notifications",
@@ -386,7 +390,9 @@
     "terms": "Terms and Conditions",
     "deleteAccount": "Delete Account"
   },
-  "plan": { "title": "Plan your trip to explore a new life." },
+  "plan": {
+    "title": "Plan your trip to explore a new life."
+  },
   "addEventForm": {
     "step1": "Event Details",
     "step2": "Event Schedule"

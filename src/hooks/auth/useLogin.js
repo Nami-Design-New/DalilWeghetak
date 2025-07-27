@@ -58,12 +58,12 @@ export default function useLogin(t) {
         dispatch(setUserType(data?.data?.type));
         navigate("/");
       } else {
-        toast.error(t("auth.loginFailed"));
+        toast.error(data?.message || t("auth.loginFailed"));
       }
     },
 
     onError: (error) => {
-      toast.error(error.message || t("auth.somethingWentWrong"));
+      toast.error(error.response?.data?.message || t("auth.somethingWentWrong"));
     },
   });
 

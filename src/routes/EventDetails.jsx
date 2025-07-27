@@ -13,10 +13,8 @@ export default function EventDetails() {
   return (
     <>
       <section className="event-details">
-        <div
-          className="hero-banner"
-          style={{ backgroundImage: `url(${eventDetails.image})` }}
-        >
+        <div className="hero-banner">
+          <img src={eventDetails?.image} alt="" />
           <div className="overlay">
             <div className="text-content container text-center">
               <h1>{eventDetails.title}</h1>
@@ -67,12 +65,12 @@ export default function EventDetails() {
                   <p className="text-body">{eventDetails.description}</p>
                 </div>
 
-                <div className="policy-section">
+                {/* <div className="policy-section">
                   <h4 className="section-title">سياسة الاسترجاع</h4>
                   <div className="policy-card">
-                    {/* <p>{eventDetails.policy}</p> */}
+                    <p>{eventDetails.policy}</p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="col-lg-6">

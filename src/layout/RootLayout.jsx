@@ -5,6 +5,7 @@ import Footer from "../ui/layout/Footer";
 import Header from "../ui/layout/Header";
 import ResponsiveNav from "../ui/layout/ResponsiveNav";
 import Loader from "../ui/loader/Loader";
+import ChargeModal from "../ui/modals/ChargeModal";
 
 export default function RootLayout() {
   const location = useLocation();
@@ -24,6 +25,8 @@ export default function RootLayout() {
       </main>
       <Footer />
       <ResponsiveNav />
+
+      <ChargeModal />
     </>
   );
 }

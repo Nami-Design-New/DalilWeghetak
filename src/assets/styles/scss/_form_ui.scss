@@ -453,8 +453,12 @@
   }
 }
 
-button.back{
+button.back {
   width: fit-content;
   padding: 0 42px;
   background: $black;
+}
+
+.otp-container {
+  direction: ltr !important;
 }
