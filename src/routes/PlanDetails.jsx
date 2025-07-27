@@ -1,24 +1,16 @@
-import { useTranslation } from "react-i18next";
 import useGetPalnDetails from "../hooks/plan/useGetPalnDetails";
 import Loader from "../ui/loader/Loader";
-import SelectField from "../ui/forms/SelectField";
 import EmergencyContact from "../ui/EmergencyContact";
 
 export default function PlanDetails() {
   const { planDetails, isLoading } = useGetPalnDetails();
-  const { t } = useTranslation();
-
   if (isLoading) return <Loader />;
   console.log(planDetails.image);
 
   return (
     <section className="destination-details">
-      <div
-        className="hero-banner"
-        style={{
-          backgroundImage: `url(${planDetails.image})`,
-        }}
-      >
+      <div className="hero-banner">
+        <img src={planDetails.image} alt="" />
         <div className="overlay">
           <div className="text-content container text-center text-white">
             <p

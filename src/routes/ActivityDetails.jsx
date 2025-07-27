@@ -16,10 +16,8 @@ export default function ActivityDetails() {
   return (
     <>
       <section className="activity-details">
-        <div
-          className="hero-banner"
-          style={{ backgroundImage: `url(${eventDetails.image})` }}
-        >
+        <div className="hero-banner">
+          <img src={eventDetails.image} alt="" />
           <div className="overlay">
             <div className="text-content container text-center">
               <h1>{eventDetails.title}</h1>

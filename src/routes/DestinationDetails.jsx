@@ -20,13 +20,9 @@ export default function DestinationDetails() {
 
   return (
     <section className="destination-details">
-      <div
-        className="hero-banner"
-        style={{
-          backgroundImage: `url(${city?.image})`,
-        }}
-      >
+      <div className="hero-banner">
         <div className="overlay">
+          <img src={city.image} alt={city.name} className="media-bg" />
           <div className="text-content container text-center text-white">
             <h1>{city?.name}</h1>
             <p className="lead">مرحبًا بك في مدينة {city?.name} الساحرة</p>

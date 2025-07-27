@@ -30,6 +30,10 @@ body {
     font-family: "Manrope", sans-serif;
     direction: ltr;
 
+    header nav .nav_links a {
+      font-size: 15px;
+    }
+
     .form_ui .input-field .pass-group {
       input {
         border-radius: 12px 0 0 12px !important;

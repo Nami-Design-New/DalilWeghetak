@@ -6,7 +6,7 @@ import InputField from "../../ui/forms/InputField";
 import SubmitButton from "../../ui/forms/SubmitButton";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function Step1({ setStep, phone, setPhone,setHashedCode }) {
+export default function Step1({ setStep, phone, setPhone, setHashedCode }) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
@@ -16,19 +16,18 @@ export default function Step1({ setStep, phone, setPhone,setHashedCode }) {
 
     try {
       const res = await axiosInstance.post("/user/check_phone", {
-        phone: phone.trim(),
-        type: "reset_password",
+        phone: phone,
       });
 
       if (res.data?.code === 200) {
         toast.success(t("auth.resetLinkSent", { phone }));
-        setHashedCode(res.data?.data); 
+        setHashedCode(res.data?.data);
         setStep(2);
       } else {
-        toast.error(t("auth.phoneNotFound"));
+        toast.error(res.data?.message || t("auth.errorOccurred"));
       }
     } catch (error) {
-      toast.error(t("auth.phoneNotFound"));
+      toast.error(error?.response?.data?.message || t("auth.phoneNotFound"));
       console.log("error in step 1", error);
     } finally {
       setLoading(false);
@@ -37,7 +36,7 @@ export default function Step1({ setStep, phone, setPhone,setHashedCode }) {
 
   return (
     <>
-       <h3 className="section_title">{t("auth.resetPasswordTitle")}</h3>
+      <h3 className="section_title">{t("auth.resetPasswordTitle")}</h3>
       <p className="section_description">{t("auth.resetPasswordSubtitle")}</p>
 
       <form className="form_ui mt-5" onSubmit={handleSubmit}>

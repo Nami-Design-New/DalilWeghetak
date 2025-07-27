@@ -9,10 +9,8 @@ export default function ExperienceDetails() {
   return (
     <>
       <section className="activity-details">
-        <div
-          className="hero-banner"
-          style={{ backgroundImage: `url(${highlightsDetails.image})` }}
-        >
+        <div className="hero-banner">
+          <img src={highlightsDetails.image} alt="" />
           <div className="overlay">
             <div className="text-content container text-center">
               <h1>{highlightsDetails.title}</h1>

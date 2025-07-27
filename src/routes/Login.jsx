@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import { useGoogleLogin } from "@react-oauth/google";
+import { toast } from "sonner";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
@@ -28,44 +30,46 @@ export default function Login() {
     }
   };
 
-  // const handleGoogleLogin = useGoogleLogin({
-  //   onSuccess: async (tokenResponse) => {
-  //     try {
-  //       const res = await axiosInstance.post("/user/social_login", {
-  //         login_from: "google",
-  //         google_token: tokenResponse.access_token,
-  //         type: userType
-  //       });
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        console.log("Google Token Response:", tokenResponse);
 
-  //       if (res.data.code === 200) {
-  //         toast.success(t("auth.loginSuccess"));
-  //         dispatch(setClientData(res.data.data));
-  //         setCookie("token", res.data.data.token, {
-  //           path: "/",
-  //           secure: true,
-  //           sameSite: "Strict",
-  //         });
-  //         setCookie("id", res.data.data.id, {
-  //           path: "/",
-  //           secure: true,
-  //           sameSite: "Strict",
-  //         });
-  //         axiosInstance.defaults.headers.common[
-  //           "Authorization"
-  //         ] = `${res.data.data.token}`;
-  //       } else {
-  //         toast.error(res.data.message);
-  //       }
-  //     } catch (error) {
-  //       toast.error(t("auth.loginErorr"));
-  //       throw new Error(error.message);
-  //     }
-  //   },
-  //   onError: (error) => {
-  //     console.log("Google Login Error:", error);
-  //     toast.error(error.response.data.message);
-  //   },
-  // });
+        // const res = await axiosInstance.post("/user/social_login", {
+        //   login_from: "google",
+        //   google_token: tokenResponse.access_token,
+        //   type: userType,
+        // });
+
+        // if (res.data.code === 200) {
+        //   toast.success(t("auth.loginSuccess"));
+        //   dispatch(setClientData(res.data.data));
+        //   setCookie("token", res.data.data.token, {
+        //     path: "/",
+        //     secure: true,
+        //     sameSite: "Strict",
+        //   });
+        //   setCookie("id", res.data.data.id, {
+        //     path: "/",
+        //     secure: true,
+        //     sameSite: "Strict",
+        //   });
+        //   axiosInstance.defaults.headers.common[
+        //     "Authorization"
+        //   ] = `${res.data.data.token}`;
+        // } else {
+        //   toast.error(res.data.message);
+        // }
+      } catch (error) {
+        toast.error(error?.response?.data?.message || t("auth.loginErorr"));
+        throw new Error(error.message);
+      }
+    },
+    onError: (error) => {
+      console.log("Google Login Error:", error);
+      toast.error(error.response.data.message);
+    },
+  });
 
   return (
     <>
@@ -138,10 +142,12 @@ export default function Login() {
         handleClose={() => setShowModal(false)}
         onSelect={handleAccountTypeSelect}
       />
+
       <AccountTypeModalSocial
         showSocialModal={showSocialModal}
         setShowSocialModal={setShowSocialModal}
         handleChangeType={handleSelectType}
+        handleGoogleLogin={handleGoogleLogin}
       />
     </>
   );

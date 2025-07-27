@@ -4,15 +4,24 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router";
-import * as yup from "yup";
-import axiosInstance from "../../utils/axiosInstance";
 import { useDispatch } from "react-redux";
 import { setClientData } from "../../redux/slices/clientData";
+import { useTranslation } from "react-i18next";
+import * as yup from "yup";
+import axiosInstance from "../../utils/axiosInstance";
 
-export default function useRegister(t, type = "user") {
+export default function useRegister({
+  type = "user",
+  setStep,
+  code,
+  setCode,
+  hashedCode,
+  setHashedCode,
+}) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
-  const [, setCookie] = useCookies(["token"]);
   const dispatch = useDispatch();
+  const [, setCookie] = useCookies(["token"]);
 
   const baseSchema = {
     name: yup.string().required(t("validation.required")).min(2).max(32),
@@ -25,6 +34,7 @@ export default function useRegister(t, type = "user") {
       .required(t("validation.required"))
       .email(t("validation.email")),
     password: yup.string().required(t("validation.required")).min(6),
+    terms: yup.boolean().oneOf([true], t("validation.termsRequired")),
   };
 
   const providerSchema = {
@@ -40,13 +50,7 @@ export default function useRegister(t, type = "user") {
         : baseSchema
     );
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    getValues,
-    formState: { errors },
-  } = useForm({
+  const methods = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
     defaultValues:
@@ -58,8 +62,61 @@ export default function useRegister(t, type = "user") {
             password: "",
             activity: "",
             bio: "",
+            terms: false,
           }
-        : { name: "", phone: "", email: "", password: "" },
+        : {
+            name: "",
+            phone: "",
+            email: "",
+            password: "",
+            terms: false,
+          },
+  });
+
+  const { getValues, watch } = methods;
+
+  const { mutate: canRegister, isPending: canRegisterPending } = useMutation({
+    mutationFn: async () => {
+      const values = getValues();
+      const formData = new FormData();
+      formData.append("email", values.email);
+      formData.append("phone", values.phone);
+
+      const response = await axiosInstance.post("/user/can_register", formData);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      if (data.code === 200) {
+        toast.success(t("auth.registerCodeSent"));
+        setHashedCode(data.data);
+        setStep(2);
+      } else {
+        toast.error(data.message);
+      }
+    },
+    onError: (error) => {
+      toast.error(error.response?.data?.message || error.message);
+    },
+  });
+
+  const { mutate: checkCode, isPending: checkCodePending } = useMutation({
+    mutationFn: async () => {
+      const response = await axiosInstance.post("/user/check_code", {
+        code,
+        hashed_code: hashedCode,
+      });
+      return response.data;
+    },
+    onSuccess: (data) => {
+      if (data.code === 200) {
+        registerUser();
+      } else {
+        toast.error(data.message || t("auth.wrongCode"));
+      }
+    },
+    onError: (error) => {
+      toast.error(error.response?.data?.message || error.message);
+    },
   });
 
   const { mutate: registerUser, isPending } = useMutation({
@@ -85,32 +142,28 @@ export default function useRegister(t, type = "user") {
       const response = await axiosInstance.post("/user/register", formData);
       return response.data;
     },
-
     onSuccess: (data) => {
       toast.success(t("auth.registerSuccess"));
-
       setCookie("token", data.data?.token, {
         path: "/",
         secure: true,
         sameSite: "Strict",
       });
-
       dispatch(setClientData(data.data));
-
       navigate("/");
     },
-
     onError: (error) => {
       toast.error(error.response?.data?.message || error.message);
     },
   });
 
   return {
-    register,
-    handleSubmit,
-    errors,
-    watch,
-    isLoading: isPending,
-    registerUser,
+    ...methods,
+    canRegister,
+    canRegisterPending,
+    checkCode,
+    isLoading: isPending || checkCodePending,
+    setCode,
+    code,
   };
 }

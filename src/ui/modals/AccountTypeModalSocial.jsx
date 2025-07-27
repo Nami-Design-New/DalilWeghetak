@@ -5,12 +5,15 @@ export default function AccountTypeModalSocial({
   showSocialModal,
   setShowSocialModal,
   handleChangeType,
+  handleGoogleLogin,
 }) {
   const { t } = useTranslation();
   const handleSelectType = (type) => {
     handleChangeType(type);
     setShowSocialModal(false);
+    handleGoogleLogin();
   };
+
   return (
     <Modal
       show={showSocialModal}

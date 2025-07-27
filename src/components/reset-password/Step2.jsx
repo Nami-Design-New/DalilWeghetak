@@ -5,10 +5,9 @@ import SubmitButton from "../../ui/forms/SubmitButton";
 import OtpContainer from "../../ui/forms/OtpContainer";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function Step2({ setStep, hashed_code }) {
+export default function Step2({ setStep, hashed_code, phone, code, setCode }) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-  const [code, setCode] = useState("");
   const [timer, setTimer] = useState(60);
   const [resendDisabled, setResendDisabled] = useState(false);
 
@@ -30,11 +29,13 @@ export default function Step2({ setStep, hashed_code }) {
         code: code,
       });
       if (res.status === 200) {
-        toast.success(t("auth.codeVerified", { hashed_code }));
+        toast.success(t("auth.codeVerified"));
         setStep(3);
+      } else {
+        toast.error(res.data?.message || t("auth.wrongCode"));
       }
     } catch (error) {
-      toast.error(t("auth.wrongCode"));
+      toast.error(error?.response?.data?.message || t("auth.wrongCode"));
       console.log("error in step 2", error);
     } finally {
       setLoading(false);
@@ -43,16 +44,15 @@ export default function Step2({ setStep, hashed_code }) {
 
   const handleResend = async () => {
     try {
-      const res = await axiosInstance.post("/user/check_code", {
-        hashed_code: hashed_code,
-        type: "reset_password ",
+      const res = await axiosInstance.post("/user/check_phone", {
+        phone: phone,
       });
       if (res.status === 200) {
-        toast.success(t("auth.resetLinkSent", { hashed_code }));
+        toast.success(t("auth.resetLinkSent", { phone }));
         setResendDisabled(true);
         setTimer(60);
       } else {
-        toast.error(t("auth.emailNotFound"));
+        toast.error(res.data?.message || t("auth.emailNotFound"));
       }
     } catch (error) {
       console.log(error);
@@ -63,7 +63,7 @@ export default function Step2({ setStep, hashed_code }) {
     <>
       <h3 className="section_title">{t("auth.resetPasswordTitle2")}</h3>
       <p className="section_description">
-        {t("auth.resetPasswordSubtitle2", { hashed_code})}
+        {t("auth.resetPasswordSubtitle2", { phone })}
       </p>
 
       <form className="form_ui mt-5" onSubmit={handleSubmit}>

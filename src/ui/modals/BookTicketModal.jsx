@@ -38,7 +38,7 @@ export default function BookTicketModal({ show, handleClose, price, eventId }) {
           navigate("/my-bookings");
         },
         onError: (error) => {
-          toast.error(error.message);
+          toast.error(error.response?.data?.message || t("auth.somethingWentWrong"));
         },
         onSettled: () => {},
       }

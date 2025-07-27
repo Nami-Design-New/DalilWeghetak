@@ -27,7 +27,8 @@
       position: absolute;
       top: 12px;
       left: 12px;
-      background: #666;
+      background: #00000020;
+      backdrop-filter: blur(12px);
       border-radius: 10px;
       overflow: hidden;
       display: flex;
@@ -46,7 +47,6 @@
 
         .day {
           font-size: 1rem;
-          font-weight: 700;
         }
 
         .month,

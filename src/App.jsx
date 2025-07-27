@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Toaster expand={false} richColors position="bottom-right" />
+      <Toaster expand={false} richColors position="top-right" />
       <RouterProvider router={router} />
     </>
   );
