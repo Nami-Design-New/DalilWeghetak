@@ -336,7 +336,10 @@
     "currency": "ريال",
     "totalLabel": "الإجمالي",
     "cancel": "إلغاء",
-    "confirm": "تأكيد الحجز"
+    "confirm": "تأكيد الحجز",
+    "enterChargeValue": "ادخل قيمة الشحن",
+    "chargeWallet":"شحن المحفظة",
+    "insufficientFunds": "رصيدك غير كافٍ لإجراء هذا الحجز. يرجى إضافة رصيد إلى محفظتك."
   },
   "footer": {
     "email": "ادخل عنوان بريدك الالكتروني",

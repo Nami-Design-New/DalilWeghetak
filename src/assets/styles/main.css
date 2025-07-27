@@ -496,6 +496,76 @@ button {
     opacity: 1;
   }
 }
+.pay_modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pay_modal .cancel-btn {
+  border: 1px solid #000;
+  color: #000;
+  width: 100%;
+  outline: none;
+  background: none;
+  padding: 8px;
+  border-radius: 8px;
+}
+.pay_modal .order-now {
+  width: 100%;
+  padding: 8px;
+  background: #0048aa;
+  color: #fff;
+  border-radius: 8px;
+  border: 0;
+  outline: none;
+}
+.pay_modal .current_ballance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.pay_modal .current_ballance div {
+  margin: 0 !important;
+}
+.pay_modal h3 {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
+.pay_modal h3 span {
+  font-size: 24px;
+  color: #0048aa;
+}
+.pay_modal h3 i {
+  color: #0048aa;
+}
+@media (max-width: 576px) {
+  .pay_modal h3 {
+    font-size: 16px;
+  }
+}
+.pay_modal .btn {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  transition: var(--main-transation);
+  border-radius: 12px;
+  gap: 4px;
+  background: none;
+}
+.pay_modal .btn i {
+  margin: 0 4px;
+}
+.pay_modal .btn:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+
 body {
   position: relative;
   direction: rtl;

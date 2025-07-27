@@ -57,12 +57,12 @@ export default function ExperienceDetails() {
                   <p className="text-body">{highlightsDetails.description}</p>
                 </div>
 
-                <div className="policy-section">
+                {/* <div className="policy-section">
                   <h4 className="section-title">سياسة الاسترجاع</h4>
                   <div className="policy-card">
                     <p>{highlightsDetails.policy}</p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="col-lg-6">

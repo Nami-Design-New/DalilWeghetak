@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { formatDate } from "../utils/helpers";
+import { useCookies } from "react-cookie";
 import useGetProfile from "../hooks/account/useGetProfile";
 import useGetWalletOperations from "../hooks/account/useGetWalletOperations";
 import Loader from "../ui/loader/Loader";
-import { formatDate } from "../utils/helpers";
 
 export default function MyWallet() {
   const [chargeAmount, setChargeAmount] = useState();
   const { walletOperations, isLoading } = useGetWalletOperations();
   const { data, isLoading: profileLoading } = useGetProfile();
+  const [cookies] = useCookies(["token"]);
+  const token = cookies?.token;
 
   if (isLoading || profileLoading) return <Loader />;
 
@@ -78,11 +81,11 @@ export default function MyWallet() {
 
         <Link
           className="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2"
-          // to={
-          //   chargeAmount === 0 || chargeAmount === ""
-          //     ? ""
-          //     : `https://api.Ebday.com.sa/payment/${chargeAmount}?Authorization=${token}&Redirect_url=${window.location.href}`
-          // }
+          to={
+            chargeAmount === 0 || chargeAmount === ""
+              ? ""
+              : `https://api.dalilwejhtak.com.sa/payment/${chargeAmount}/wallet?Authorization=${token}&Redirect_url=${window.location.href}`
+          }
         >
           اشحن الآن
           <i className="fa-solid fa-arrow-left"></i>

@@ -2,15 +2,19 @@ import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import useBookEvent from "../../hooks/events/useBookEvent";
 import useAuth from "../../hooks/auth/useAuth";
+import useBookEvent from "../../hooks/events/useBookEvent";
+import { setShow, setTotalPrice } from "../../redux/slices/chargeModal";
 
 export default function BookTicketModal({ show, handleClose, price, eventId }) {
   const [quantity, setQuantity] = useState(1);
+  const { client } = useSelector((state) => state.clientData);
   const { t } = useTranslation();
   const { isAuthed } = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
@@ -29,6 +33,15 @@ export default function BookTicketModal({ show, handleClose, price, eventId }) {
       navigate("/signin");
       return;
     }
+
+    if (client.wallet < total) {
+      toast.error(t("bookingModal.insufficientFunds"));
+      handleClose();
+      dispatch(setShow(true));
+      dispatch(setTotalPrice(total));
+      return;
+    }
+
     bookEvent(
       { event_id: eventId, quantity },
       {
@@ -38,7 +51,9 @@ export default function BookTicketModal({ show, handleClose, price, eventId }) {
           navigate("/my-bookings");
         },
         onError: (error) => {
-          toast.error(error.response?.data?.message || t("auth.somethingWentWrong"));
+          toast.error(
+            error.response?.data?.message || t("auth.somethingWentWrong")
+          );
         },
         onSettled: () => {},
       }
