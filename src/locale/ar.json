@@ -338,7 +338,7 @@
     "cancel": "إلغاء",
     "confirm": "تأكيد الحجز",
     "enterChargeValue": "ادخل قيمة الشحن",
-    "chargeWallet":"شحن المحفظة",
+    "chargeWallet": "شحن المحفظة",
     "insufficientFunds": "رصيدك غير كافٍ لإجراء هذا الحجز. يرجى إضافة رصيد إلى محفظتك."
   },
   "footer": {
@@ -478,5 +478,22 @@
   "passwordsMustMatch": "كلمتا المرور غير متطابقتين",
   "cancel": "إلغاء",
   "areYouSure": "هل انت متأكد من حذف الحساب",
-  "deleteAccount": " حذف الحساب "
+  "deleteAccount": " حذف الحساب ",
+  "events": "فعالية",
+  "startTime": "وقت البدء",
+  "endTime": "وقت النهاية",
+  "category": "الفئة",
+  "activity": "نشاط",
+  "all": "الكل",
+  "search": "إبحث هنا",
+  "places": "الأماكن",
+  "categories": "الفئات",
+  "dates": "التاريخ",
+  "audienceTr": {
+    "all": "الكل",
+    "female": "نساء",
+    "male": "رجال",
+    "adult": "البالغين",
+    "age": "عمر محدد"
+  }
 }

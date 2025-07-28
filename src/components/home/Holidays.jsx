@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import useGetsessions from "../../hooks/sessions/useGetsessions";
 import HolidayLoader from "../../ui/loader/HolidayLoader";
+import { Link } from "react-router";
 
 export default function Holidays() {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ export default function Holidays() {
                 ))
             : sessions.map((session) => (
                 <SwiperSlide key={session.id}>
-                  <div className="holiday-card">
+                  <Link to={`/holidays/${session.id}`} className="holiday-card">
                     <div className="holiday-image-wrapper">
                       <img
                         src={session.image}
@@ -60,7 +61,7 @@ export default function Holidays() {
                       </p>
                       <p className="holiday-desc">{session.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
         </Swiper>

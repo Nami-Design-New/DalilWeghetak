@@ -337,7 +337,10 @@
     "currency": "SAR",
     "totalLabel": "Total",
     "cancel": "Cancel",
-    "confirm": "Confirm Booking"
+    "confirm": "Confirm Booking",
+    "enterChargeValue": "Enter Charge Amount",
+    "chargeWallet": "Charge Wallet",
+    "insufficientFunds": "Your balance is insufficient to make this booking. Please add funds to your wallet."
   },
   "footer": {
     "email": "Enter your email address",
@@ -422,5 +425,22 @@
   "passwordsMustMatch": "Passwords must match",
   "cancel": "cancel",
   "areYouSure": "Are you sure to delete your avvount",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "event": "Event",
+  "activity":"Activity",
+  "startTime": "Start Time",
+  "endTime": "End Time",
+  "category": "Category",
+  "all": "All",
+  "search": "Search",
+  "places": "Places",
+  "dates": "Dates",
+  "categories": "Categories",
+  "audienceTr": {
+    "all": "All",
+    "female": "Female",
+    "male": "Male",
+    "adult": "Adults",
+    "age": "Specific Age"
+  }
 }

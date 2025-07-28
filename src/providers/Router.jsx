@@ -29,6 +29,7 @@ import GardProvider from "./GardProvider";
 import EditProfile from "../routes/EditProfile";
 import Plan from "../routes/Plan";
 import PlanDetails from "../routes/PlanDetails";
+import HolidayDetails from "../routes/HolidayDetails";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
         element: <SessionDetails />,
       },
       {
+        path: "holidays/:id",
+        element: <HolidayDetails />,
+      },
+      {
         path: "destination/:id",
         element: <DestinationDetails />,
       },
@@ -95,7 +100,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "events",
-        element: <AllEvents />,
+        children: [
+          {
+            index: true,
+            element: <AllEvents />,
+          },
+          {
+            path: ":id",
+            element: <EventDetails />,
+          },
+        ],
       },
 
       {

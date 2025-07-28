@@ -1,10 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import useGetSettings from "../../hooks/useGetSettings";
 
 export default function Footer() {
   const { t } = useTranslation();
-  const { settings = {} } = useGetSettings();
 
   return (
     <footer className="footer text-white pt-5 pb-3">
@@ -61,10 +59,10 @@ export default function Footer() {
                 <Link to="/about">{t("footer.about")}</Link>
               </li>
               <li>
-                <Link to={settings.terms_link}>{t("footer.terms")}</Link>
+                <Link to="/terms">{t("footer.terms")}</Link>
               </li>
               <li>
-                <Link to={settings.privacy_link}>{t("footer.privacy")}</Link>
+                <Link to="/privacy">{t("footer.privacy")}</Link>
               </li>
               <li>
                 <Link to="/faq">{t("footer.FAQs")}</Link>

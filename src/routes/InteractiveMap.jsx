@@ -12,6 +12,7 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import EventDetails from "../components/map/EventDetails";
 import Loader from "../ui/loader/Loader";
+import TopFilter from "../components/map/TopFilter";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -44,6 +45,8 @@ export default function InteractiveMap() {
 
   return (
     <section className="map-section">
+      <TopFilter />
+
       {isLoading && <Loader />}
       {isError && <div>Error loading events.</div>}
       {!isLoading && !isError && (

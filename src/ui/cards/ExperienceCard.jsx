@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function ExperienceCard({ experience, city }) {
   return (
-    <div className="experience-card">
+    <Link to={`/experiences/${experience.id}`} className="experience-card">
       <img
         src={experience.image}
         alt={experience.title}
@@ -19,6 +19,6 @@ export default function ExperienceCard({ experience, city }) {
           عرض التفاصيل
         </Link>
       </div>
-    </div>
+    </Link>
   );
 }

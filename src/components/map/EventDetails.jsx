@@ -47,7 +47,7 @@ export default function EventDetails({ activeEvent, t }) {
           </li>
         </ul>
 
-        <Link to={`/event/${activeEvent.id}`}>{t("showDetails")}</Link>
+        <Link to={`/events/${activeEvent.id}`}>{t("showDetails")}</Link>
       </div>
     </div>
   );

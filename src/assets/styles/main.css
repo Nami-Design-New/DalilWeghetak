@@ -566,6 +566,34 @@ button {
   color: #fff;
 }
 
+.top_filter {
+  padding: 16px 0;
+}
+.top_filter .form_ui {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top_filter .form_ui .dropdown-toggle {
+  background: #fafafa;
+  border-color: #f4f4f4;
+  color: #777;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.top_filter .form_ui .submit {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 16px;
+}
+.top_filter .form_ui .dropdown {
+  width: 100%;
+}
+.top_filter .form_ui .dropdown .dropdown-menu {
+  width: 100%;
+}
+
 body {
   position: relative;
   direction: rtl;
@@ -2213,6 +2241,7 @@ body .map-section .map-controls {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  z-index: 999;
 }
 body .map-section .map-controls .control-btn {
   background-color: white;
@@ -3239,7 +3268,6 @@ body .destination-details .hero-banner .text-content p.lead {
   margin-top: 10px;
 }
 body .terms-section {
-  margin-top: 90px;
   color: #333;
 }
 body .terms-section .main-title {
@@ -3275,7 +3303,6 @@ body .terms-section .terms-content .link:hover {
   }
 }
 body .privacy-policy-page {
-  margin-top: 90px;
   color: #333;
 }
 body .privacy-policy-page .page-title {
