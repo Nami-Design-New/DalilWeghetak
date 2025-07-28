@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import useGetHighLightsDetails from "../hooks/hightlights/useGetHighLightsDetails";
 import Loader from "../ui/loader/Loader";
 
 export default function ExperienceDetails() {
   const { highlightsDetails, isLoading } = useGetHighLightsDetails();
+  const { t } = useTranslation();
 
   if (isLoading) return <Loader />;
   console.log(highlightsDetails);
@@ -10,7 +12,11 @@ export default function ExperienceDetails() {
     <>
       <section className="activity-details">
         <div className="hero-banner">
-          <img src={highlightsDetails.image} alt="" />
+          <img
+            src={highlightsDetails.image}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
           <div className="overlay">
             <div className="text-content container text-center">
               <h1>{highlightsDetails.title}</h1>
@@ -34,7 +40,7 @@ export default function ExperienceDetails() {
               {
                 icon: "users",
                 label: "الجمهور",
-                value: highlightsDetails.audience,
+                value: t(`audienceTr.${highlightsDetails.audience}`),
               },
             ].map((item, index) => (
               <div className="col-6 col-md-4" key={index}>

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { formatDate } from "../../utils/helpers";
 
 export default function BookingCard({ booking }) {
@@ -5,7 +6,7 @@ export default function BookingCard({ booking }) {
 
   return (
     <div className="booking-card shadow-sm">
-      <div className="image-section">
+      <Link to={`/events/${event.id}`} className="image-section">
         <img
           src={event.image}
           alt={event.title}
@@ -24,7 +25,7 @@ export default function BookingCard({ booking }) {
             <span>{formatDate(booking.created_at)}</span>
           </p>
         </div>
-      </div>
+      </Link>
 
       <div className="details-section">
         <div className="">

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const emergencyOptions = [
-  { nameKey: "kingdomEmergency", value: "911", labelKey: "kingdomEmergency" },
-  { nameKey: "ambulance", value: "997", labelKey: "ambulance" },
+  { nameKey: "kingdomEmergency", value: "112", labelKey: "kingdomEmergency" },
   { nameKey: "civilDefense", value: "998", labelKey: "civilDefense" },
+  { nameKey: "ambulance", value: "997", labelKey: "ambulance" },
   { nameKey: "najdah", value: "999", labelKey: "najdah" },
 ];
 

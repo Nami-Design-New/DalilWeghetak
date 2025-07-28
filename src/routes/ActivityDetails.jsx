@@ -1,23 +1,30 @@
 import { useState } from "react";
 import { useParams } from "react-router";
+import { useTranslation } from "react-i18next";
 import BookTicketModal from "../ui/modals/BookTicketModal";
 import useGetEventDetails from "../hooks/events/useGetEventDetails";
 import Loader from "../ui/loader/Loader";
 
 export default function ActivityDetails() {
   const { id } = useParams();
+  const { t } = useTranslation();
   const [showBookingModal, setShowBookingModal] = useState(false);
 
   const { eventDetails, isLoading } = useGetEventDetails();
 
-  if (isLoading) return <Loader />;
   console.log(eventDetails);
+
+  if (isLoading) return <Loader />;
 
   return (
     <>
       <section className="activity-details">
         <div className="hero-banner">
-          <img src={eventDetails.image} alt="" />
+          <img
+            src={eventDetails.image}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
           <div className="overlay">
             <div className="text-content container text-center">
               <h1>{eventDetails.title}</h1>
@@ -29,29 +36,41 @@ export default function ActivityDetails() {
         <div className="info-cards container ">
           <div className="row g-4">
             {[
-              { icon: "calendar", label: "من", value: eventDetails.from_date },
+              {
+                icon: "calendar",
+                label: "from",
+                value: eventDetails.from_date,
+              },
               {
                 icon: "calendar-alt",
-                label: "إلى",
+                label: "to",
                 value: eventDetails.to_date,
               },
               {
                 icon: "clock",
-                label: "وقت البدء",
+                label: "startTime",
                 value: eventDetails.from_time,
               },
               {
                 icon: "clock",
-                label: "وقت الانتهاء",
+                label: "endTime",
                 value: eventDetails.to_time,
               },
-              { icon: "tags", label: "الفئة", value: eventDetails.type },
-              { icon: "users", label: "الجمهور", value: eventDetails.audience },
+              {
+                icon: "tags",
+                label: "category",
+                value: eventDetails.categories?.[0]?.name,
+              },
+              {
+                icon: "users",
+                label: "audience",
+                value: t(`audienceTr.${eventDetails.audience}`),
+              },
             ].map((item, index) => (
               <div className="col-6 col-md-4" key={index}>
                 <div className="info_card">
                   <i className={`fas fa-${item.icon} icon mb-3`}></i>
-                  <h6 className="text-muted">{item.label}</h6>
+                  <h6 className="text-muted">{t(item.label)}</h6>
                   <h5>{item.value}</h5>
                 </div>
               </div>

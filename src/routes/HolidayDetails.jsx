@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import useGetHolidayDetails from "../hooks/holidays/useGetHolidayDetails";
 import Loader from "../ui/loader/Loader";
 
-export default function SessionDetails() {
+export default function HolidayDetails() {
   const { id } = useParams();
-  const { data: session, isLoading } = useGetHolidayDetails(id);
+  const { data: holiday, isLoading } = useGetHolidayDetails(id);
   const { t } = useTranslation();
 
   if (isLoading) return <Loader />;
@@ -13,30 +13,30 @@ export default function SessionDetails() {
     <section className="session-details-section">
       <div className="session-banner">
         <img
-          src={session.image}
-          alt={session.title}
+          src={holiday.image}
+          alt={holiday.title}
           className="banner-img"
           loading="lazy"
         />
         <div className="banner-overlay">
-          <h1 className="banner-title">{session.title}</h1>
+          <h1 className="banner-title">{holiday.title}</h1>
           <span className="session-date">
-            <i className="fas fa-calendar-alt"></i> {session.from_date} -{" "}
-            {session.to_date}
+            <i className="fas fa-calendar-alt"></i> {holiday.from_date} -{" "}
+            {holiday.to_date}
           </span>
         </div>
       </div>
 
       <div className="container">
         <div className="session-content">
-          <p className="session-description">{session.description}</p>
+          <p className="session-description">{holiday.description}</p>
         </div>
 
-        {session.details?.length > 0 && (
+        {holiday.details?.length > 0 && (
           <div className="session-sub-details">
             <h3 className="sub-details-title">{t("seasons.title")}</h3>
             <div className="details-list">
-              {session.details.map((detail) => (
+              {holiday.details.map((detail) => (
                 <div className="detail-item" key={detail.id}>
                   {detail.image && (
                     <img

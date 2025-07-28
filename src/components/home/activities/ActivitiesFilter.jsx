@@ -1,7 +1,9 @@
 import { useSearchParams } from "react-router";
 import useGetCategories from "../../../hooks/home/useGetCategories";
+import { useTranslation } from "react-i18next";
 
 export default function ActivitiesFilter() {
+  const { t } = useTranslation();
   const { data: categories, isLoading } = useGetCategories();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -31,6 +33,11 @@ export default function ActivitiesFilter() {
 
   return (
     <div className="tabs">
+      <button className="tab-button" onClick={() => handleActivitiesFilter("")}>
+        <img src="/icons/all.svg" alt="" className="tab-icon" />
+        <span className="tab-label">{t("all")}</span>
+      </button>
+
       {categories.map((cat) => {
         const isSelected = selectedCategories.includes(cat.id);
 

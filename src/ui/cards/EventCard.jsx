@@ -37,7 +37,7 @@ const EventCard = ({ event, cityName }) => {
   };
 
   return (
-    <Link to={`/event/${event.id}`} className="activity-card-link">
+    <Link to={`/events/${event.id}`} className="activity-card-link">
       <div className="event-card">
         <div className="image-wrapper">
           <div className="dates-vertical">
