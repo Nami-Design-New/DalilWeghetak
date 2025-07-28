@@ -1,21 +1,51 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function useGetEvents(type = "event") {
   const [searchParams] = useSearchParams();
 
-  const rawCategories = searchParams.get("categories_id");
+  const rawCategories = searchParams.get("categories");
+  const rawCity = searchParams.get("city");
+  const search = searchParams.get("search");
+  const from = searchParams.get("from");
+  const to = searchParams.get("to");
+  const nearest = searchParams.get("nearest");
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
+
   const categories_id = rawCategories
     ? rawCategories.split("-").map(Number)
     : null;
 
-  const { id } = useParams();
-  const city_id = id;
+  const city_id = rawCity ? Number(rawCity) : null;
+
+  const queryKey = [
+    type,
+    categories_id,
+    city_id,
+    search,
+    from,
+    to,
+    nearest,
+    lat,
+    lng,
+  ];
 
   const { data, isLoading, error } = useQuery({
-    queryKey: [type, categories_id, city_id],
-    queryFn: () => getEvents(type, categories_id, city_id),
+    queryKey,
+    queryFn: () =>
+      getEvents({
+        type,
+        categories_id,
+        city_id,
+        search,
+        from,
+        to,
+        nearest,
+        lat,
+        lng,
+      }),
     enabled: !!type,
   });
 
@@ -26,12 +56,28 @@ export default function useGetEvents(type = "event") {
   };
 }
 
-async function getEvents(type, categories_id, city_id) {
+async function getEvents({
+  type,
+  categories_id,
+  city_id,
+  search,
+  from,
+  to,
+  nearest,
+  lat,
+  lng,
+}) {
   try {
     const requestBody = {
       type,
-      ...(categories_id && categories_id.length > 0 && { categories_id }),
-      city_id,
+      ...(categories_id?.length ? { categories_id } : {}),
+      ...(city_id ? { city_id } : {}),
+      ...(search ? { search } : {}),
+      ...(from ? { from } : {}),
+      ...(to ? { to } : {}),
+      ...(nearest ? { nearest } : {}),
+      ...(lat ? { lat } : {}),
+      ...(lng ? { lng } : {}),
     };
 
     const response = await axiosInstance.post("/get_events", requestBody);

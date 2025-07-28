@@ -41,7 +41,7 @@ export default function ActivityCard({ activity }) {
     });
   };
   return (
-    <Link to={`/activity/${activity.id}`} className="activity-card-link">
+    <Link to={`/activities/${activity.id}`} className="activity-card-link">
       <div className="activity-card">
         <img src={activity.image} alt={activity.title} className="card-img" />
         <div className="card-body">

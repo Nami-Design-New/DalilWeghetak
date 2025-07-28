@@ -190,68 +190,45 @@
     font-size: 1rem;
   }
 
-  .destinations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin-top: 32px;
+  .destination {
+    position: relative;
+    border-radius: 36px;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 1/1;
 
-    .destination {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s ease;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      transition: 0.3s ease;
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: 0.3s ease;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-        transition: 0.3s ease;
-      }
-
-      .card-overlay {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background: rgba(179, 176, 176, 0.452);
-        padding: 6px 12px;
-        color: $white;
-        font-weight: 600;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        z-index: 2;
-        .location-icon {
-          font-size: 1rem;
-          color: $main;
-        }
-      }
-      &:hover {
-        img {
-          transform: scale(1.05);
-        }
-      }
-
-      &.big {
-        grid-column: span 2;
-        grid-row: span 2;
-        height: 416px;
-
-        @media (max-width: 768px) {
-          grid-column: span 1;
-          grid-row: span 1;
-          height: 220px;
-        }
+    .card-overlay {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(179, 176, 176, 0.452);
+      padding: 6px 12px;
+      color: $white;
+      font-weight: 600;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      .location-icon {
+        font-size: 1rem;
+        color: $main;
       }
     }
   }
@@ -489,52 +466,53 @@
   .SwiperSlide {
     padding: 10px;
   }
-  .holiday-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #f9f9f9;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 15px;
-    .holiday-image-wrapper {
-      width: 100%;
-      height: 320px;
-      overflow: hidden;
+}
 
-      .holiday-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-      }
+.holiday-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  .holiday-image-wrapper {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+
+    .holiday-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  .holiday-info {
+    margin-top: 10px;
+
+    .holiday-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: $main;
     }
 
-    .holiday-info {
-      margin-top: 10px;
+    .holiday-date {
+      color: $gray;
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
 
-      .holiday-name {
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: $main;
-      }
-
-      .holiday-date {
-        color: $gray;
-        font-size: 0.9rem;
-        margin: 5px 0;
-      }
-
-      .holiday-desc {
-        font-size: 0.95rem;
-        color: black;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
+    .holiday-desc {
+      font-size: 0.95rem;
+      color: black;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 }
@@ -570,6 +548,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    @media screen and (max-width: 576px) {
+      flex-direction: column;
+    }
   }
 
   .stats-cards {

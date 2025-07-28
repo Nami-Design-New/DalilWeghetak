@@ -6,6 +6,7 @@ import useGetHighLights from "../../hooks/hightlights/useGetHighLights";
 import ExperienceCard from "../../ui/cards/ExperienceCard";
 import EventCardLoader from "../../ui/loader/EventCardLoader";
 import useGetCities from "../../hooks/home/useCities";
+import { Link } from "react-router";
 
 export default function Experiences() {
   const { lang } = useSelector((state) => state.settings);
@@ -16,11 +17,15 @@ export default function Experiences() {
   return (
     <section className="activities-section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header justify-content-between">
           <h2 className="section-title">
             <span className="text-dark">{t("exp.titleDark")}</span>
             <span className="text-main">{t("exp.titleMain")}</span>
           </h2>
+
+          <Link to="/experiences" className="view-all-btn">
+            {t("viewAll")}
+          </Link>
         </div>
 
         <Swiper

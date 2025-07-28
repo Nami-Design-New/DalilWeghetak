@@ -21,7 +21,7 @@ const JeddahEvents = () => {
           <h2 className="title">{t("Events.title")}</h2>
           <p className="description">{t("Events.description")}</p>
           <Link to="/events" className="btn explore-btn">
-            {t("Events.button")} <i className="fal fa-arrow-right"></i>
+            {t("Events.button")} <i className="fal fa-arrow-left"></i>
           </Link>
         </div>
 

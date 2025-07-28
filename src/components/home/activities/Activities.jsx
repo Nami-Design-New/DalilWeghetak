@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from "react-redux";
 import useGetEvents from "../../../hooks/events/useGetEvents";
 import ActivityCard from "../../../ui/cards/ActivityCard";
 import EventCardLoader from "../../../ui/loader/EventCardLoader";
 import ActivitiesFilter from "./ActivitiesFilter";
-import { useSelector } from "react-redux";
 
 export default function Activities() {
   const { lang } = useSelector((state) => state.settings);
@@ -13,7 +13,6 @@ export default function Activities() {
 
   const { data: activities, isLoading: activityLoading } =
     useGetEvents("activity");
-  console.log(activityLoading);
 
   return (
     <section className="activities-section">
