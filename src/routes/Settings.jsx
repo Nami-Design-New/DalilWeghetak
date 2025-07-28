@@ -1,17 +1,17 @@
 import { Link, useNavigate } from "react-router";
-import useGetProfile from "../hooks/account/useGetProfile";
-import useGetSettings from "../hooks/useGetSettings";
-import Loader from "../ui/loader/Loader";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
+import { useQueryClient } from "@tanstack/react-query";
+import { logout } from "../redux/slices/clientData";
+import useGetProfile from "../hooks/account/useGetProfile";
+import useGetSettings from "../hooks/useGetSettings";
+import Loader from "../ui/loader/Loader";
 import ChangePasswordModal from "../ui/modals/ChangePasswordModal";
 import ConfirmationModal from "../ui/modals/ConfirmationModal";
 import useDeleteAccount from "../hooks/account/useDeleteAccount";
-import { useCookies } from "react-cookie";
 import axiosInstance from "../utils/axiosInstance";
-import { useQueryClient } from "@tanstack/react-query";
-import { logout } from "../redux/slices/clientData";
 
 export default function Settings() {
   const [openChangePassModal, setOpenChangePassModal] = useState();

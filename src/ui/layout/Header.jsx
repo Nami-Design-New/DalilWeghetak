@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router";
+import { useCookies } from "react-cookie";
 import i18next from "i18next";
 import UserDropDown from "./UserDropDown";
-import { useCookies } from "react-cookie";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -102,8 +102,8 @@ export default function Header() {
 
         <div className="actions">
           <button onClick={handleLanguageChange}>
-            <i className="fa-regular fa-globe"></i>{" "}
-            {lang === "ar" ? "EN" : "AR"}
+            {lang === "ar" ? "EN" : "AR"}{" "}
+            <i className="fa-regular fa-globe"></i>
           </button>
           {isAuthed && (
             <Link to="/notifications">

@@ -89,7 +89,7 @@
     "previous_bookings": "الحجوزات السابقة",
     "no-book": " ليس لديك أي حجوزات بعد",
     "favorites": "المفضلة",
-    "myAccount": "حسابي"
+    "editProfile": "تعديل الحساب"
   },
   "destinations": {
     "popular": "أشهر ",
@@ -489,6 +489,9 @@
   "places": "الأماكن",
   "categories": "الفئات",
   "dates": "التاريخ",
+  "allActivities": "جميع الأنشطة",
+  "allExperiences": "جميع التجارب التى تستحق القيام بها",
+  "viewAll": "عرض الكل",
   "audienceTr": {
     "all": "الكل",
     "female": "نساء",

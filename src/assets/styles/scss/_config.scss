@@ -610,6 +610,10 @@ button {
     align-items: center;
     gap: 12px;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .input-field {
       width: 100%;
       display: flex;
@@ -685,7 +689,6 @@ button {
   }
 }
 
-
-.rdrCalendarWrapper{
+.rdrCalendarWrapper {
   direction: ltr !important;
 }

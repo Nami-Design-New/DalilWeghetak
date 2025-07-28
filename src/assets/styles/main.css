@@ -574,6 +574,11 @@ button {
   align-items: center;
   gap: 12px;
 }
+@media screen and (max-width: 768px) {
+  .top_filter .form {
+    flex-direction: column;
+  }
+}
 .top_filter .form .input-field {
   width: 100%;
   display: flex;
@@ -820,17 +825,21 @@ body .dropdown-menu .dropdown-item.logout:hover {
   color: #fff;
 }
 body .user_dropdown {
-  border: 1px solid #f4f4f4;
-  background: #fff;
-  border-radius: 6px;
-  padding: 8px 20px;
-  transition: all 0.3s ease-in-out;
-  color: #000;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 14px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+body .user_dropdown .img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+body .user_dropdown .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media screen and (max-width: 991px) {
   body .user_dropdown {
@@ -1608,26 +1617,21 @@ body .destinations .section-subtitle {
   color: #666;
   font-size: 1rem;
 }
-body .destinations .destinations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 32px;
-}
-body .destinations .destinations-grid .destination {
+body .destinations .destination {
   position: relative;
-  border-radius: 10px;
+  border-radius: 36px;
+  display: block;
   overflow: hidden;
-  height: 200px;
+  aspect-ratio: 1/1;
 }
-body .destinations .destinations-grid .destination img {
+body .destinations .destination img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   transition: 0.3s ease;
 }
-body .destinations .destinations-grid .destination::after {
+body .destinations .destination::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1635,10 +1639,10 @@ body .destinations .destinations-grid .destination::after {
   z-index: 1;
   transition: 0.3s ease;
 }
-body .destinations .destinations-grid .destination .card-overlay {
+body .destinations .destination .card-overlay {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   background: rgba(179, 176, 176, 0.452);
   padding: 6px 12px;
   color: #fff;
@@ -1650,24 +1654,9 @@ body .destinations .destinations-grid .destination .card-overlay {
   gap: 6px;
   z-index: 2;
 }
-body .destinations .destinations-grid .destination .card-overlay .location-icon {
+body .destinations .destination .card-overlay .location-icon {
   font-size: 1rem;
   color: #0048aa;
-}
-body .destinations .destinations-grid .destination:hover img {
-  transform: scale(1.05);
-}
-body .destinations .destinations-grid .destination.big {
-  grid-column: span 2;
-  grid-row: span 2;
-  height: 416px;
-}
-@media (max-width: 768px) {
-  body .destinations .destinations-grid .destination.big {
-    grid-column: span 1;
-    grid-row: span 1;
-    height: 220px;
-  }
 }
 body .activities-section {
   padding: 40px 0;
@@ -1880,7 +1869,7 @@ body .holidays-section .section-subtitle {
 body .holidays-section .SwiperSlide {
   padding: 10px;
 }
-body .holidays-section .holiday-card {
+body .holiday-card {
   display: flex;
   flex-direction: column;
   border-radius: 12px;
@@ -1891,32 +1880,32 @@ body .holidays-section .holiday-card {
   padding: 15px;
   margin-bottom: 15px;
 }
-body .holidays-section .holiday-card .holiday-image-wrapper {
+body .holiday-card .holiday-image-wrapper {
   width: 100%;
   height: 320px;
   overflow: hidden;
 }
-body .holidays-section .holiday-card .holiday-image-wrapper .holiday-img {
+body .holiday-card .holiday-image-wrapper .holiday-img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-body .holidays-section .holiday-card .holiday-info {
+body .holiday-card .holiday-info {
   margin-top: 10px;
 }
-body .holidays-section .holiday-card .holiday-info .holiday-name {
+body .holiday-card .holiday-info .holiday-name {
   font-size: 1.1rem;
   font-weight: bold;
   color: #0048aa;
 }
-body .holidays-section .holiday-card .holiday-info .holiday-date {
+body .holiday-card .holiday-info .holiday-date {
   color: #777;
   font-size: 0.9rem;
   margin: 5px 0;
 }
-body .holidays-section .holiday-card .holiday-info .holiday-desc {
+body .holiday-card .holiday-info .holiday-desc {
   font-size: 0.95rem;
   color: black;
   display: -webkit-box;
@@ -1951,6 +1940,11 @@ body .statistics-section .statistics-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+@media screen and (max-width: 576px) {
+  body .statistics-section .statistics-grid {
+    flex-direction: column;
+  }
 }
 body .statistics-section .stats-cards {
   flex: 2;

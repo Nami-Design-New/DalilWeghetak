@@ -7,7 +7,7 @@ import Contact from "../routes/Contact";
 import DestinationDetails from "../routes/DestinationDetails";
 import Error from "../routes/Error";
 import EventDetails from "../routes/EventDetails";
-import AllEvents from "../routes/Events";
+import AllEvents from "../routes/AllEvents";
 import ExperienceDetails from "../routes/ExperienceDetails ";
 import FaqPage from "../routes/Faqs";
 import Favorites from "../routes/Favorites";
@@ -30,6 +30,9 @@ import EditProfile from "../routes/EditProfile";
 import Plan from "../routes/Plan";
 import PlanDetails from "../routes/PlanDetails";
 import HolidayDetails from "../routes/HolidayDetails";
+import AllActivities from "../routes/AllActivities";
+import AllExperiences from "../routes/AllExperiences";
+import AllSeasons from "../routes/AllSeasons";
 
 export const router = createBrowserRouter([
   {
@@ -67,20 +70,47 @@ export const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "activity/:id",
-        element: <ActivityDetails />,
+        path: "activities",
+        children: [
+          {
+            index: true,
+            element: <AllActivities />,
+          },
+          {
+            path: ":id",
+            element: <ActivityDetails />,
+          },
+        ],
       },
       {
-        path: "experiences/:id",
-        element: <ExperienceDetails />,
+        path: "experiences",
+        children: [
+          {
+            index: true,
+            element: <AllExperiences />,
+          },
+          {
+            path: ":id",
+            element: <ExperienceDetails />,
+          },
+        ],
       },
       {
         path: "event/:id",
         element: <EventDetails />,
       },
       {
-        path: "session/:id",
-        element: <SessionDetails />,
+        path: "seasons",
+        children: [
+          {
+            index: true,
+            element: <AllSeasons />,
+          },
+          {
+            path: ":id",
+            element: <SessionDetails />,
+          },
+        ],
       },
       {
         path: "holidays/:id",

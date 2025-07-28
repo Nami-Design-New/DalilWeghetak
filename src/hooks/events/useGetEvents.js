@@ -10,6 +10,9 @@ export default function useGetEvents(type = "event") {
   const search = searchParams.get("search");
   const from = searchParams.get("from");
   const to = searchParams.get("to");
+  const nearest = searchParams.get("nearest");
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
 
   const categories_id = rawCategories
     ? rawCategories.split("-").map(Number)
@@ -17,7 +20,17 @@ export default function useGetEvents(type = "event") {
 
   const city_id = rawCity ? Number(rawCity) : null;
 
-  const queryKey = [type, categories_id, city_id, search, from, to];
+  const queryKey = [
+    type,
+    categories_id,
+    city_id,
+    search,
+    from,
+    to,
+    nearest,
+    lat,
+    lng,
+  ];
 
   const { data, isLoading, error } = useQuery({
     queryKey,
@@ -29,6 +42,9 @@ export default function useGetEvents(type = "event") {
         search,
         from,
         to,
+        nearest,
+        lat,
+        lng,
       }),
     enabled: !!type,
   });
@@ -40,7 +56,17 @@ export default function useGetEvents(type = "event") {
   };
 }
 
-async function getEvents({ type, categories_id, city_id, search, from, to }) {
+async function getEvents({
+  type,
+  categories_id,
+  city_id,
+  search,
+  from,
+  to,
+  nearest,
+  lat,
+  lng,
+}) {
   try {
     const requestBody = {
       type,
@@ -49,6 +75,9 @@ async function getEvents({ type, categories_id, city_id, search, from, to }) {
       ...(search ? { search } : {}),
       ...(from ? { from } : {}),
       ...(to ? { to } : {}),
+      ...(nearest ? { nearest } : {}),
+      ...(lat ? { lat } : {}),
+      ...(lng ? { lng } : {}),
     };
 
     const response = await axiosInstance.post("/get_events", requestBody);

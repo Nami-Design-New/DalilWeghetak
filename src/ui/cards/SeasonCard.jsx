@@ -5,7 +5,7 @@ export default function SeasonCard({ season }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/session/${season.id}`);
+    navigate(`/seasons/${season.id}`);
   };
 
   return (

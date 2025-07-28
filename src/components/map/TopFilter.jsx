@@ -69,18 +69,23 @@ export default function TopFilter() {
 
     const startDate = format(dateRange[0].startDate, "yyyy-MM-dd");
     const endDate = format(dateRange[0].endDate, "yyyy-MM-dd");
+    
+    const newParams = new URLSearchParams(searchParams.toString());
 
-    const params = {
-      from: startDate,
-      to: endDate,
-    };
+    newParams.set("from", startDate);
+    newParams.set("to", endDate);
 
-    if (searchText) params.search = searchText;
-    if (selectedCity) params.city = selectedCity;
+    if (searchText) newParams.set("search", searchText);
+    else newParams.delete("search");
+
+    if (selectedCity) newParams.set("city", selectedCity);
+    else newParams.delete("city");
+
     if (selectedCategories.length)
-      params.categories = selectedCategories.join("-");
+      newParams.set("categories", selectedCategories.join("-"));
+    else newParams.delete("categories");
 
-    setSearchParams(params);
+    setSearchParams(newParams);
   };
 
   return (
@@ -186,4 +191,3 @@ export default function TopFilter() {
     </div>
   );
 }
-
