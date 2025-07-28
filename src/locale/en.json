@@ -432,6 +432,10 @@
   "endTime": "End Time",
   "category": "Category",
   "all": "All",
+  "search": "Search",
+  "places": "Places",
+  "dates": "Dates",
+  "categories": "Categories",
   "audienceTr": {
     "all": "All",
     "female": "Female",
