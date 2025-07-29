@@ -4039,4 +4039,10 @@ body.en .form_ui .input-field .pass-group .show-pass {
 }
 body.en .footer h5::after {
   left: 0;
+}
+body.en .dropdown-menu .dropdown-item {
+  padding: 8px 52px 8px 8px;
+}
+body.en .btn i {
+  transform: scaleX(-1) !important;
 }/*# sourceMappingURL=main.css.map */

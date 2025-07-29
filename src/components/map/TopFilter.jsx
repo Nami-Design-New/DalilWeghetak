@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { ar } from "date-fns/locale";
+import { ar, enUS } from "date-fns/locale";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import { useSearchParams } from "react-router";
+import { useSelector } from "react-redux";
 import InputField from "../../ui/forms/InputField";
 import useGetCities from "../../hooks/home/useCities";
 import useGetCategories from "../../hooks/home/useGetCategories";
@@ -13,6 +14,7 @@ import "react-date-range/dist/theme/default.css";
 
 export default function TopFilter() {
   const { t } = useTranslation();
+  const { lang } = useSelector((state) => state.settings);
   const { data: cities = [] } = useGetCities();
   const { data: categories = [] } = useGetCategories();
 
@@ -69,7 +71,7 @@ export default function TopFilter() {
 
     const startDate = format(dateRange[0].startDate, "yyyy-MM-dd");
     const endDate = format(dateRange[0].endDate, "yyyy-MM-dd");
-    
+
     const newParams = new URLSearchParams(searchParams.toString());
 
     newParams.set("from", startDate);
@@ -118,7 +120,6 @@ export default function TopFilter() {
                     type="radio"
                     name="city"
                     id={`city-${city.id}`}
-                    className="me-2"
                     checked={String(city.id) === selectedCity}
                     onChange={() => setSelectedCity(String(city.id))}
                   />
@@ -151,7 +152,6 @@ export default function TopFilter() {
                     type="checkbox"
                     name="category"
                     id={`cat-${category.id}`}
-                    className="me-2"
                     checked={selectedCategories.includes(String(category.id))}
                     onChange={() => handleCategoryToggle(String(category.id))}
                   />
@@ -177,7 +177,7 @@ export default function TopFilter() {
                   onChange={(item) => setDateRange([item.selection])}
                   moveRangeOnFirstSelection={false}
                   ranges={dateRange}
-                  locale={ar}
+                  locale={lang === "en" ? enUS : ar}
                 />
               </div>
             </Dropdown.Menu>

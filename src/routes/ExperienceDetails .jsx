@@ -59,7 +59,7 @@ export default function ExperienceDetails() {
             <div className="row g-4">
               <div className="col-lg-6">
                 <div className="description-section mb-4">
-                  <h3 className="section-title">عن الفعالية</h3>
+                  <h3 className="section-title">{t("aboutEvent")}</h3>
                   <p className="text-body">{highlightsDetails.description}</p>
                 </div>
 
@@ -73,7 +73,7 @@ export default function ExperienceDetails() {
 
               <div className="col-lg-6">
                 <div className="map-section h-100">
-                  <h4 className="section-title">موقع الفعالية</h4>
+                  <h4 className="section-title">{t("eventLocation")}</h4>
                   <div className="map-wrapper shadow-sm rounded overflow-hidden h-100">
                     <iframe
                       src={`https://www.google.com/maps?q=${highlightsDetails.lat},${highlightsDetails.lng}&z=15&output=embed`}
