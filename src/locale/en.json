@@ -499,11 +499,29 @@
   "allActivities": "All Activities",
   "allExperiences": "All Experiences Worth Doing",
   "viewAll": "View All",
+  "bookNow": "Book your ticket now",
+  "aboutEvent": "About Event",
+  "eventLocation": "Event Location",
+  "pricePerPerson": "Price Per Person",
   "audienceTr": {
     "all": "All",
     "female": "Women",
     "male": "Men",
     "adult": "Adults",
     "age": "Custom Age"
+  },
+  "ticket": {
+    "ticket_id": "Ticket ID",
+    "reserved_at": "Reserved At",
+    "people_count": "People Count",
+    "date": "Date",
+    "time": "Time"
+  },
+  "wallet": {
+    "balance": "Balance",
+    "name": "Name",
+    "no_transactions": "No transactions",
+    "chargeWallet": "Charge Wallet",
+    "chargeNow": "Charge Now"
   }
 }

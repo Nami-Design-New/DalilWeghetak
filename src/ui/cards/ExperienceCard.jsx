@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 export default function ExperienceCard({ experience, city }) {
+  const { t } = useTranslation();
   return (
     <Link to={`/experiences/${experience.id}`} className="experience-card">
       <img
@@ -14,9 +16,9 @@ export default function ExperienceCard({ experience, city }) {
           <i className="fa-solid fa-location-dot me-1"></i>
           {city?.name}
         </div>
-        {/* <p className="card-text">{experience.subtitle}</p> */}
+        
         <Link to={`/experiences/${experience.id}`} className="details-btn">
-          عرض التفاصيل
+          {t("showDetails")}
         </Link>
       </div>
     </Link>

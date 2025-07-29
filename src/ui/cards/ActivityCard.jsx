@@ -45,14 +45,16 @@ export default function ActivityCard({ activity }) {
       <div className="activity-card">
         <img src={activity.image} alt={activity.title} className="card-img" />
         <div className="card-body">
-          <p className="price">يبدأ من {activity.price} ريال</p>
+          <p className="price">
+            {t("startsFrom")} {activity.price} {t("sar")}
+          </p>
           <p className="meta">
             <i className="fa-solid fa-location-dot ms-1"></i>
             {cityName} | {activity.type}
           </p>
           <h5 className="title">{activity.title}</h5>
           <div className="actions">
-            <button className="details-btn">عرض التفاصيل</button>
+            <button className="details-btn">{t("showDetails")}</button>
             <button
               className="like-btn"
               onClick={handleFavorite}

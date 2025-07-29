@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { formatDate } from "../utils/helpers";
 import { useCookies } from "react-cookie";
+import { useTranslation } from "react-i18next";
 import useGetProfile from "../hooks/account/useGetProfile";
 import useGetWalletOperations from "../hooks/account/useGetWalletOperations";
 import Loader from "../ui/loader/Loader";
 
 export default function MyWallet() {
+  const { t } = useTranslation();
   const [chargeAmount, setChargeAmount] = useState();
   const { walletOperations, isLoading } = useGetWalletOperations();
   const { data, isLoading: profileLoading } = useGetProfile();
@@ -20,14 +22,16 @@ export default function MyWallet() {
   return (
     <section className="wallet-page ">
       <div className="container">
-        <h2 className="page-title mb-3">محفظتي</h2>
+        <h2 className="page-title mb-3">{t("dropdown.wallet")}</h2>
         <div className="wallet-card p-3 mb-4">
           <div className="d-flex align-items-center justify-content-between">
             <div>
-              <p className="mb-1"> الرصيد </p>
-              <h3>SR {data.wallet}</h3>
+              <p className="mb-1"> {t("wallet.balance")} </p>
+              <h3>
+                {t("sar")} {data.wallet}
+              </h3>
               <p className="mb-0">
-                <span> الاسم : </span> <span> {data.name} </span>{" "}
+                <span> {t("wallet.name")} : </span> <span> {data.name} </span>{" "}
               </p>
             </div>
             <div className="wallet-icon">
@@ -43,7 +47,9 @@ export default function MyWallet() {
                 key={opertaion.id}
                 className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
               >
-                <span className="text-primary">ريال {opertaion.amount}</span>
+                <span className="text-primary">
+                  {t("sar")} {opertaion.amount}
+                </span>
                 <span>{formatDate(opertaion.created_at)}</span>
                 <span
                   className={
@@ -58,13 +64,13 @@ export default function MyWallet() {
               </div>
             ))
           ) : (
-            <div> لايوجد معاملات </div>
+            <div> {t("wallet.no_transactions")} </div>
           )}
         </div>
 
         <div className="charge-box p-3 border rounded mb-3">
           <label htmlFor="chargeInput" className="mb-2 d-block">
-            شحن المحفظة
+            {t("wallet.chargeWallet")}
           </label>
           <div className="d-flex align-items-center gap-2">
             <input
@@ -75,19 +81,19 @@ export default function MyWallet() {
               value={chargeAmount}
               onChange={(e) => setChargeAmount(e.target.value)}
             />
-            <span>SR</span>
+            <span>{t("sar")}</span>
           </div>
         </div>
 
         <Link
-          className="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2"
+          className="btn btn-primary w-100 p-2 d-flex align-items-center justify-content-center gap-2"
           to={
             chargeAmount === 0 || chargeAmount === ""
               ? ""
               : `https://api.dalilwejhtak.com.sa/payment/${chargeAmount}/wallet?Authorization=${token}&Redirect_url=${window.location.href}`
           }
         >
-          اشحن الآن
+          {t("wallet.chargeNow")}
           <i className="fa-solid fa-arrow-left"></i>
         </Link>
       </div>

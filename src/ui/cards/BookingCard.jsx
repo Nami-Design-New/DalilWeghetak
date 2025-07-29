@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 import { formatDate } from "../../utils/helpers";
+import { useTranslation } from "react-i18next";
 
 export default function BookingCard({ booking }) {
+  const { t } = useTranslation();
   const event = booking?.event;
 
   return (
@@ -13,7 +15,7 @@ export default function BookingCard({ booking }) {
           className="img-fluid rounded-top"
         />
         <div className="ticket-id">
-          TICKET ID: <span>{booking.id}</span>
+          {t("ticket.ticket_id")} <span>{booking.id}</span>
         </div>
         <div className="check-icon">
           <i className="fa-solid fa-circle-check"></i>
@@ -21,7 +23,7 @@ export default function BookingCard({ booking }) {
         <div className="overlay-text">
           <h5 className="title">{event.title}</h5>
           <p className="reserve-date">
-            <span>تم الحجز بتاريخ</span>
+            <span>{t("ticket.reserved_at")}</span>
             <span>{formatDate(booking.created_at)}</span>
           </p>
         </div>
@@ -29,18 +31,19 @@ export default function BookingCard({ booking }) {
 
       <div className="details-section">
         <div className="">
-          <div className="small">عدد الأفراد</div>
+          <div className="small">{t("ticket.people_count")}</div>
           <div className="title">{booking.quantity}</div>
         </div>
         <div className="">
-          <div className="small">التاريخ</div>
+          <div className="small">{t("ticket.date")}</div>
           <div className="title">{event.from_date}</div>
         </div>
         <div className="">
-          <div className="small">التوقيت</div>
+          <div className="small">{t("ticket.time")}</div>
           <div className="title">{event.from_time}</div>
         </div>
       </div>
     </div>
   );
 }
+
