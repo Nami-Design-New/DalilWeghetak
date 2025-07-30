@@ -22,7 +22,7 @@
     "Destinations": "Destinations",
     "contact": "Contact Us",
     "plan": "Planner",
-    "addEvent":"Add Event"
+    "addEvent": "Add Event"
   },
   "auth": {
     "loginSuccess": "Login successful",
@@ -522,13 +522,19 @@
   "wallet": {
     "balance": "Balance",
     "name": "Name",
-    "no_transactions": "No transactions",
+    "no_transactions": "there is no transactions yet start transcat with your wallet ,all you transactions will be displayed here",
     "chargeWallet": "Charge Wallet",
-    "chargeNow": "Charge Now"
+    "chargeNow": "Charge Now",
+    "transtactionsTitle": "My Transactions",
+    "operation": "operation",
+    "amount": "amount",
+    "date": "date"
   },
   "empty_notifications": "No notifications",
   "error_occurred": "Something went wrong, please try again later",
   "select_date": "Select Date",
   "allSessions": "All Sessions",
-  "usersEvents": "Users Events"
+  "usersEvents": "Users Events",
+  "charge": "charge",
+  "booking": "booking"
 }

@@ -22,7 +22,7 @@
     "Destinations": "الوجهات",
     "contact": "اتصل بنا",
     "plan": "المخطط",
-    "addEvent":"إضافة فعالية"
+    "addEvent": "إضافة فعالية"
   },
   "auth": {
     "loginSuccess": "تم تسجيل الدخول بنجاح",
@@ -522,13 +522,19 @@
   "wallet": {
     "balance": "الرصيد",
     "name": "الاسم",
-    "no_transactions": "لا يوجد معاملات",
+    "no_transactions": "لا توجد معاملات حتى الآن، ابدأ في التحويل باستخدام محفظتك، وسيتم عرض جميع معاملاتك هنا",
     "chargeWallet": "شحن المحفظة",
-    "chargeNow": "شحن الآن"
+    "chargeNow": "شحن الآن",
+    "transtactionsTitle": "معاملاتي",
+    "operation": "المعاملات",
+    "amount": "القيمة",
+    "date": "التاريخ"
   },
   "empty_notifications": "لا يوجد اشعارات",
   "error_occurred": "حدث خطاء ما، يرجى المحاولة مرة اخرى لاحقا",
   "select_date": "اختر التاريخ",
   "allSessions": "كل المناسبات",
-  "usersEvents": "فعاليات المستخدمين"
+  "usersEvents": "فعاليات المستخدمين",
+  "charge": "إيداع",
+  "booking": "سحب"
 }

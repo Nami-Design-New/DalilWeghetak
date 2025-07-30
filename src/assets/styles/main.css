@@ -3058,6 +3058,20 @@ body .wallet-page .wallet-card h3 {
 body .wallet-page .wallet-card .wallet-icon {
   color: #fff;
 }
+body .wallet-page .charge-button {
+  border-radius: 12px;
+  background-color: #0048aa !important;
+  color: white;
+}
+body .wallet-page .transactions-list {
+  margin-top: 1rem;
+  border: 1px solid #f4f4f4;
+  padding: 1rem;
+  border-radius: 8px;
+}
+body .wallet-page .transactions-list h4 {
+  font-size: 16px;
+}
 body .wallet-page .transactions-list span {
   font-size: 14px;
 }
@@ -3067,6 +3081,21 @@ body .wallet-page .charge-box {
 }
 body .wallet-page .charge-box input {
   flex: 1;
+}
+body .wallet-page .no-transactions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+body .wallet-page .no-transactions img {
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+body .wallet-page .no-transactions p {
+  font-size: 16px;
+  margin: 0;
 }
 body .steps {
   position: relative;
