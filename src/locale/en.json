@@ -528,5 +528,6 @@
   "empty_notifications": "No notifications",
   "error_occurred": "Something went wrong, please try again later",
   "select_date": "Select Date",
-  "allSessions": "All Sessions"
+  "allSessions": "All Sessions",
+  "usersEvents": "Users Events"
 }

@@ -528,5 +528,6 @@
   "empty_notifications": "لا يوجد اشعارات",
   "error_occurred": "حدث خطاء ما، يرجى المحاولة مرة اخرى لاحقا",
   "select_date": "اختر التاريخ",
-  "allSessions": "كل المناسبات"
+  "allSessions": "كل المناسبات",
+  "usersEvents": "فعاليات المستخدمين"
 }

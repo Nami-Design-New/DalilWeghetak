@@ -33,6 +33,7 @@ import AllActivities from "../routes/AllActivities";
 import AllExperiences from "../routes/AllExperiences";
 import AllSeasons from "../routes/AllSeasons";
 import Holidays from "../routes/Holidays";
+import UserEvents from "../routes/UserEvents";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
       {
         path: "event/:id",
         element: <EventDetails />,
+      },
+      {
+        path: "user-events",
+        element: <UserEvents />,
       },
       {
         path: "seasons",
