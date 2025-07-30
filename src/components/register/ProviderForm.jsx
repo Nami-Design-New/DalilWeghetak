@@ -15,6 +15,7 @@ export default function ProviderForm() {
     register,
     watch,
     handleSubmit,
+    setValue,
     formState: { errors },
     canRegister,
     canRegisterPending,
@@ -27,7 +28,7 @@ export default function ProviderForm() {
 
       <div className="form_group">
         <ImageUpload
-          register={register}
+          setValue={setValue}
           watch={watch}
           error={errors.image?.message}
         />

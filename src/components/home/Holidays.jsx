@@ -14,12 +14,18 @@ export default function Holidays() {
 
   return (
     <section className="holidays-section">
-      <div className="container text-center mb-4">
-        <h2 className="section-title">
-          <span className="text-dark">{t("holidays.titleDark")} </span>
-          <span className="text-main">{t("holidays.titleMain")}</span>
-        </h2>
-        <p className="section-subtitle">{t("holidays.subtitle")}</p>
+      <div className="container text-center mb-4 d-flex justify-content-between align-items-center">
+        <div>
+          <h2 className="section-title">
+            <span className="text-dark">{t("holidays.titleDark")} </span>
+            <span className="text-main">{t("holidays.titleMain")}</span>
+          </h2>
+          <p className="section-subtitle">{t("holidays.subtitle")}</p>
+        </div>
+
+        <Link to="/holidays" className="btn btn-main">
+          {t("viewAll")}
+        </Link>
       </div>
 
       <div className="container">

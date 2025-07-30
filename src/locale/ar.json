@@ -365,7 +365,8 @@
     "contact": "اتصل بنا",
     "description": "اكتشف أفضل الوجهات والأنشطة السياحية في المملكة العربية السعودية بأسلوب عصري وتجربة فريدة.",
     "copyright": "جميع الحقوق محفوظة لـ",
-    "dalilweghetak": "دليل وجهتك"
+    "dalilweghetak": "دليل وجهتك",
+    "downloadApp": "تحميل التطبيق"
   },
   "favorites": {
     "addedSuccess": "تم إضافته إلى المفضلة بنجاح",
@@ -523,5 +524,10 @@
     "no_transactions": "لا يوجد معاملات",
     "chargeWallet": "شحن المحفظة",
     "chargeNow": "شحن الآن"
-  }
+  },
+  "empty_notifications": "لا يوجد اشعارات",
+  "error_occurred": "حدث خطاء ما، يرجى المحاولة مرة اخرى لاحقا",
+  "select_date": "اختر التاريخ",
+  "allSessions": "كل المناسبات",
+  "usersEvents": "فعاليات المستخدمين"
 }

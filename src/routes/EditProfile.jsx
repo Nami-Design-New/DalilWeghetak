@@ -16,6 +16,7 @@ export default function EditProfile() {
   const { data } = useGetProfile();
   const [imagePreview, setImagePreview] = useState(null);
   const queryClient = useQueryClient();
+
   const schema = Yup.object().shape({
     name: Yup.string().required(t("profile.nameRequired")),
     email: Yup.string()
@@ -177,20 +178,25 @@ export default function EditProfile() {
               error={errors.phone}
             />
           </div>
-          <div className="col-12 p-2">
-            <TextareaField
-              label={t("profile.activity")}
-              {...register("activity")}
-              error={errors.activity}
-            />
-          </div>
-          <div className="col-12 p-2">
-            <TextareaField
-              label={t("profile.bio")}
-              {...register("bio")}
-              error={errors.bio}
-            />
-          </div>
+          {data.type !== "user" && (
+            <>
+              <div className="col-12 p-2">
+                <TextareaField
+                  label={t("profile.activity")}
+                  {...register("activity")}
+                  error={errors.activity}
+                />
+              </div>
+              <div className="col-12 p-2">
+                <TextareaField
+                  label={t("profile.bio")}
+                  {...register("bio")}
+                  error={errors.bio}
+                />
+              </div>
+            </>
+          )}
+
           <div className="col-12 p-2">
             <SubmitButton text={t("profile.saveChanges")} loading={isPending} />
           </div>

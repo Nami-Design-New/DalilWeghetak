@@ -365,7 +365,8 @@
     "contact": "Contact Us",
     "description": "Discover the best destinations and tourism activities in Saudi Arabia with a modern style and unique experience.",
     "copyright": "All rights reserved to",
-    "dalilweghetak": "Your Destination Guide"
+    "dalilweghetak": "Your Destination Guide",
+    "downloadApp": "Download App"
   },
   "favorites": {
     "addedSuccess": "Successfully added to favorites",
@@ -523,5 +524,10 @@
     "no_transactions": "No transactions",
     "chargeWallet": "Charge Wallet",
     "chargeNow": "Charge Now"
-  }
+  },
+  "empty_notifications": "No notifications",
+  "error_occurred": "Something went wrong, please try again later",
+  "select_date": "Select Date",
+  "allSessions": "All Sessions",
+  "usersEvents": "Users Events"
 }

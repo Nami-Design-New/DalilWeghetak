@@ -6,6 +6,7 @@ import Hero from "../components/home/Hero";
 import Holidays from "../components/home/Holidays";
 import Seasons from "../components/home/Seasons";
 import Statistics from "../components/home/statistics";
+import UsersEvents from "../components/home/UsersEvents";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Activities />
       <JeddahEvents />
       <Experiences />
+      <UsersEvents/>
       <Seasons />
       <Statistics />
       <Holidays />

@@ -78,12 +78,13 @@ export default function Step2({ setStep, hashed_code, phone, code, setCode }) {
               className=""
               style={{ cursor: "pointer" }}
               onClick={handleResend}
+              disabled={resendDisabled}
             >
               {t("auth.resendCode")}
             </span>
           </span>
           <div
-            className="timer flex-row-reverse"
+            className="timer"
             style={{ justifyContent: "end !important" }}
           >
             <span>

@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { Link } from "react-router";
 import useGetBanners from "../../hooks/home/useGetBanners";
 
 const HeroSection = () => {
   const { data: banners = [] } = useGetBanners();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { t } = useTranslation();
-  const { userType } = useSelector((state) => state.clientData);
 
   useEffect(() => {
     if (activeIndex >= banners.length) {
@@ -18,7 +14,7 @@ const HeroSection = () => {
 
   if (!banners.length) return null;
 
-  const { title, description, image } = banners[activeIndex];
+  const { title, description, image, url, button_text } = banners[activeIndex];
 
   return (
     <section className="hero-section">
@@ -30,15 +26,9 @@ const HeroSection = () => {
         <h1 className="hero-title">{title}</h1>
         <p className="hero-subtitle">{description}</p>
         <div className="d-flex align-items-center justify-content-center gap-3">
-          {userType === "service_provider" ? (
-            <Link to="/add-event" className="btn btn-primary cta-button">
-              {t("home.addEvent")}
-            </Link>
-          ) : (
-            <Link to="/map" className="btn btn-primary cta-button">
-              {t("home.bookNow")}
-            </Link>
-          )}
+          <Link to={url} target="_blank" className="btn btn-primary cta-button">
+            {button_text}
+          </Link>
         </div>
       </div>
 

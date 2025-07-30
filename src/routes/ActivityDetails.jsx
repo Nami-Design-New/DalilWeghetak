@@ -121,14 +121,18 @@ export default function ActivityDetails() {
         <div className="container d-flex justify-content-between align-items-center">
           <strong>
             {" "}
-            <span className="price"> {eventDetails.price}</span> {t("pricePerPerson")}
+            <span className="price"> {eventDetails.price}</span>{" "}
+            {t("pricePerPerson")}
           </strong>
-          <button
-            className="btn btn-main"
-            onClick={() => setShowBookingModal(true)}
-          >
-           {t("bookNow")}
-          </button>
+
+          {new Date(eventDetails.from_date) > new Date() && (
+            <button
+              className="btn btn-main"
+              onClick={() => setShowBookingModal(true)}
+            >
+              {t("bookNow")}
+            </button>
+          )}
         </div>
       </div>
 

@@ -1,13 +1,12 @@
 import { useTranslation } from "react-i18next";
-import useGetEvents from "../hooks/events/useGetEvents";
 import useGetCities from "../hooks/home/useCities";
 import EventCard from "../ui/cards/EventCard";
 import Loader from "../ui/loader/Loader";
-import TopFilter from "../components/map/TopFilter";
+import useGetUsersEvents from "../hooks/events/useGetUsersEvents";
 
-const AllEvents = () => {
+export default function UserEvents() {
   const { t } = useTranslation();
-  const { data: events = [], isLoading: isEventsLoading } = useGetEvents();
+  const { data: events = [], isLoading: isEventsLoading } = useGetUsersEvents();
 
   const { data: cities = [], isLoading: isCitiesLoading } = useGetCities();
 
@@ -17,7 +16,7 @@ const AllEvents = () => {
     <section className="all-events-page  py-5">
       <div className="container">
         <h1 className="page-title">{t("Events.button")}</h1>
-        <TopFilter />
+
         <div className="row g-4">
           {events.map((event) => {
             const city = cities.find((c) => c.id === event.city_id);
@@ -33,6 +32,4 @@ const AllEvents = () => {
       </div>
     </section>
   );
-};
-
-export default AllEvents;
+}

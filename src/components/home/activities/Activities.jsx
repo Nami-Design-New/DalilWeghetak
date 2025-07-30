@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import useGetEvents from "../../../hooks/events/useGetEvents";
 import ActivityCard from "../../../ui/cards/ActivityCard";
 import EventCardLoader from "../../../ui/loader/EventCardLoader";
-import ActivitiesFilter from "./ActivitiesFilter";
+import { Link } from "react-router";
 
 export default function Activities() {
   const { lang } = useSelector((state) => state.settings);
@@ -16,14 +16,17 @@ export default function Activities() {
 
   return (
     <section className="activities-section">
-      <div className="container">
-        <div className="section-header">
+      <div className="container ">
+        <div className="section-header d-flex justify-content-between">
           <h2 className="section-title">
             <span className="text-dark">{t("activities.titleDark")}</span>
             <span className="text-main">{t("activities.titleMain")}</span>
           </h2>
+
+          <Link to="/activities" className="btn btn-main">
+            {t("viewAll")}
+          </Link>
         </div>
-        <ActivitiesFilter />
 
         <Swiper
           modules={[Autoplay]}

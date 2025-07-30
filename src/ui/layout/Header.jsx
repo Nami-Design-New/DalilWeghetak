@@ -23,6 +23,8 @@ export default function Header() {
     if (bodyElement) {
       bodyElement.classList.toggle("en", newLang === "en");
     }
+
+    window.location.reload();
   };
 
   useEffect(() => {
