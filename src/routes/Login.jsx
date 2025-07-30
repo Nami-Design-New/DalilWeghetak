@@ -3,20 +3,26 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useGoogleLogin } from "@react-oauth/google";
 import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { setClientData } from "../redux/slices/clientData";
+import { useCookies } from "react-cookie";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
 import AccountTypeModal from "../ui/modals/AccountTypeModal";
 import useLogin from "../hooks/auth/useLogin";
 import AccountTypeModalSocial from "../ui/modals/AccountTypeModalSocial";
+import axiosInstance from "../utils/axiosInstance";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
+  const [userType, setUserType] = useState("");
   const [showSocialModal, setShowSocialModal] = useState(false);
+  const [, setCookie] = useCookies(["token"]);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors, isLoading } = useLogin(t);
-  const [userType, setUserType] = useState("");
 
   const handleSelectType = (type) => {
     setUserType(type);
@@ -35,31 +41,31 @@ export default function Login() {
       try {
         console.log("Google Token Response:", tokenResponse);
 
-        // const res = await axiosInstance.post("/user/social_login", {
-        //   login_from: "google",
-        //   google_token: tokenResponse.access_token,
-        //   type: userType,
-        // });
+        const res = await axiosInstance.post("/user/social_login", {
+          login_from: "google",
+          google_token: tokenResponse.access_token,
+          type: userType,
+        });
 
-        // if (res.data.code === 200) {
-        //   toast.success(t("auth.loginSuccess"));
-        //   dispatch(setClientData(res.data.data));
-        //   setCookie("token", res.data.data.token, {
-        //     path: "/",
-        //     secure: true,
-        //     sameSite: "Strict",
-        //   });
-        //   setCookie("id", res.data.data.id, {
-        //     path: "/",
-        //     secure: true,
-        //     sameSite: "Strict",
-        //   });
-        //   axiosInstance.defaults.headers.common[
-        //     "Authorization"
-        //   ] = `${res.data.data.token}`;
-        // } else {
-        //   toast.error(res.data.message);
-        // }
+        if (res.data.code === 200) {
+          toast.success(t("auth.loginSuccess"));
+          dispatch(setClientData(res.data.data));
+          setCookie("token", res.data.data.token, {
+            path: "/",
+            secure: true,
+            sameSite: "Strict",
+          });
+          setCookie("id", res.data.data.id, {
+            path: "/",
+            secure: true,
+            sameSite: "Strict",
+          });
+          axiosInstance.defaults.headers.common[
+            "Authorization"
+          ] = `${res.data.data.token}`;
+        } else {
+          toast.error(res.data.message);
+        }
       } catch (error) {
         toast.error(error?.response?.data?.message || t("auth.loginErorr"));
         throw new Error(error.message);
@@ -122,7 +128,7 @@ export default function Login() {
               </form>
               <div className="social-login-buttons">
                 <button onClick={() => setShowSocialModal(true)}>
-                  <img src="/icons/google.png" alt="google login" />
+                  <img src="/w-icons/google.png" alt="google login" />
                   <span>{t("auth.googleAccount")}</span>
                 </button>
               </div>

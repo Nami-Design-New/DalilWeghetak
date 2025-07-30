@@ -657,6 +657,35 @@ button {
   font-size: 1.5rem;
 }
 
+.page_head .dropdown-toggle {
+  background: #fafafa;
+  border-color: #f4f4f4;
+  color: #777;
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.page_head .dropdown {
+  width: 200px;
+}
+.page_head .dropdown .dropdown-menu {
+  width: 100%;
+}
+.page_head .dropdown-item {
+  cursor: pointer;
+}
+.page_head .dropdown-item label,
+.page_head .dropdown-item input {
+  cursor: pointer;
+}
+.page_head .dropdown-item:active {
+  background: #fafafa;
+  color: #000;
+}
+
 body {
   position: relative;
   direction: rtl;
@@ -726,7 +755,7 @@ body header nav .nav_links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 62px;
+  gap: 36px;
 }
 body header nav .nav_links .logo {
   display: none;
@@ -1419,7 +1448,7 @@ body .searchMapGroup button {
   border: none;
   background: none;
   outline: none;
-  background-image: url("/icons/mapIcon.svg");
+  background-image: url("/w-icons/mapIcon.svg");
 }
 body .searchMapGroup span {
   width: 100%;
@@ -1444,7 +1473,7 @@ body .otp-container {
 }
 body .hero-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   color: #fff;
   display: flex;

@@ -3,6 +3,7 @@ import useGetCities from "../hooks/home/useCities";
 import EventCard from "../ui/cards/EventCard";
 import Loader from "../ui/loader/Loader";
 import useGetUsersEvents from "../hooks/events/useGetUsersEvents";
+import TopFilter from "../components/map/TopFilter";
 
 export default function UserEvents() {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ export default function UserEvents() {
     <section className="all-events-page  py-5">
       <div className="container">
         <h1 className="page-title">{t("Events.button")}</h1>
+        <TopFilter />
 
         <div className="row g-4">
           {events.map((event) => {

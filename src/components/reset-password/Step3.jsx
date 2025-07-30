@@ -16,11 +16,7 @@ export default function Step3({ setStep, code }) {
     password: yup
       .string()
       .required(t("validation.required"))
-      .min(8, t("validation.min", { min: 8 }))
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!#%*?&]{8,}$/,
-        t("validation.passwordComplexity")
-      ),
+      .min(6, t("validation.min", { min: 6 })),
     password_confirmation: yup
       .string()
       .oneOf([yup.ref("password"), null], t("validation.passwordMatch"))
@@ -49,7 +45,7 @@ export default function Step3({ setStep, code }) {
 
       if (res.data?.code === 200) {
         toast.success(t("auth.passwordChangedSuccess"));
-        navigate("/login");
+        navigate("/signin");
       } else {
         toast.error(res.data?.message || t("auth.somethingWentWrong"));
       }

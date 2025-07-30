@@ -1,10 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import * as Yup from "yup";
+import * as yup from "yup";
 import useGetProfile from "../hooks/account/useGetProfile";
 import useUpdateProfile from "../hooks/account/useUpdateProfile";
 import InputField from "../ui/forms/InputField";
@@ -14,24 +14,44 @@ import TextareaField from "../ui/forms/TextareaField";
 export default function EditProfile() {
   const { t } = useTranslation();
   const { data } = useGetProfile();
-  const [imagePreview, setImagePreview] = useState(null);
   const queryClient = useQueryClient();
+  const [imagePreview, setImagePreview] = useState(null);
 
-  const schema = Yup.object().shape({
-    name: Yup.string().required(t("profile.nameRequired")),
-    email: Yup.string()
-      .email(t("profile.emailInvalid"))
-      .required(t("emailRequired")),
-    phone: Yup.string().required(t("profile.phoneRequired")),
-    activity: Yup.string().required(t("profile.activityRequired")),
-    bio: Yup.string().required(t("profile.bioRequired")),
-    image: Yup.mixed()
-      .nullable()
-      .test("fileType", t("profile.imageInvalid"), (value) => {
-        if (!value) return true;
-        return ["image/jpeg", "image/png", "image/webp"].includes(value.type);
-      }),
-  });
+  const type = data?.type;
+
+  const schema = useMemo(() => {
+    const baseSchema = {
+      name: yup.string().required(t("profile.nameRequired")).min(2).max(32),
+      email: yup
+        .string()
+        .required(t("profile.emailRequired"))
+        .email(t("profile.emailInvalid")),
+      phone: yup
+        .string()
+        .required(t("profile.phoneRequired"))
+        .matches(/^\d+$/, t("validation.numbersOnly")),
+      image: yup
+        .mixed()
+        .nullable()
+        .test("fileType", t("profile.imageInvalid"), (value) => {
+          if (!value) return true;
+          return ["image/jpeg", "image/png", "image/webp"].includes(value.type);
+        }),
+    };
+
+    const providerSchema = {
+      activity: yup.string().required(t("profile.activityRequired")),
+      bio: yup.string().required(t("profile.bioRequired")),
+    };
+
+    return yup
+      .object()
+      .shape(
+        type === "service_provider"
+          ? { ...baseSchema, ...providerSchema }
+          : baseSchema
+      );
+  }, [type, t]);
 
   const {
     register,
@@ -70,6 +90,7 @@ export default function EditProfile() {
   }, [data, reset]);
 
   const imageFile = watch("image");
+
   useEffect(() => {
     if (imageFile instanceof File) {
       const url = URL.createObjectURL(imageFile);
@@ -96,9 +117,10 @@ export default function EditProfile() {
     <div className="d-flex p-2 justify-content-center align-items-center min-vh-100 bg-light">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="form_ui  p-4 my-5"
+        className="form_ui p-4 my-5"
         style={{ width: "100%", maxWidth: "768px" }}
       >
+        {/* Image upload */}
         <div className="form_group mb-4 position-relative text-center justify-content-center">
           <label className="position-relative d-inline-block">
             {imagePreview ? (
@@ -156,6 +178,7 @@ export default function EditProfile() {
           )}
         </div>
 
+        {/* Form fields */}
         <div className="row">
           <div className="col-md-6 p-2">
             <InputField
@@ -178,7 +201,8 @@ export default function EditProfile() {
               error={errors.phone}
             />
           </div>
-          {data.type !== "user" && (
+
+          {type === "service_provider" && (
             <>
               <div className="col-12 p-2">
                 <TextareaField

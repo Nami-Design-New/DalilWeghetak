@@ -1,10 +1,49 @@
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function useGetUsersEvents() {
+  const [searchParams] = useSearchParams();
+
+  const rawCategories = searchParams.get("categories");
+  const rawCity = searchParams.get("city");
+  const search = searchParams.get("search");
+  const from = searchParams.get("from");
+  const to = searchParams.get("to");
+  const nearest = searchParams.get("nearest");
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
+
+  const categories_id = rawCategories
+    ? rawCategories.split("-").map(Number)
+    : null;
+
+  const city_id = rawCity ? Number(rawCity) : null;
+
+  const queryKey = [
+    categories_id,
+    city_id,
+    search,
+    from,
+    to,
+    nearest,
+    lat,
+    lng,
+  ];
+
   const { data, isLoading, error } = useQuery({
-    queryKey: ["user-events"],
-    queryFn: getEvents,
+    queryKey: ["user-events", ...queryKey],
+    queryFn: () =>
+      getEvents({
+        categories_id,
+        city_id,
+        search,
+        from,
+        to,
+        nearest,
+        lat,
+        lng,
+      }),
   });
 
   return {
@@ -14,10 +53,28 @@ export default function useGetUsersEvents() {
   };
 }
 
-async function getEvents() {
+async function getEvents({
+  categories_id,
+  city_id,
+  search,
+  from,
+  to,
+  nearest,
+  lat,
+  lng,
+}) {
   try {
     const requestBody = {
+      type: "event",
       is_user: true,
+      ...(categories_id?.length ? { categories_id } : {}),
+      ...(city_id ? { city_id } : {}),
+      ...(search ? { search } : {}),
+      ...(from ? { from } : {}),
+      ...(to ? { to } : {}),
+      ...(nearest ? { nearest } : {}),
+      ...(lat ? { lat } : {}),
+      ...(lng ? { lng } : {}),
     };
 
     const response = await axiosInstance.post("/get_events", requestBody);

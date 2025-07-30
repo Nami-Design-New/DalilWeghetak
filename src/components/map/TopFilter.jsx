@@ -50,7 +50,7 @@ export default function TopFilter() {
           key: "selection",
         },
       ]);
-      // Don't set dateSelected to true here to only show date after user action
+      setDateSelected(true);
     }
 
     if (cityParam) {
@@ -71,13 +71,17 @@ export default function TopFilter() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const startDate = format(dateRange[0].startDate, "yyyy-MM-dd");
-    const endDate = format(dateRange[0].endDate, "yyyy-MM-dd");
-
     const newParams = new URLSearchParams(searchParams.toString());
 
-    newParams.set("from", startDate);
-    newParams.set("to", endDate);
+    if (dateSelected && dateRange[0].startDate && dateRange[0].endDate) {
+      const startDate = format(dateRange[0].startDate, "yyyy-MM-dd");
+      const endDate = format(dateRange[0].endDate, "yyyy-MM-dd");
+      newParams.set("from", startDate);
+      newParams.set("to", endDate);
+    } else {
+      newParams.delete("from");
+      newParams.delete("to");
+    }
 
     if (searchText) newParams.set("search", searchText);
     else newParams.delete("search");
@@ -186,15 +190,15 @@ export default function TopFilter() {
               style={{ padding: "10px", width: "fit-content" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div style={{ direction: "rtl" }}>
+              <div style={{ direction: lang === "ar" ? "rtl" : "ltr" }}>
                 <DateRange
                   editableDateInputs={true}
                   onChange={(item) => {
                     setDateRange([item.selection]);
-                    setDateSelected(true); 
+                    setDateSelected(true);
                   }}
                   moveRangeOnFirstSelection={false}
-                  ranges={dateRange}
+                  ranges={[dateRange[0]]}
                   locale={lang === "en" ? enUS : ar}
                 />
               </div>

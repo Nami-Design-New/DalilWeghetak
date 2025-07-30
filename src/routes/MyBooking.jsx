@@ -56,7 +56,7 @@ export default function MyBooking() {
         ) : (
           <div className="no-bookings">
             <img
-              src="/icons/nobooking.svg"
+              src="/w-icons/nobooking.svg"
               alt="no bookings"
               className="no-booking-img"
             />

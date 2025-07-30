@@ -38,34 +38,6 @@ export default function MyWallet() {
           </div>
         </div>
 
-        <div className="transactions-list mb-4">
-          {walletOperations?.length > 0 ? (
-            walletOperations?.transactions?.map((opertaion) => (
-              <div
-                key={opertaion?.id}
-                className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
-              >
-                <span className="text-primary">
-                  {t("sar")} {opertaion?.amount}
-                </span>
-                <span>{formatDate(opertaion.created_at)}</span>
-                <span
-                  className={
-                    opertaion.operation === "charge"
-                      ? "text-success"
-                      : "text-danger"
-                  }
-                >
-                  {opertaion?.operation}
-                  {opertaion?.operation === "charge" ? " ▲" : " ▼"}
-                </span>
-              </div>
-            ))
-          ) : (
-            <div> {t("wallet.no_transactions")} </div>
-          )}
-        </div>
-
         <div className="charge-box p-3 border rounded mb-3">
           <label htmlFor="chargeInput" className="mb-2 d-block">
             {t("wallet.chargeWallet")}
@@ -94,6 +66,34 @@ export default function MyWallet() {
           {t("wallet.chargeNow")}
           <i className="fa-solid fa-arrow-left"></i>
         </Link>
+
+        <div className="transactions-list mb-4">
+          {walletOperations?.length > 0 ? (
+            walletOperations?.transactions?.map((opertaion) => (
+              <div
+                key={opertaion?.id}
+                className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
+              >
+                <span className="text-primary">
+                  {t("sar")} {opertaion?.amount}
+                </span>
+                <span>{formatDate(opertaion.created_at)}</span>
+                <span
+                  className={
+                    opertaion.operation === "charge"
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                >
+                  {opertaion?.operation}
+                  {opertaion?.operation === "charge" ? " ▲" : " ▼"}
+                </span>
+              </div>
+            ))
+          ) : (
+            <div> {t("wallet.no_transactions")} </div>
+          )}
+        </div>
       </div>
     </section>
   );

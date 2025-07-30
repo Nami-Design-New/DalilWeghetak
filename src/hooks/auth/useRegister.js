@@ -36,11 +36,7 @@ export default function useRegister({
     password: yup
       .string()
       .required(t("validation.required"))
-      .min(8, t("validation.min", { min: 8 }))
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!#%*?&]{8,}$/,
-        t("validation.passwordComplexity")
-      ),
+      .min(6, t("validation.min", { min: 6 })),
     terms: yup.boolean().oneOf([true], t("validation.termsRequired")),
   };
 

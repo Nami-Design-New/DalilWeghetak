@@ -35,7 +35,7 @@ export default function FaqPage() {
           <p className="section-subtitle">
             كل ما تحتاج معرفته عن الحجز، الفعاليات، والتذاكر.
           </p>
-          <img src="/icons/faqs.svg" alt="FAQ" className="d-none d-md-block" />
+          <img src="/w-icons/faqs.svg" alt="FAQ" className="d-none d-md-block" />
         </div>
 
         <div className="col-md-7 faq-list">
