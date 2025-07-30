@@ -100,6 +100,9 @@ export default function Header() {
           <NavLink to="/contact" onClick={handleNavLinkClick}>
             {t("header.contact")}
           </NavLink>
+          <NavLink to="/add-event" onClick={handleNavLinkClick}>
+            <i className="fa-regular fa-plus"></i> {t("header.addEvent")}
+          </NavLink>
         </div>
 
         <div className="actions">

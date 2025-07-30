@@ -119,12 +119,14 @@ export default function EventDetails() {
             <span className="price">{eventDetails.price}</span>{" "}
             {t("pricePerPerson")}
           </strong>
-          <button
-            className="btn btn-main"
-            onClick={() => setShowBookingModal(true)}
-          >
-            {t("bookNow")}
-          </button>
+          {new Date(eventDetails.from_date) > new Date() && (
+            <button
+              className="btn btn-main"
+              onClick={() => setShowBookingModal(true)}
+            >
+              {t("bookNow")}
+            </button>
+          )}
         </div>
       </div>
 

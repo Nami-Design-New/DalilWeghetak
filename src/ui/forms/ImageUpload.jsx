@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 
 const ImageUpload = ({ setValue, error, watch }) => {
   const imgView = useRef(null);
-  const [preview, setPreview] = useState("/icons/avatar.svg");
+  const [preview, setPreview] = useState("/w-icons/avatar.svg");
 
   const selectedFile = watch("image");
 

@@ -28,7 +28,7 @@ export default function Favorites() {
             })
           ) : (
             <div className="empty_wrap text-center py-5">
-              <img src="/icons/nobooking.svg" alt="no-events" />
+              <img src="/w-icons/nobooking.svg" alt="no-events" />
               <h6 className="mt-3">لا توجد فعاليات حتى الآن</h6>
             </div>
           )}

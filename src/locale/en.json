@@ -21,7 +21,8 @@
     "map": "Interactive Map",
     "Destinations": "Destinations",
     "contact": "Contact Us",
-    "plan": "Planner"
+    "plan": "Planner",
+    "addEvent":"Add Event"
   },
   "auth": {
     "loginSuccess": "Login successful",

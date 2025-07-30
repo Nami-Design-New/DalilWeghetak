@@ -51,7 +51,7 @@ export default function Notifications() {
             {notifications.length === 0 && (
               <div className="col-12 p-2">
                 <div className="empty_wrap">
-                  <img src="/icons/bell.svg" alt="empty-box" />
+                  <img src="/w-icons/bell.svg" alt="empty-box" />
                   <h6>{t("empty_notifications")}</h6>
                 </div>
               </div>

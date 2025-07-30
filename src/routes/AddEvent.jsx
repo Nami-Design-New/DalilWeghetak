@@ -28,13 +28,13 @@ export default function AddEvent() {
                 <div className="steps">
                   <div className={`step ${step >= 1 ? "active" : ""}`}>
                     <div className="icon">
-                      <img src="/icons/event-details.svg" alt="" />
+                      <img src="/w-icons/event-details.svg" alt="" />
                     </div>
                     <span>{t("addEventForm.step1")}</span>
                   </div>
                   <div className={`step ${step === 2 ? "active" : ""}`}>
                     <div className="icon">
-                      <img src="/icons/check.svg" alt="" />
+                      <img src="/w-icons/check.svg" alt="" />
                     </div>
                     <span>{t("addEventForm.step2")}</span>
                   </div>

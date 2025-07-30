@@ -17,9 +17,8 @@ export default function useLogin(t) {
   const schema = yup.object().shape({
     phone: yup
       .string()
-      .matches(/^\d{9}$/, t("validation.phone"))
-      .required(t("validation.required")),
-
+      .required(t("validation.required"))
+      .matches(/^\d+$/, t("validation.numbersOnly")),
     password: yup
       .string()
       .required(t("validation.required"))
@@ -63,7 +62,9 @@ export default function useLogin(t) {
     },
 
     onError: (error) => {
-      toast.error(error.response?.data?.message || t("auth.somethingWentWrong"));
+      toast.error(
+        error.response?.data?.message || t("auth.somethingWentWrong")
+      );
     },
   });
 

@@ -34,17 +34,37 @@ export default function Footer() {
               <li>
                 <Link to="/privacy">{t("footer.privacy")}</Link>
               </li>
-              {/* <li>
-                <Link to="/faq">{t("footer.FAQs")}</Link>
-              </li> */}
+              <li>
+                <Link to="/plan">{t("header.plan")}</Link>
+              </li>
+              <li>
+                <Link to="/contact">{t("footer.contact")}</Link>
+              </li>
+              <li>
+                <Link to="/add-event">{t("header.addEvent")}</Link>
+              </li>
+              <li>
+                <Link to="/map">{t("header.map")}</Link>
+              </li>
             </ul>
           </div>
 
           <div className="col-lg-4 col-md-6 p-2">
             <h5>{t("footer.downloadApp")}</h5>
             <div className="d-flex gap-3">
-              <img src="/icons/googleplay.svg" alt="google play" />
-              <img src="/icons/appstore.svg" alt="app store" />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.app.dalilwejhtak&hl=ar"
+                target="_blank"
+              >
+                <img src="/w-icons/googleplay.svg" alt="google play" />
+              </a>
+
+              <a
+                href="https://apps.apple.com/kw/app/%D8%AF%D9%84%D9%8A%D9%84-%D9%88%D8%AC%D9%87%D8%AA%D9%83/id6738397663"
+                target="_blank"
+              >
+                <img src="/w-icons/appstore.svg" alt="app store" />
+              </a>
             </div>
           </div>
         </div>

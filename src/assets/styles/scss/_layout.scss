@@ -57,7 +57,7 @@ header {
     .nav_links {
       flex: 2;
       @include centerFlex();
-      gap: 62px;
+      gap: 36px;
 
       .logo {
         display: none;

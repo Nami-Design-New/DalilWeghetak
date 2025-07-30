@@ -38,7 +38,7 @@ export default function ActivitiesFilter() {
         className="tab-button"
         onClick={() => handleActivitiesFilter("")}
       >
-        <img src="/icons/all.svg" alt="" className="tab-icon" />
+        <img src="/w-icons/all.svg" alt="" className="tab-icon" />
         <span className="tab-label">{t("all")}</span>
       </Link>
 

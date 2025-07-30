@@ -726,7 +726,7 @@ body header nav .nav_links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 62px;
+  gap: 36px;
 }
 body header nav .nav_links .logo {
   display: none;
@@ -1419,7 +1419,7 @@ body .searchMapGroup button {
   border: none;
   background: none;
   outline: none;
-  background-image: url("/icons/mapIcon.svg");
+  background-image: url("/w-icons/mapIcon.svg");
 }
 body .searchMapGroup span {
   width: 100%;
@@ -1444,7 +1444,7 @@ body .otp-container {
 }
 body .hero-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   color: #fff;
   display: flex;
