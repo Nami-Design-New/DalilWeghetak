@@ -12,6 +12,7 @@ export default function UserForm() {
   const {
     register,
     watch,
+    setValue,
     handleSubmit,
     formState: { errors },
     canRegister,
@@ -25,7 +26,7 @@ export default function UserForm() {
 
       <div className="form_group">
         <ImageUpload
-          register={register}
+          setValue={setValue}
           watch={watch}
           error={errors.image?.message}
         />

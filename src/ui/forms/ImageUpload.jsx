@@ -1,18 +1,18 @@
 import { useRef, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 
-const ImageUpload = ({ register, error, watch }) => {
+const ImageUpload = ({ setValue, error, watch }) => {
   const imgView = useRef(null);
   const [preview, setPreview] = useState("/icons/avatar.svg");
 
   const selectedFile = watch("image");
 
   useEffect(() => {
-    if (selectedFile && selectedFile[0]) {
+    if (selectedFile) {
       const objectUrl =
         typeof selectedFile === "string"
           ? selectedFile
-          : URL.createObjectURL(selectedFile[0]);
+          : URL.createObjectURL(selectedFile);
       setPreview(objectUrl);
 
       return () => URL.revokeObjectURL(objectUrl);
@@ -31,7 +31,7 @@ const ImageUpload = ({ register, error, watch }) => {
         type="file"
         accept="image/*"
         id="image"
-        {...register("image")}
+        onChange={(e) => setValue("image", e.target.files[0])}
         style={{ display: "none" }}
       />
       {error && (

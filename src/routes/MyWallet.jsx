@@ -17,8 +17,6 @@ export default function MyWallet() {
 
   if (isLoading || profileLoading) return <Loader />;
 
-  console.log(walletOperations);
-
   return (
     <section className="wallet-page ">
       <div className="container">
@@ -41,14 +39,14 @@ export default function MyWallet() {
         </div>
 
         <div className="transactions-list mb-4">
-          {walletOperations.length > 0 ? (
-            walletOperations.transactions.map((opertaion) => (
+          {walletOperations?.length > 0 ? (
+            walletOperations?.transactions?.map((opertaion) => (
               <div
-                key={opertaion.id}
+                key={opertaion?.id}
                 className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
               >
                 <span className="text-primary">
-                  {t("sar")} {opertaion.amount}
+                  {t("sar")} {opertaion?.amount}
                 </span>
                 <span>{formatDate(opertaion.created_at)}</span>
                 <span
@@ -58,8 +56,8 @@ export default function MyWallet() {
                       : "text-danger"
                   }
                 >
-                  {opertaion.operation}
-                  {opertaion.operation === "charge" ? " ▲" : " ▼"}
+                  {opertaion?.operation}
+                  {opertaion?.operation === "charge" ? " ▲" : " ▼"}
                 </span>
               </div>
             ))

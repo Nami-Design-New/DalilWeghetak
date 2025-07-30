@@ -33,7 +33,14 @@ export default function useRegister({
       .string()
       .required(t("validation.required"))
       .email(t("validation.email")),
-    password: yup.string().required(t("validation.required")).min(6),
+    password: yup
+      .string()
+      .required(t("validation.required"))
+      .min(8, t("validation.min", { min: 8 }))
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!#%*?&]{8,}$/,
+        t("validation.passwordComplexity")
+      ),
     terms: yup.boolean().oneOf([true], t("validation.termsRequired")),
   };
 
@@ -73,7 +80,7 @@ export default function useRegister({
           },
   });
 
-  const { getValues, watch } = methods;
+  const { getValues } = methods;
 
   const { mutate: canRegister, isPending: canRegisterPending } = useMutation({
     mutationFn: async () => {
@@ -130,16 +137,11 @@ export default function useRegister({
         }
       }
 
-      const imageFile = watch("image");
-      if (
-        Array.isArray(imageFile) &&
-        imageFile.length > 0 &&
-        imageFile[0] instanceof File
-      ) {
-        formData.append("image", imageFile[0]);
-      }
-
-      const response = await axiosInstance.post("/user/register", formData);
+      const response = await axiosInstance.post("/user/register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return response.data;
     },
     onSuccess: (data) => {

@@ -9,7 +9,6 @@ import Error from "../routes/Error";
 import EventDetails from "../routes/EventDetails";
 import AllEvents from "../routes/AllEvents";
 import ExperienceDetails from "../routes/ExperienceDetails ";
-import FaqPage from "../routes/Faqs";
 import Favorites from "../routes/Favorites";
 import Home from "../routes/Home";
 import InteractiveMap from "../routes/InteractiveMap";
@@ -33,6 +32,7 @@ import HolidayDetails from "../routes/HolidayDetails";
 import AllActivities from "../routes/AllActivities";
 import AllExperiences from "../routes/AllExperiences";
 import AllSeasons from "../routes/AllSeasons";
+import Holidays from "../routes/Holidays";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +69,7 @@ export const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+
       {
         path: "activities",
         children: [
@@ -113,8 +114,17 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: "holidays/:id",
-        element: <HolidayDetails />,
+        path: "holidays",
+        children: [
+          {
+            index: true,
+            element: <Holidays />,
+          },
+          {
+            path: ":id",
+            element: <HolidayDetails />,
+          },
+        ],
       },
       {
         path: "destination/:id",
@@ -141,11 +151,10 @@ export const router = createBrowserRouter([
           },
         ],
       },
-
-      {
-        path: "faq",
-        element: <FaqPage />,
-      },
+      // {
+      //   path: "faq",
+      //   element: <FaqPage />,
+      // },
       {
         path: "map",
         element: <InteractiveMap />,

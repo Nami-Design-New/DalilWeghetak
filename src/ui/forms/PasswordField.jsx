@@ -7,9 +7,10 @@ export default function PasswordField({ label, error, ...props }) {
     e.preventDefault();
     setShowPass(!showPass);
   };
+  
   return (
     <div className="input-field">
-      {label && <label htmlFor={props?.id}>{label}</label>}
+      {label && <label htmlFor={props?.id}>{label} {error && <span className="hint">{error}</span>}</label>}
 
       <div className="pass-group">
         <Form.Control

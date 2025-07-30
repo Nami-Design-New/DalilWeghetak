@@ -3,6 +3,7 @@ import useGetEvents from "../hooks/events/useGetEvents";
 import useGetCities from "../hooks/home/useCities";
 import EventCard from "../ui/cards/EventCard";
 import Loader from "../ui/loader/Loader";
+import TopFilter from "../components/map/TopFilter";
 
 const AllEvents = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const AllEvents = () => {
     <section className="all-events-page  py-5">
       <div className="container">
         <h1 className="page-title">{t("Events.button")}</h1>
+        <TopFilter />
         <div className="row g-4">
           {events.map((event) => {
             const city = cities.find((c) => c.id === event.city_id);

@@ -264,14 +264,16 @@ header {
     font-weight: 600;
     margin: 20px 0;
   }
+
   .logo {
-    height: 100px;
+    height: 64px;
   }
+
   ul {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 12px;
 
     li {
@@ -286,12 +288,17 @@ header {
       }
     }
   }
+
   .footer-desc {
     color: #555;
+    max-width: 400px;
+    margin: 0;
   }
+
   .tourism {
     height: 60px;
   }
+
   .app-links {
     img {
       height: 40px;
@@ -353,6 +360,7 @@ header {
     }
   }
   .footer-bottom {
+    padding-top: 16px;
     border-top: 1px solid #222020;
     p {
       color: #555;

@@ -21,6 +21,7 @@ export default function TopFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [showDate, setShowDate] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [dateSelected, setDateSelected] = useState(false);
   const [dateRange, setDateRange] = useState([
     {
       startDate: new Date(),
@@ -49,6 +50,7 @@ export default function TopFilter() {
           key: "selection",
         },
       ]);
+      // Don't set dateSelected to true here to only show date after user action
     }
 
     if (cityParam) {
@@ -100,7 +102,7 @@ export default function TopFilter() {
             onChange={(e) => setSearchText(e.target.value)}
           />
 
-          {/* Cities Dropdown (واحد فقط) */}
+          {/* Cities Dropdown */}
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-cities">
               {selectedCity
@@ -115,7 +117,11 @@ export default function TopFilter() {
               onClick={(e) => e.stopPropagation()}
             >
               {cities.map((city) => (
-                <div className="dropdown-item" key={city.id}>
+                <label
+                  htmlFor={`city-${city.id}`}
+                  className="dropdown-item"
+                  key={city.id}
+                >
                   <input
                     type="radio"
                     name="city"
@@ -123,13 +129,13 @@ export default function TopFilter() {
                     checked={String(city.id) === selectedCity}
                     onChange={() => setSelectedCity(String(city.id))}
                   />
-                  <label htmlFor={`city-${city.id}`}>{city.name}</label>
-                </div>
+                  <span>{city.name}</span>
+                </label>
               ))}
             </Dropdown.Menu>
           </Dropdown>
 
-          {/* Categories Dropdown (متعدد) */}
+          {/* Categories Dropdown (Multi) */}
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-categories">
               {selectedCategories.length
@@ -147,7 +153,11 @@ export default function TopFilter() {
               onClick={(e) => e.stopPropagation()}
             >
               {categories.map((category) => (
-                <div className="dropdown-item" key={category.id}>
+                <label
+                  htmlFor={`cat-${category.id}`}
+                  className="dropdown-item"
+                  key={category.id}
+                >
                   <input
                     type="checkbox"
                     name="category"
@@ -155,8 +165,8 @@ export default function TopFilter() {
                     checked={selectedCategories.includes(String(category.id))}
                     onChange={() => handleCategoryToggle(String(category.id))}
                   />
-                  <label htmlFor={`cat-${category.id}`}>{category.name}</label>
-                </div>
+                  <span>{category.name}</span>
+                </label>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -164,8 +174,13 @@ export default function TopFilter() {
           {/* Dates Dropdown */}
           <Dropdown show={showDate} onToggle={() => setShowDate(!showDate)}>
             <Dropdown.Toggle variant="success" id="dropdown-dates">
-              {t("dates")}: {format(dateRange[0].startDate, "yyyy-MM-dd")} -{" "}
-              {format(dateRange[0].endDate, "yyyy-MM-dd")}
+              {t("dates")}:{" "}
+              {dateSelected
+                ? `${format(dateRange[0].startDate, "yyyy-MM-dd")} - ${format(
+                    dateRange[0].endDate,
+                    "yyyy-MM-dd"
+                  )}`
+                : t("select_date")}
             </Dropdown.Toggle>
             <Dropdown.Menu
               style={{ padding: "10px", width: "fit-content" }}
@@ -174,7 +189,10 @@ export default function TopFilter() {
               <div style={{ direction: "rtl" }}>
                 <DateRange
                   editableDateInputs={true}
-                  onChange={(item) => setDateRange([item.selection])}
+                  onChange={(item) => {
+                    setDateRange([item.selection]);
+                    setDateSelected(true); 
+                  }}
                   moveRangeOnFirstSelection={false}
                   ranges={dateRange}
                   locale={lang === "en" ? enUS : ar}

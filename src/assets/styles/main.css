@@ -653,6 +653,10 @@ button {
   direction: ltr !important;
 }
 
+.page-title {
+  font-size: 1.5rem;
+}
+
 body {
   position: relative;
   direction: rtl;
@@ -918,13 +922,13 @@ body .footer h5 {
   margin: 20px 0;
 }
 body .footer .logo {
-  height: 100px;
+  height: 64px;
 }
 body .footer ul {
   list-style: none;
   padding: 0;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 12px;
 }
 body .footer ul li a {
@@ -937,6 +941,8 @@ body .footer ul li a:hover {
 }
 body .footer .footer-desc {
   color: #555;
+  max-width: 400px;
+  margin: 0;
 }
 body .footer .tourism {
   height: 60px;
@@ -988,6 +994,7 @@ body .footer .social-icons a:hover {
   color: #0048aa;
 }
 body .footer .footer-bottom {
+  padding-top: 16px;
   border-top: 1px solid #222020;
 }
 body .footer .footer-bottom p {
