@@ -374,6 +374,7 @@
     "removedSuccess": "Successfully removed from favorites"
   },
   "profile": {
+    "editProfile": "Edit Profile",
     "name": "Name",
     "email": "Email",
     "phone": "Phone",
