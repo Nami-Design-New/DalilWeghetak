@@ -1,4 +1,4 @@
-import { Dropdown } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -10,6 +10,7 @@ import ChangePasswordModal from "../modals/ChangePasswordModal";
 import ConfirmationModal from "../modals/ConfirmationModal";
 import useDeleteAccount from "../../hooks/account/useDeleteAccount";
 import axiosInstance from "../../utils/axiosInstance";
+import EditProfileModal from "../modals/EditProfileModal";
 
 export default function UserDropDown() {
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ export default function UserDropDown() {
   const { client } = useSelector((state) => state.clientData);
   const [showConfirmModal, setShowConfirmModal] = useState();
   const [openChangePassModal, setOpenChangePassModal] = useState();
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const { deleteAccount, isPending: deleteingAccount } = useDeleteAccount();
 
@@ -45,7 +47,7 @@ export default function UserDropDown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="custom-dropdown-menu text-end">
-        <Dropdown.Item as={Link} to="/edit-profile">
+        <Dropdown.Item as={Button} onClick={() => setShowEditModal(true)}>
           <i className="fa-regular fa-user-edit"></i>
           {t("dropdown.editProfile")}
         </Dropdown.Item>
@@ -111,6 +113,10 @@ export default function UserDropDown() {
         message={"areYouSure"}
         action={handleDeleteAccount}
         isPending={deleteingAccount}
+      />
+      <EditProfileModal
+        showModal={showEditModal}
+        setShowModal={setShowEditModal}
       />
     </Dropdown>
   );

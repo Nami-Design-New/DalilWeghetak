@@ -18,7 +18,7 @@ export default function MyWallet() {
   if (isLoading || profileLoading) return <Loader />;
 
   return (
-    <section className="wallet-page ">
+    <section className="wallet-page">
       <div className="container">
         <h2 className="page-title mb-3">{t("dropdown.wallet")}</h2>
         <div className="wallet-card p-3 mb-4">
@@ -56,7 +56,7 @@ export default function MyWallet() {
         </div>
 
         <Link
-          className="btn btn-primary w-100 p-2 d-flex align-items-center justify-content-center gap-2"
+          className="charge-button  btn btn-primary w-100 p-2 d-flex align-items-center justify-content-center gap-2"
           to={
             chargeAmount === 0 || chargeAmount === ""
               ? ""
@@ -68,30 +68,45 @@ export default function MyWallet() {
         </Link>
 
         <div className="transactions-list mb-4">
+          <h4 className="title">{t("wallet.transtactionsTitle")}</h4>
+
           {walletOperations?.length > 0 ? (
-            walletOperations?.transactions?.map((opertaion) => (
-              <div
-                key={opertaion?.id}
-                className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded"
-              >
-                <span className="text-primary">
-                  {t("sar")} {opertaion?.amount}
-                </span>
-                <span>{formatDate(opertaion.created_at)}</span>
-                <span
-                  className={
-                    opertaion.operation === "charge"
-                      ? "text-success"
-                      : "text-danger"
-                  }
-                >
-                  {opertaion?.operation}
-                  {opertaion?.operation === "charge" ? " ▲" : " ▼"}
-                </span>
-              </div>
-            ))
+            <div className="table-responsive">
+              <table className="table table-bordered text-center">
+                <thead className="table-light fw-bold ">
+                  <tr>
+                    <th>{t("wallet.amount")}</th>
+                    <th>{t("wallet.date")}</th>
+                    <th>{t("wallet.operation")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {walletOperations.map((operation) => (
+                    <tr key={operation?.id}>
+                      <td className="text-primary">
+                        {t("sar")} {operation?.amount}
+                      </td>
+                      <td>{formatDate(operation?.created_at)}</td>
+                      <td
+                        className={
+                          operation.operation === "charge"
+                            ? "text-success"
+                            : "text-danger"
+                        }
+                      >
+                        {t(operation?.operation)}
+                        {operation?.operation === "charge" ? " ▲" : " ▼"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
-            <div> {t("wallet.no_transactions")} </div>
+            <div className="no-transactions text-center">
+              <img src="/w-icons/no-transcations.svg" alt="No transactions" />
+              <p>{t("wallet.no_transactions")}</p>
+            </div>
           )}
         </div>
       </div>

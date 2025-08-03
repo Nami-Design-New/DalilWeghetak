@@ -3,13 +3,18 @@ import RootLayout from "../layout/RootLayout";
 import About from "../routes/About";
 import ActivityDetails from "../routes/ActivityDetails";
 import AddEvent from "../routes/AddEvent";
+import AllActivities from "../routes/AllActivities";
+import AllEvents from "../routes/AllEvents";
+import AllExperiences from "../routes/AllExperiences";
+import AllSeasons from "../routes/AllSeasons";
 import Contact from "../routes/Contact";
 import DestinationDetails from "../routes/DestinationDetails";
 import Error from "../routes/Error";
 import EventDetails from "../routes/EventDetails";
-import AllEvents from "../routes/AllEvents";
 import ExperienceDetails from "../routes/ExperienceDetails ";
 import Favorites from "../routes/Favorites";
+import HolidayDetails from "../routes/HolidayDetails";
+import Holidays from "../routes/Holidays";
 import Home from "../routes/Home";
 import InteractiveMap from "../routes/InteractiveMap";
 import Login from "../routes/Login";
@@ -17,23 +22,17 @@ import MyBooking from "../routes/MyBooking";
 import MyEvents from "../routes/MyEvents";
 import MyWallet from "../routes/MyWallet";
 import Notifications from "../routes/Notifications";
+import Plan from "../routes/Plan";
+import PlanDetails from "../routes/PlanDetails";
 import Privacy from "../routes/Privacy";
 import ProviderRegister from "../routes/ProviderRegister";
 import ResetPassword from "../routes/ResetPassword";
 import SessionDetails from "../routes/SessionDetails";
 import Settings from "../routes/Settings";
 import Terms from "../routes/Terms";
+import UserEvents from "../routes/UserEvents";
 import UserRegister from "../routes/UserResgister";
 import GardProvider from "./GardProvider";
-import EditProfile from "../routes/EditProfile";
-import Plan from "../routes/Plan";
-import PlanDetails from "../routes/PlanDetails";
-import HolidayDetails from "../routes/HolidayDetails";
-import AllActivities from "../routes/AllActivities";
-import AllExperiences from "../routes/AllExperiences";
-import AllSeasons from "../routes/AllSeasons";
-import Holidays from "../routes/Holidays";
-import UserEvents from "../routes/UserEvents";
 
 export const router = createBrowserRouter([
   {
@@ -200,10 +199,6 @@ export const router = createBrowserRouter([
           {
             path: "settings",
             element: <Settings />,
-          },
-          {
-            path: "/edit-profile",
-            element: <EditProfile />,
           },
           {
             path: "my-events",
