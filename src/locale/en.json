@@ -12,7 +12,10 @@
   },
   "home": {
     "addEvent": "Add Event",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "explore": "Explore",
+    "hero_title": "WELCOME TO SAUDI ARABIA",
+    "hero_description": "The land of the sun, the land of the moon, and the land of the stars."
   },
   "header": {
     "home": "Home",
