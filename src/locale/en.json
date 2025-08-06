@@ -540,5 +540,6 @@
   "allSessions": "All Sessions",
   "usersEvents": "Users Events",
   "charge": "charge",
-  "booking": "booking"
+  "booking": "booking",
+  "eventExpired": "Event Expired"
 }
