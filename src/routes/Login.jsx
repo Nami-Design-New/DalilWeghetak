@@ -39,8 +39,6 @@ export default function Login() {
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
-        console.log("Google Token Response:", tokenResponse);
-
         const res = await axiosInstance.post("/user/social_login", {
           login_from: "google",
           google_token: tokenResponse.access_token,
@@ -63,6 +61,7 @@ export default function Login() {
           axiosInstance.defaults.headers.common[
             "Authorization"
           ] = `${res.data.data.token}`;
+          navigate("/");
         } else {
           toast.error(res.data.message);
         }

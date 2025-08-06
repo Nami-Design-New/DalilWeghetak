@@ -540,5 +540,6 @@
   "allSessions": "كل المناسبات",
   "usersEvents": "فعاليات المستخدمين",
   "charge": "إيداع",
-  "booking": "سحب"
+  "booking": "سحب",
+  "eventExpired": "انتهت الفعالية"
 }
